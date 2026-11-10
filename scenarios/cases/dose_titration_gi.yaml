@@ -1,0 +1,508 @@
+schema: scenario_v4
+id: dose_titration_gi
+split: dev
+title: Stomach upset and vivid dreams after a donepezil dose increase
+summary: >
+  Donepezil went up from 5 mg to 10 mg at bedtime ten days before the check-ins start. At home
+  Harold has morning nausea, a poorer appetite, vivid dreams, one loose stool and one dizzy spell
+  in the bathroom. He blames rich Easter food; his daughter thinks the dementia is getting worse.
+  She later moves the start of the poor appetite back to the week before Easter. After a new near-faint
+  on standing, Claire is advised to contact a clinician urgently. She reports that a review is booked
+  for the next day; no pulse, blood pressure or ECG has yet been checked. The timing leaves the cause
+  uncertain, and nobody has weighed him at home.
+start_date: "2026-04-06"
+patient:
+  id: P-102
+  name: Harold
+  gender: male
+  birth_year: 1944
+  persona: Mild Alzheimer dementia. Retired bus driver. Cheerful, plays things down, repeats himself.
+caregiver:
+  name: Claire
+  relation: daughter
+  persona: Lives with her father. Works at a school office on Monday, Wednesday and Friday mornings.
+baseline:
+  date: "2025-10-20"
+  diagnosis: Dementia due to Alzheimer disease, mild stage
+  mmse: 20
+  moca: 15
+  cdr_global: 1
+  cdr_sb: 5.5
+  faq: 13
+record:
+  - type: Condition
+    id: condition-hypercholesterolaemia
+    code: Hypercholesterolaemia
+    status: active
+    date: "2014-09-03"
+  - type: MedicationRequest
+    id: med-atorvastatin
+    medication: Atorvastatin 20 mg tablet
+    dosage: 20 mg by mouth once daily in the evening
+    status: active
+    date: "2021-03-15"
+  - type: MedicationRequest
+    id: med-donepezil-5
+    medication: Donepezil 5 mg tablet
+    dosage: 5 mg by mouth once daily at bedtime
+    status: stopped
+    status_reason: Dose increased to 10 mg on 2026-03-27
+    date: "2025-11-04"
+  - type: MedicationRequest
+    id: med-donepezil-10
+    medication: Donepezil 10 mg tablet
+    dosage: 10 mg by mouth once daily at bedtime
+    status: active
+    date: "2026-03-27"
+    note: Increased from 5 mg, which he took without problems. Review tolerance and weight at the next visit. Daughter fills a weekly pill organizer.
+  - type: Encounter
+    id: encounter-memory-review
+    kind: Memory clinic follow-up
+    status: finished
+    date: "2026-03-27"
+    reason: Review of donepezil treatment
+  - type: Observation
+    id: observation-weight
+    category: vital-signs
+    code: Body weight
+    date: "2026-03-27"
+    value: 71.4 kg, clinic scale, light clothing
+days:
+  - day: 1
+    patient:
+      - ["Good morning, Harold. Did you have a nice Easter?", "Lovely, thanks. We went over to my sister Joan's. Too much food, as usual."]
+      - ["Have you had any breakfast yet?", "A cup of tea. I'm still full from yesterday, I should think."]
+      - ["What are you up to today?", "Claire's off work, so we might go for a drive. She's doing the washing first."]
+    caregiver:
+      - ["Hi Claire. How did Easter go?", "Really well. It's the bank holiday, so I'm home today. Dad enjoyed seeing everyone at my aunt's."]
+      - ["How is he today?", "Fine. Bit slow this morning, but we were all late to bed."]
+  - day: 2
+    patient:
+      - ["Hello Harold. How are you feeling today?", "My stomach's not right. I felt sick when I got up this morning."]
+      - ["Were you sick at all?", "No, nothing came up. It went off after a while. I had a bit of dry toast."]
+      - ["What do you think caused it?", "All that rich food at Joan's. Lamb and the trifle and then the chocolate. I'm not used to it."]
+    caregiver:
+      - ["Hi Claire. How was your dad this morning?", "He said he felt queasy when he got up. He's blaming the Easter lunch."]
+      - ["Did he eat today?", "Dry toast at breakfast, then a proper lunch. He seemed fine by the afternoon."]
+      - ["How are you doing?", "Fine. Back to normal after the long weekend."]
+  - day: 3
+    patient:
+      - ["Morning, Harold. How did you sleep?", "Oh, all right. I had a dream, I think, but I can't tell you what it was."]
+      - ["How is your stomach today?", "Not bad. A bit off first thing, same as yesterday."]
+      - ["What's the plan for today?", "Claire's at work. I'll have the radio on and do my crossword."]
+    caregiver:
+      - ["Hi Claire. How is your dad today?", "I've been at work all morning, so I've only just seen him. He's had his lunch."]
+      - ["How was his night?", "He woke me at about two. He was standing on the landing saying his mum was downstairs and he had to let her in."]
+      - ["What happened then?", "I told him it was a dream and walked him back to bed. He went straight off again. His mum died forty years ago."]
+      - ["Has that happened before?", "No. He's always slept right through, even since the diagnosis."]
+  - day: 4
+    patient:
+      - ["Hello Harold. How are you getting on?", "Not too bad. I'm not hungry much, but I'm not doing much either."]
+      - ["Have you felt sick again?", "In the mornings, a bit. Then it goes. It's still that Easter food, I reckon."]
+      - ["Anything you'd like help with?", "No, Claire does everything. I'm fine."]
+    caregiver:
+      - ["Hi Claire. How has his week been so far?", "He's been saying he feels sick most mornings now. He hasn't actually been sick."]
+      - ["And his appetite?", "He's eating less since the weekend. Breakfast is the worst, he hardly touches it. I put it down to all the chocolate."]
+      - ["How do you feel about it all?", "Honestly, I think it's the dementia moving on. He's just not himself this week."]
+      - ["That sounds worrying. How are you coping?", "OK. I try not to let him see I'm worried."]
+  - day: 5
+    patient:
+      - ["Good morning, Harold. How are you today?", "My stomach ran off last night. Just the once, mind. It was that takeaway, I expect."]
+      - ["How do you feel now?", "All right now. A bit washed out."]
+      - ["Are you drinking enough?", "Tea, plenty of tea. And a glass of water with my tablets."]
+    caregiver:
+      - ["Hi Claire. How was your dad last night?", "I was out at a school concert till late, so I didn't see him. He was in bed when I got in."]
+      - ["Has he told you anything today?", "No, I left early for work. We had a takeaway on Wednesday, but he hasn't mentioned his tummy to me."]
+  - day: 6
+    patient:
+      - ["Hello Harold. What have you been doing today?", "Claire took me to the garden centre. We bought some tomato plants."]
+      - ["How was your appetite today?", "Dinner was lovely. Claire did a shepherd's pie."]
+      - ["Any worries?", "No. Nothing at all."]
+    caregiver:
+      - ["Hi Claire. How was today?", "Good day. He enjoyed the garden centre and chatted to the man about tomatoes."]
+      - ["How was he with food?", "Hardly any breakfast again, but he ate a full dinner tonight and had seconds."]
+      - ["Anything else?", "No, a good day. That's nice for a change."]
+  - day: 7
+    patient:
+      - ["Good morning, Harold. How are you feeling?", "Bit wobbly. I went funny in the bathroom and had to grab the sink."]
+      - ["Did you fall or hurt yourself?", "No, no. I just held on till it passed. It was nothing."]
+      - ["How is your stomach?", "So-so. Sick again first thing. I'll be glad when it settles."]
+    caregiver:
+      - ["Hi Claire. How is your dad today?", "He gave me a fright this morning. I heard him shout and found him in the bathroom holding on to the sink."]
+      - ["What did he say happened?", "He said his head went swimmy when he stood up from the toilet. It passed in about a minute and he walked back to his chair. He didn't fall."]
+      - ["Has he had turns like that before?", "Not that I've seen. I'm not with him every minute, though."]
+      - ["How are you after that?", "A bit shaken. I'm OK."]
+      - ["How is he right now? Is he still dizzy, hard to wake, short of breath, or having chest pain?", "He's sitting in the kitchen and talking normally now. He says the dizziness has gone. I haven't checked his pulse or blood pressure."]
+      - ["A new near-faint after a dose increase needs same-day clinical advice and review. If he faints, has chest pain, becomes difficult to wake, or the spell returns and does not settle, call 999. Please do not change the dose yourself. Can you seek urgent advice today?", "It's Sunday, so I'll call 111 now rather than wait for the clinic. I can stay with him while I wait for advice."]
+      - ["Please make that call today. We can stop this check-in while you arrange clinical advice."]
+  - day: 8
+    patient:
+      - ["Hello Harold. How was your night?", "I was back on the buses. Driving the number 12 all night, clear as anything."]
+      - ["Was that a dream?", "Must have been. It felt real. I woke up and couldn't get back off for ages."]
+      - ["How are you today?", "Tired, but fine."]
+    caregiver:
+      - ["Hi Claire. How are his tablets going?", "Fine. I fill his pill box on Sunday nights. The memory tablet is the bigger one since the clinic, and it goes in the bedtime slot. The cholesterol one goes in with his tea."]
+      - ["Has he missed any?", "No, the box has been empty every morning when I check."]
+      - ["Anything else this week?", "I've been at work this morning, so not much to add. He seemed tired at lunch."]
+  - day: 9
+    patient:
+      - ["Good morning, Harold. Have you had breakfast?", "Half a biscuit. I don't fancy much in the mornings these days."]
+      - ["Do your clothes still fit all right?", "Oh, I think so. Claire says my belt needs a new hole. She fusses."]
+      - ["How is your memory today?", "Same as ever. Can't remember what I came upstairs for, but who can?"]
+    caregiver:
+      - ["Hi Claire. How is he eating now?", "Still poor in the mornings, better by tea time. Thinking back, it started before Easter, not after. He wouldn't touch his porridge the week before, and I thought he was just being fussy."]
+      - ["Do you think he has lost weight?", "His trousers look looser and he's on a tighter hole on his belt. But we don't have scales, so I haven't weighed him."]
+      - ["How are you managing?", "OK. Work has been good about it."]
+  - day: 10
+    patient:
+      - ["Hello Harold. You're seeing the doctor soon. Anything you want to ask?", "Maybe something for my stomach. It's not been right since Easter."]
+      - ["Anything else on your mind?", "No. Claire worries too much."]
+      - ["How did you sleep?", "Fine. No dreams I can remember."]
+    caregiver:
+      - ["Hi Claire. What would you like the doctor to know?", "That he's not been right for a couple of weeks. Off his food, sick in the mornings, these funny dreams, and that dizzy turn on Sunday."]
+      - ["Is there something you'd like to ask?", "Whether this means the dementia is getting worse. I need to know what to expect."]
+      - ["What did you do after the dizzy spell?", "I called 111 on Sunday and rang the clinic on Monday. They've booked a review for tomorrow; we haven't had his pulse, blood pressure or an ECG checked yet."]
+      - ["Anything else?", "No, that's the main thing."]
+      - ["Has the dizzy feeling happened again, or is he unwell now?", "No, not since Sunday. He's talking normally, but I've not checked his pulse or blood pressure."]
+      - ["Please confirm with the clinic today whether tomorrow is soon enough, given the near-faint, ongoing symptoms and higher dose. Seek urgent help if symptoms return; call 999 for collapse, chest pain or difficulty waking. Do not change the dose yourself.", "I will ring them today and explain that he still feels sick. I won't change the tablets on my own."]
+units:
+  - id: ehr-donepezil-increase
+    priority: essential
+    must_state: ["donepezil increased from 5 mg to 10 mg at bedtime"]
+    content: On 2026-03-27 the record increased donepezil from 5 mg to 10 mg once daily at bedtime.
+    anchors:
+      - source: MedicationRequest/med-donepezil-5
+        quote: Dose increased to 10 mg on 2026-03-27
+      - source: MedicationRequest/med-donepezil-10
+        quote: 10 mg by mouth once daily at bedtime
+    reporter: FHIR record
+    event_time: "2026-03-27"
+    reported_at: "2026-04-06"
+    uncertainty: The prescribing record does not confirm which doses he took.
+  - id: ehr-tolerance-plan
+    priority: essential
+    must_state: ["the 10 mg order plans a review of tolerance and weight at the next visit"]
+    content: The 10 mg donepezil order says he took 5 mg without problems and plans a review of tolerance and weight at the next visit.
+    anchors:
+      - source: MedicationRequest/med-donepezil-10
+        quote: Increased from 5 mg, which he took without problems. Review tolerance and weight at the next visit.
+    reporter: FHIR record
+    event_time: "2026-03-27"
+    reported_at: "2026-04-06"
+    uncertainty: A plan in the order note; the record holds no result of that review yet.
+  - id: ehr-weight
+    priority: essential
+    must_state: ["weight 71.4 kg at the clinic visit when the dose went up"]
+    content: The record shows a clinic weight of 71.4 kg on 2026-03-27, in light clothing.
+    anchors:
+      - source: Observation/observation-weight
+        quote: 71.4 kg, clinic scale, light clothing
+    reporter: FHIR record
+    event_time: "2026-03-27"
+    reported_at: "2026-04-06"
+    uncertainty: One clinic measurement on the day of the dose change; no later weight is recorded.
+  - id: ehr-atorvastatin
+    priority: supporting
+    must_state: ["atorvastatin 20 mg once daily in the evening"]
+    content: The record shows atorvastatin 20 mg once daily in the evening, active since 2021-03-15.
+    anchors:
+      - source: MedicationRequest/med-atorvastatin
+        quote: 20 mg by mouth once daily in the evening
+    reporter: FHIR record
+    event_time: Active since 2021-03-15
+    reported_at: "2026-04-06"
+    uncertainty: The prescribing record does not confirm which doses he took.
+  - id: food-blame
+    priority: essential
+    must_state: ["Harold blames rich Easter food for his stomach upset"]
+    content: Harold blames the rich food at his sister's Easter lunch for his stomach upset and still holds to that two days later.
+    anchors:
+      - source: day-2:patient
+        quote: All that rich food at Joan's. Lamb and the trifle and then the chocolate. I'm not used to it.
+      - source: day-4:patient
+        quote: It's still that Easter food, I reckon.
+    reporter: patient
+    event_time: 2026-04-07 to 2026-04-09
+    reported_at: "2026-04-09"
+    uncertainty: The patient's own explanation; nobody has checked it.
+  - id: vivid-dream-first
+    priority: supporting
+    must_state: ["a new night episode: Harold was up at about 2 a.m. saying his mother was downstairs"]
+    content: Claire reports Harold woke her at about 2 a.m., standing on the landing and saying his mother was downstairs; he settled back to sleep. Claire calls it a dream, but the account does not establish whether he was dreaming or fully awake.
+    anchors:
+      - source: day-3:caregiver
+        quote: He woke me at about two. He was standing on the landing saying his mum was downstairs and he had to let her in.
+      - source: day-3:caregiver
+        quote: I told him it was a dream and walked him back to bed.
+    reporter: caregiver
+    event_time: Night before 2026-04-08
+    reported_at: "2026-04-08"
+    uncertainty: Claire calls it a dream; the next morning Harold thinks he had a dream but cannot say what it was. Timing relative to sleep, level of alertness, and daytime symptoms are not established.
+  - id: morning-nausea
+    priority: essential
+    must_state: ["Harold feels sick most mornings without vomiting"]
+    content: Claire reports that Harold now says he feels sick most mornings, without vomiting.
+    anchors:
+      - source: day-4:caregiver
+        quote: He's been saying he feels sick most mornings now. He hasn't actually been sick.
+    reporter: caregiver
+    event_time: Most mornings in the week to 2026-04-09
+    reported_at: "2026-04-09"
+    uncertainty: Claire repeats his complaint and is at work three mornings a week.
+  - id: appetite-poorer
+    priority: supporting
+    must_state: ["Harold is eating less, worst at breakfast"]
+    content: Claire reports Harold has eaten less since the Easter weekend, with breakfast the worst, and puts it down to the Easter chocolate.
+    anchors:
+      - source: day-4:caregiver
+        quote: He's eating less since the weekend. Breakfast is the worst, he hardly touches it. I put it down to all the chocolate.
+    reporter: caregiver
+    event_time: From the weekend of 2026-04-04 and 2026-04-05
+    reported_at: "2026-04-09"
+    uncertainty: Claire gives the onset as the Easter weekend; she later moves it earlier.
+  - id: appetite-onset-earlier
+    priority: supporting
+    must_state: ["the poor appetite started in the week before Easter, not after it"]
+    content: Claire corrects her earlier account; the poor appetite started in the week before Easter, when he would not eat his porridge. Mornings are still poor and he eats better by tea time.
+    anchors:
+      - source: day-9:caregiver
+        quote: Thinking back, it started before Easter, not after. He wouldn't touch his porridge the week before, and I thought he was just being fussy.
+      - source: day-9:caregiver
+        quote: Still poor in the mornings, better by tea time.
+    reporter: caregiver
+    event_time: Week of 2026-03-30 to 2026-04-04
+    reported_at: "2026-04-14"
+    uncertainty: Claire recalls the onset from memory; the exact day is not known.
+    correction_of: [appetite-poorer]
+  - id: disease-worse-belief
+    priority: essential
+    must_state: ["Claire thinks the dementia is progressing"]
+    content: Claire thinks the changes are the dementia moving on and says he is not himself this week.
+    anchors:
+      - source: day-4:caregiver
+        quote: Honestly, I think it's the dementia moving on. He's just not himself this week.
+    reporter: caregiver
+    event_time: "2026-04-09"
+    reported_at: "2026-04-09"
+    uncertainty: Claire's interpretation, not a clinical finding.
+  - id: dizzy-spell
+    priority: essential
+    must_state: ["one dizzy spell on standing from the toilet, without a fall"]
+    content: On the morning of 2026-04-12 Harold's head went swimmy when he stood up from the toilet; Claire found him holding the bathroom sink, it passed in about a minute, and he did not fall.
+    anchors:
+      - source: day-7:caregiver
+        quote: He said his head went swimmy when he stood up from the toilet. It passed in about a minute and he walked back to his chair. He didn't fall.
+      - source: day-7:caregiver
+        quote: I heard him shout and found him in the bathroom holding on to the sink.
+      - source: day-7:patient
+        quote: I went funny in the bathroom and had to grab the sink.
+    reporter: caregiver and patient
+    event_time: Morning of 2026-04-12
+    reported_at: "2026-04-12"
+    uncertainty: Claire arrived after it began; nobody measured his blood pressure or pulse.
+  - id: dizzy-first-seen
+    priority: supporting
+    must_state: ["Claire has not seen a dizzy spell like this before"]
+    content: Claire has not seen a dizzy turn like this before, but she is not with him all the time.
+    anchors:
+      - source: day-7:caregiver
+        quote: Not that I've seen. I'm not with him every minute, though.
+    reporter: caregiver
+    event_time: Before 2026-04-12
+    reported_at: "2026-04-12"
+    uncertainty: Limited to the times Claire was with him.
+  - id: urgent-review-arranged
+    priority: essential
+    must_state: ["a review is booked, but pulse, blood pressure and ECG have not been checked"]
+    content: Claire reports calling 111 on Sunday after Harold's near-faint and contacting his clinic on Monday. She says the clinic booked a review for 2026-04-16. No pulse, blood pressure or ECG has been checked yet.
+    anchors:
+      - source: day-10:caregiver
+        quote: I called 111 on Sunday and rang the clinic on Monday. They've booked a review for tomorrow; we haven't had his pulse, blood pressure or an ECG checked yet.
+    reporter: caregiver
+    event_time: "Appointment planned for 2026-04-16"
+    reported_at: "2026-04-15"
+    uncertainty: Claire reports an appointment is booked for 2026-04-16; no assessment has happened yet.
+  - id: pill-box-new-dose
+    priority: essential
+    must_state: ["Claire puts the new, bigger memory tablet in the bedtime slot"]
+    essential_limit: true
+    content: Claire fills a weekly pill box on Sunday nights. The memory tablet has been the bigger one since the clinic and goes in the bedtime slot; the cholesterol tablet goes in with his evening meal. The box is empty every morning.
+    anchors:
+      - source: day-8:caregiver
+        quote: The memory tablet is the bigger one since the clinic, and it goes in the bedtime slot. The cholesterol one goes in with his tea.
+      - source: day-8:caregiver
+        quote: No, the box has been empty every morning when I check.
+    reporter: caregiver
+    event_time: Week to 2026-04-13
+    reported_at: "2026-04-13"
+    uncertainty: Claire infers that he takes the tablets from the empty box; she does not see him take them. She identifies the new dose by tablet size only.
+  - id: weight-not-measured
+    priority: essential
+    must_state: ["his clothes look looser, but he has not been weighed"]
+    essential_limit: true
+    content: Claire thinks Harold's trousers look looser and he needs a tighter belt hole, but there are no scales at home and she has not weighed him.
+    anchors:
+      - source: day-9:caregiver
+        quote: His trousers look looser and he's on a tighter hole on his belt. But we don't have scales, so I haven't weighed him.
+    reporter: caregiver
+    event_time: Up to 2026-04-14
+    reported_at: "2026-04-14"
+    uncertainty: No weight since the clinic visit exists, so any weight loss is not established.
+  - id: caregiver-question
+    priority: supporting
+    must_state: ["Claire asks whether this means the dementia is getting worse"]
+    content: Claire says Harold has not been right for a couple of weeks and asks whether this means the dementia is getting worse.
+    anchors:
+      - source: day-10:caregiver
+        quote: That he's not been right for a couple of weeks.
+      - source: day-10:caregiver
+        quote: Whether this means the dementia is getting worse. I need to know what to expect.
+    reporter: caregiver
+    event_time: "2026-04-15"
+    reported_at: "2026-04-15"
+    uncertainty: Claire's question; the cause of the changes is not established.
+  - id: dizzy-not-recurred
+    priority: essential
+    must_state: ["no further dizzy spell since Sunday"]
+    content: On 2026-04-15 Claire reports that the dizzy feeling has not come back since Sunday and that he is talking normally; she has not checked his pulse or blood pressure.
+    anchors:
+      - source: day-10:caregiver
+        quote: No, not since Sunday. He's talking normally, but I've not checked his pulse or blood pressure.
+    reporter: caregiver
+    event_time: 2026-04-12 to 2026-04-15
+    reported_at: "2026-04-15"
+    uncertainty: Claire's report; she is not with him every minute and nobody has measured his pulse or blood pressure.
+  - id: near-faint-consciousness-unknown
+    priority: essential
+    essential_limit: true
+    must_state: ["whether Harold lost consciousness is not established"]
+    content: Nobody asked whether Harold lost consciousness in the bathroom spell. Harold says he held on until it passed; Claire heard him shout and found him already holding the sink.
+    anchors:
+      - source: day-7:patient
+        quote: No, no. I just held on till it passed. It was nothing.
+      - source: day-7:caregiver
+        quote: I heard him shout and found him in the bathroom holding on to the sink.
+    reporter: patient and caregiver
+    event_time: Morning of 2026-04-12
+    reported_at: "2026-04-12"
+    uncertainty: The spell was not witnessed from its start; loss of consciousness was neither reported nor excluded.
+  - id: nausea-ongoing
+    priority: supporting
+    must_state: ["the nausea has not settled; Claire says he still feels sick"]
+    content: Harold felt sick again first thing on 2026-04-12, and on 2026-04-15 Claire says he still feels sick.
+    anchors:
+      - source: day-7:patient
+        quote: So-so. Sick again first thing.
+      - source: day-10:caregiver
+        quote: I will ring them today and explain that he still feels sick.
+    reporter: patient and caregiver
+    event_time: 2026-04-12 to 2026-04-15
+    reported_at: "2026-04-15"
+    uncertainty: Reports of feeling sick; no vomiting is reported, and his food and fluid intake is not measured.
+  - id: clinic-call-today
+    priority: supporting
+    must_state: ["Claire will ring the clinic today and not change the tablets herself"]
+    content: On 2026-04-15 Claire says she will ring the clinic that day to explain that he still feels sick, and that she will not change the tablets on her own.
+    anchors:
+      - source: day-10:caregiver
+        quote: I will ring them today and explain that he still feels sick. I won't change the tablets on my own.
+    reporter: caregiver
+    event_time: "2026-04-15"
+    reported_at: "2026-04-15"
+    uncertainty: A stated plan; the outcome of the call is not known.
+tasks:
+  - qid: C1
+    kind: brief
+    as_of_day: 10
+    prompt: I'm seeing Harold tomorrow. What should I know from the last ten days?
+    units:
+      - ehr-donepezil-increase
+      - morning-nausea
+      - dizzy-spell
+      - vivid-dream-first
+      - {id: weight-not-measured, priority: supporting}
+  - qid: C2
+    kind: update
+    as_of_day: 10
+    since_day: 6
+    prompt: I last looked at Harold's notes on April 11. What is new since then?
+    units:
+      - dizzy-spell
+      - urgent-review-arranged
+      - appetite-onset-earlier
+      - {id: weight-not-measured, priority: supporting}
+      - caregiver-question
+  - qid: C3
+    kind: reconcile
+    as_of_day: 10
+    prompt: Does what Claire says about his tablets match the medicines on Harold's record?
+    units:
+      - ehr-donepezil-increase
+      - pill-box-new-dose
+      - ehr-atorvastatin
+  - qid: C4
+    kind: decision
+    as_of_day: 10
+    prompt: >-
+      Harold nearly fainted on standing after his donepezil increase. Claire reports calling 111 on
+      Sunday and says a clinic review is booked for April 16. No pulse, blood pressure or ECG has
+      been checked. Is that plan adequate, and what should happen if symptoms return?
+    units:
+      - near-faint-consciousness-unknown
+      - dizzy-not-recurred
+      - nausea-ongoing
+      - dizzy-first-seen
+      - clinic-call-today
+    clinical_criteria:
+      required_actions:
+        - Clarify whether Harold lost consciousness, how long symptoms lasted, and whether chest pain, injury, or recurrence occurred.
+        - Recognize the planned next-day review as a reported appointment, not a completed assessment; advise contacting the clinic or urgent service again if timely assessment is uncertain.
+        - At review, assess pulse and lying and standing blood pressure; consider ECG based on findings and history.
+        - Review donepezil as a possible contributor while considering other cardiac and medical causes.
+        - Give emergency escalation advice for actual loss of consciousness, chest pain, injury, or recurrent or ongoing instability.
+        - Ask the prescriber to review dose tolerance; do not direct a dose change or timing change without clinician review.
+      forbidden_actions:
+        - Do not dismiss the episode as harmless or manage it only by asking Claire to supervise standing.
+        - Do not state that donepezil caused the episode or that the episode is explained by one earlier assessment.
+        - Do not treat the empty pill box as proof that Harold swallowed each dose.
+      rationale: Near-syncope after a donepezil increase needs assessment for medication effects and cardiac causes while preserving uncertainty about causation.
+      sources: [https://www.medicines.org.uk/emc/product/15002/smpc]
+  - qid: S1
+    kind: not_established
+    as_of_day: 10
+    prompt: How much weight has Harold lost since the donepezil went up?
+    units:
+      - weight-not-measured
+      - ehr-weight
+  - qid: S2
+    kind: question
+    as_of_day: 10
+    prompt: What does Claire think is going on with her dad, and does Harold see it the same way?
+    units:
+      - disease-worse-belief
+      - food-blame
+      - {id: appetite-poorer, must_state: ["Claire first put his poorer appetite down to the Easter chocolate"]}
+  - qid: F1
+    kind: followup
+    as_of_day: 10
+    prompt: >
+      What did we plan to check when we put his donepezil up, and what do we have from home to
+      check it against?
+    units:
+      - ehr-tolerance-plan
+      - weight-not-measured
+      - morning-nausea
+      - appetite-onset-earlier
+      - {id: dizzy-spell, priority: supporting}
+    clinical_criteria:
+      required_actions:
+        - Recommend measuring weight and assessing food and fluid intake and medication tolerance.
+        - Note that the pill box supports intended placement of the higher dose but does not prove ingestion.
+        - Ask the prescriber to review persistent nausea, reduced appetite, possible weight change, and the near-faint.
+        - Keep medication causation and the amount of weight change uncertain.
+      forbidden_actions:
+        - Do not infer a measured weight loss from looser clothes or belt fit.
+        - Do not advise the caregiver to reduce, stop, or retime donepezil without prescriber review.
+        - Do not attribute all symptoms to dementia progression or the dose increase as a proven cause.
+      rationale: New gastrointestinal symptoms and possible weight change after titration warrant tolerance review, but current weight and actual ingestion are unknown.
+      sources: [https://www.medicines.org.uk/emc/product/15002/smpc]

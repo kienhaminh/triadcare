@@ -1,0 +1,421 @@
+schema: scenario_v4
+id: quiet_week
+split: dev
+title: An ordinary ten days with a vague memory worry
+summary: >
+  Ten ordinary days at home with small normal variation: a rainy day indoors, one poor night after
+  a late family evening, a lunch out, and a sore back for the husband. The husband says once that
+  she seems to forget more, but initially cannot give an example or say when it started. He later
+  describes repeated questions and a forgotten name as longstanding, and says he has seen nothing new. The
+  record shows the donepezil prescription unchanged and a routine January review with no reported
+  change. At the end Peter cannot say Joan is worse or that he has seen anything new, but asks the
+  doctor to ask about her memory. There is no current weight measurement.
+start_date: "2026-03-30"
+patient:
+  id: P-101
+  name: Joan
+  gender: female
+  birth_year: 1949
+  persona: Mild Alzheimer dementia. Lives with her husband in their own house. Cheerful, talkative, a little vague about dates.
+caregiver:
+  name: Peter
+  relation: husband
+  persona: Retired and lives with her. Out at his allotment most weekday mornings, so he does not see her then.
+baseline:
+  date: "2026-01-27"
+  diagnosis: Dementia due to Alzheimer disease, mild stage
+  mmse: 23
+  moca: 18
+  cdr_global: 1
+  cdr_sb: 4.5
+  faq: 9
+record:
+  - type: MedicationRequest
+    id: med-donepezil
+    medication: Donepezil 10 mg tablet
+    dosage: 10 mg by mouth once daily at bedtime
+    status: active
+    date: "2025-02-11"
+    note: Increased from 5 mg after four weeks. Tolerated well; no change since.
+  - type: Encounter
+    id: encounter-memory-review
+    kind: Memory clinic follow-up
+    status: finished
+    date: "2026-01-27"
+    reason: Routine dementia review
+  - type: DocumentReference
+    id: doc-review-letter
+    title: Memory clinic review letter
+    date: "2026-01-27"
+    author: Memory clinic
+    text: >-
+      Seen with her husband for a routine review. MMSE 23/30, similar to the last test. Husband
+      reports no new problems and no falls. Managing well at home with his help. Plan: continue
+      donepezil 10 mg at night. Review in six months.
+  - type: Observation
+    id: observation-weight
+    category: vital-signs
+    code: Body weight
+    date: "2026-01-27"
+    value: 63.5 kg; 63.0 kg at the July 2025 review.
+days:
+  - day: 1
+    patient:
+      - ["Good morning, Joan. How was your weekend?", "Oh, quiet. Peter did the garden and I did my puzzle book. It was nice."]
+      - ["Have you got anything planned this week?", "I expect so. Peter has it all on the calendar in the kitchen. I just look at that."]
+      - ["How are you sleeping at the moment?", "Very well. I'm a good sleeper, always have been."]
+    caregiver:
+      - ["Hi Peter. How has Joan been over the weekend?", "Much the same as usual. She was cheerful, did her puzzles, and we watched the snooker."]
+      - ["How is she getting on with her medicine?", "I give it to her at bedtime with her cocoa and she takes it. It's the same tablet she's had for ages."]
+      - ["And how are you doing yourself?", "I'm fine. I go up to the allotment most mornings, and that gives me a bit of time to myself."]
+  - day: 2
+    patient:
+      - ["Hello Joan. What's the weather like with you?", "Wet. It hasn't stopped all morning, so we've stayed in."]
+      - ["What have you been doing?", "A jigsaw. A big one of a harbour, all boats. It's hard going."]
+      - ["Anything nice coming up?", "Our Claire is coming for her tea tonight. She's bringing the little one, I think."]
+    caregiver:
+      - ["Hi Peter. How has today gone?", "Quiet. Too wet for the allotment, so I was in with Joan all day."]
+      - ["How has she been?", "Fine. She's been at a jigsaw most of the afternoon. Our daughter's coming over this evening."]
+  - day: 3
+    patient:
+      - ["Good morning, Joan. How was your evening with Claire?", "Lovely. They didn't go until late. The little one wouldn't settle."]
+      - ["How did you sleep after that?", "Not so well, I don't think. I was awake a lot. I feel a bit washed out."]
+      - ["Is anything else bothering you?", "No, I'll be all right after a sit down."]
+    caregiver:
+      - ["Hi Peter. How was last night?", "Claire and the baby stayed till after eleven, so we were late to bed."]
+      - ["How did Joan sleep?", "Badly. She was up to the bathroom twice and then lay awake for a while. She didn't get up till half nine."]
+      - ["How is she now?", "She was back to herself by lunchtime. It's the same whenever we have a late night, she's never been one for them."]
+      - ["How about you?", "A bit tired too. Nothing a good night won't fix."]
+  - day: 4
+    patient:
+      - ["Hello Joan. How are you feeling today?", "Much better. I slept right through last night."]
+      - ["How do you think your memory has been lately?", "Oh, it's no better than it was, but no worse either. I've got Peter and the calendar."]
+      - ["Is anything worrying you at all?", "Not really. I feel the same as I always do."]
+    caregiver:
+      - ["Hi Peter. How has Joan been since the late night?", "She's fine again. She slept well last night."]
+      - ["Is anything on your mind about her?", "I don't know. I've got a feeling she's forgetting more than she was. I can't really say why."]
+      - ["Can you think of something that made you feel that way?", "Not really, no. There's nothing I can point to. It's more of a feeling than anything."]
+      - ["When did you first start to feel that?", "I couldn't tell you. It's not as if it started on a particular day."]
+  - day: 5
+    patient:
+      - ["Good morning, Joan. Have you been out this week?", "Yes, we walked into the village yesterday for the paper. I was fine."]
+      - ["Have you had any trips or falls?", "No, I haven't fallen. I'm careful on the kerbs."]
+      - ["How is your appetite?", "Good. Peter does a lovely shepherd's pie."]
+    caregiver:
+      - ["Hi Peter. How is Joan getting about?", "She's steady on her feet. She hasn't had a fall or a trip that I know of."]
+      - ["Are you with her most of the day?", "Not in the mornings. I'm at the allotment till about twelve on weekdays, but she's never said anything about a fall and I haven't seen any bruises."]
+      - ["How are you keeping?", "My back is a bit sore from digging over the bean bed. I've been taking it easy."]
+  - day: 6
+    patient:
+      - ["Hello Joan. What have you been up to?", "I was chatting over the fence to the lady next door. Nice woman. Her name's gone right out of my head."]
+      - ["How is Peter?", "His back's playing up. I told him to leave the digging for a bit."]
+    caregiver:
+      - ["Hi Peter. How is your back?", "Better than yesterday. I'll give the allotment a miss till Monday."]
+      - ["On Thursday you said Joan might be forgetting more. Has anything happened since that made you think so?", "Well, she asked me three or four times on Thursday what time the window cleaner was coming. But she's always done that when somebody's booked to come."]
+      - ["Anything else?", "She couldn't think of Margaret's name next door again, but she's never been able to keep that one. I can't say I've seen anything new. Maybe I'm just watching her more closely."]
+  - day: 7
+    patient:
+      - ["Hello Joan. Have you had a nice day?", "Yes, we went out for lunch with Claire. The garden centre place. I had the soup."]
+      - ["Did you enjoy it?", "Oh yes. I like looking at the plants. I bought some pansies."]
+      - ["How are you feeling now?", "A bit sleepy. I might have forty winks."]
+    caregiver:
+      - ["Hi Peter. How has your Sunday been?", "Nice. Claire took us to the garden centre for lunch. Joan chatted to everyone and picked out some pansies."]
+      - ["How is she now?", "She's having a nap. She always does after we've been out."]
+      - ["And your back?", "Nearly right again."]
+  - day: 8
+    patient:
+      - ["Hello Joan. How are you today?", "Fine, thank you. We went for our walk round the park this morning. It was chilly."]
+      - ["Are you eating well?", "I am. I never leave anything on my plate."]
+      - ["Any aches or pains?", "Only my knee when it's damp. It's been like that for years."]
+    caregiver:
+      - ["Hi Peter. How are her meals going?", "She's eating well and clearing her plate. Her clothes fit the same as they did, so I don't think she's lost weight."]
+      - ["Have you two been getting out much?", "We're back to our walk round the park every morning, before I go up to the allotment. The rain had stopped us last week."]
+      - ["Is she drinking enough?", "Plenty of tea. I leave a glass of water by her chair as well."]
+  - day: 9
+    patient:
+      - ["Good morning, Joan. What's on today?", "I'm not sure. Is it the hairdresser? Peter will know, it's on the calendar."]
+      - ["How is your mood these days?", "Good. I like it when the evenings get lighter."]
+      - ["Is there anything you'd like the doctor to know?", "That I'm keeping well. I've no complaints."]
+    caregiver:
+      - ["Hi Peter. Has anything new come up this week?", "No, nothing much. It's been a normal week."]
+      - ["How is she with her tablet?", "Still taking it every night with her cocoa. No problems with it."]
+      - ["How are you finding things overall?", "We've got our routine and it works for us. I'm managing fine."]
+      - ["Would you like the doctor to ask Joan about her memory?", "Yes, if it fits into the check-up. I don't have a new example, and I don't want to make a fuss over nothing."]
+  - day: 10
+    patient:
+      - ["Hello Joan. How are you today?", "Very well, thank you, love."]
+      - ["Is anything worrying you?", "No. Peter's the worrier in this house, not me."]
+    caregiver:
+      - ["Hi Peter. Is there anything you'd like the doctor to know?", "Not much, really. It's been an ordinary couple of weeks."]
+      - ["Last week you felt Joan might be forgetting more. How do you feel about that now?", "Honestly, I can't say she's any worse. I haven't seen anything new. Maybe the doctor could ask her about her memory anyway."]
+      - ["Is there anything else?", "No, that's everything."]
+      - ["I have not heard a new example of decline in these reports, so the planned routine check can go ahead. Keep a note if something changes; contact the clinic if your concern continues, and seek immediate medical help at A&E or call 999 for sudden confusion; seek advice for a new loss of function, with urgency depending on the symptoms. Does that plan fit?", "Yes. I'll mention my general worry at the check-up, but I won't ask for emergency tests when nothing sudden has happened."]
+units:
+  - id: vague-worry
+    priority: essential
+    must_state: ["Peter has a general feeling Joan forgets more, with no example or start date"]
+    content: >-
+      Peter says he has a feeling that Joan is forgetting more than she was. Asked for an example,
+      he cannot point to anything, and he cannot say when the feeling started.
+    anchors:
+      - source: day-4:caregiver
+        quote: I've got a feeling she's forgetting more than she was.
+      - source: day-4:caregiver
+        quote: There's nothing I can point to. It's more of a feeling than anything.
+      - source: day-4:caregiver
+        quote: It's not as if it started on a particular day.
+    reporter: caregiver
+    event_time: Unspecified recent period before 2026-04-02
+    reported_at: "2026-04-02"
+    uncertainty: He could not give an example or say when the feeling started.
+  - id: example-matches-usual
+    priority: essential
+    must_state: ["Peter's later example (repeated questions about a booked visit) is something she has always done"]
+    content: >-
+      Asked again, Peter says Joan asked three or four times on 2026-04-02 what time the window
+      cleaner was coming, but says she has always done that when someone is booked to come. He
+      says he cannot point to anything new and wonders if he is watching her more closely.
+    anchors:
+      - source: day-6:caregiver
+        quote: Well, she asked me three or four times on Thursday what time the window cleaner was coming.
+      - source: day-6:caregiver
+        quote: But she's always done that when somebody's booked to come.
+      - source: day-6:caregiver
+        quote: I can't say I've seen anything new. Maybe I'm just watching her more closely.
+    reporter: caregiver
+    event_time: "2026-04-02"
+    reported_at: "2026-04-04"
+    uncertainty: Peter's own judgment of what is usual for her; no formal comparison.
+  - id: worry-not-confirmed
+    priority: essential
+    must_state: ["Peter now cannot say Joan is worse, but asks the doctor to ask about her memory"]
+    content: >-
+      At the end of the period Peter says he cannot honestly say Joan is any worse and has seen
+      nothing new, but suggests the doctor asks her about her memory anyway.
+    anchors:
+      - source: day-10:caregiver
+        quote: Honestly, I can't say she's any worse. I haven't seen anything new.
+      - source: day-10:caregiver
+        quote: Maybe the doctor could ask her about her memory anyway.
+    reporter: caregiver
+    event_time: "2026-04-08"
+    reported_at: "2026-04-08"
+    uncertainty: Caregiver impression; no cognitive test was done at home.
+  - id: steady-no-falls
+    priority: essential
+    must_state: ["no falls reported, but Peter is away on weekday mornings"]
+    content: >-
+      Peter says Joan is steady on her feet and has had no fall or trip that he knows of. He is at
+      the allotment on weekday mornings, but she has not mentioned a fall and he has seen no
+      bruises. Joan also says she has not fallen.
+    anchors:
+      - source: day-5:caregiver
+        quote: She's steady on her feet. She hasn't had a fall or a trip that I know of.
+      - source: day-5:caregiver
+        quote: I'm at the allotment till about twelve on weekdays, but she's never said anything about a fall and I haven't seen any bruises.
+      - source: day-5:patient
+        quote: No, I haven't fallen.
+    reporter: caregiver and patient
+    event_time: Period to 2026-04-03
+    reported_at: "2026-04-03"
+    uncertainty: Peter is out on weekday mornings; for those hours only Joan's own report covers falls.
+  - id: tablet-routine
+    priority: essential
+    must_state: ["Joan takes her bedtime tablet every night, given by Peter"]
+    content: >-
+      Peter gives Joan her usual tablet at bedtime with her cocoa and she takes it; it is the same
+      tablet she has had for a long time. Later he says she still takes it every night with no
+      problems.
+    anchors:
+      - source: day-1:caregiver
+        quote: I give it to her at bedtime with her cocoa and she takes it. It's the same tablet she's had for ages.
+      - source: day-9:caregiver
+        quote: Still taking it every night with her cocoa. No problems with it.
+    reporter: caregiver
+    event_time: 2026-03-30 to 2026-04-07
+    reported_at: "2026-04-07"
+    uncertainty: Peter supervises the dose; there is no pill count. He does not name the medicine.
+  - id: eating-well
+    priority: supporting
+    must_state: ["Peter says she eats well, but she has not been weighed"]
+    content: >-
+      Peter says Joan is eating well and clearing her plate. Her clothes fit as before, so he does
+      not think she has lost weight; there is no current measured weight.
+    anchors:
+      - source: day-8:caregiver
+        quote: She's eating well and clearing her plate. Her clothes fit the same as they did, so I don't think she's lost weight.
+    reporter: caregiver
+    event_time: Period to 2026-04-06
+    reported_at: "2026-04-06"
+    uncertainty: Nobody weighed her at home; the judgment rests on how her clothes fit.
+  - id: walks-resumed
+    priority: supporting
+    must_state: ["daily walks have started again"]
+    content: >-
+      Peter says they are back to their walk round the park every morning, which rain stopped the
+      week before.
+    anchors:
+      - source: day-8:caregiver
+        quote: We're back to our walk round the park every morning, before I go up to the allotment.
+      - source: day-8:caregiver
+        quote: The rain had stopped us last week.
+    reporter: caregiver
+    event_time: Week to 2026-04-06
+    reported_at: "2026-04-06"
+    uncertainty: No limit beyond the cited source.
+  - id: caregiver-coping
+    priority: supporting
+    must_state: ["Peter says he is managing fine"]
+    content: >-
+      Peter says his mornings at the allotment give him time to himself, that their routine works
+      for them, and that he is managing fine.
+    anchors:
+      - source: day-1:caregiver
+        quote: I go up to the allotment most mornings, and that gives me a bit of time to myself.
+      - source: day-9:caregiver
+        quote: We've got our routine and it works for us. I'm managing fine.
+    reporter: caregiver
+    event_time: 2026-03-30 to 2026-04-07
+    reported_at: "2026-04-07"
+    uncertainty: Caregiver self-report; no formal burden measure.
+  - id: ehr-donepezil
+    priority: essential
+    must_state: ["donepezil 10 mg at bedtime, unchanged for over a year"]
+    content: >-
+      The record shows donepezil 10 mg once daily at bedtime, increased from 5 mg and unchanged
+      since 2025-02-11.
+    anchors:
+      - source: MedicationRequest/med-donepezil
+        quote: 10 mg by mouth once daily at bedtime
+      - source: MedicationRequest/med-donepezil
+        quote: Tolerated well; no change since.
+    reporter: FHIR record
+    event_time: Active since 2025-02-11
+    reported_at: "2026-03-30"
+    uncertainty: Prescribing record; it does not confirm the doses taken.
+  - id: ehr-last-visit
+    priority: essential
+    must_state: ["at the January review her husband reported no new problems, and review was planned in six months"]
+    content: >-
+      At the routine memory clinic review on 2026-01-27 her husband reported no new problems and no
+      falls; the plan was to continue donepezil 10 mg at night and review in six months.
+    anchors:
+      - source: Encounter/encounter-memory-review
+        quote: Routine dementia review
+      - source: DocumentReference/doc-review-letter
+        quote: Husband reports no new problems and no falls.
+      - source: DocumentReference/doc-review-letter
+        quote: "Plan: continue donepezil 10 mg at night. Review in six months."
+    reporter: FHIR record
+    event_time: "2026-01-27"
+    reported_at: "2026-03-30"
+    uncertainty: No limit beyond the cited source.
+  - id: ehr-baseline-mmse
+    priority: essential
+    must_state: ["MMSE 23/30 in January, similar to before"]
+    content: The MMSE on 2026-01-27 was 23/30, similar to the previous test. This is an older screening result, not a current assessment.
+    anchors:
+      - source: Observation/observation-mmse
+        quote: '"value": 23'
+      - source: DocumentReference/doc-review-letter
+        quote: MMSE 23/30, similar to the last test.
+    reporter: FHIR record
+    event_time: "2026-01-27"
+    reported_at: "2026-03-30"
+    uncertainty: A single screening score from more than two months ago.
+  - id: ehr-weight
+    priority: supporting
+    must_state: ["weight stable in January, with no weight recorded since"]
+    content: The record shows a weight of 63.5 kg on 2026-01-27, against 63.0 kg in July 2025.
+    anchors:
+      - source: Observation/observation-weight
+        quote: 63.5 kg; 63.0 kg at the July 2025 review.
+    reporter: FHIR record
+    event_time: "2026-01-27"
+    reported_at: "2026-03-30"
+    uncertainty: The last recorded weight is from 2026-01-27; there is no weight from this period.
+tasks:
+  - qid: C1
+    kind: brief
+    as_of_day: 10
+    prompt: I'm seeing Joan tomorrow for her check-up. What should I know from the last ten days?
+    clinical_criteria:
+      required_actions:
+        - Describe the reported concern and evidence limits without declaring progression or dismissing Peter’s concern.
+        - If there is no new change and Joan remains at baseline, keep the planned routine review and give a route to contact the clinic if concern persists.
+        - Advise immediate medical help at A&E or by calling 999 if sudden confusion occurs. For other new functional decline or clear changes, seek advice with urgency depending on the symptoms.
+      forbidden_actions:
+        - Do not recommend urgent escalation, medication change, brain imaging, or repeat MMSE solely for this vague concern.
+        - Do not state that Alzheimer disease has progressed or that no change is possible.
+      rationale: Available reports do not establish a new decline, but the caregiver’s concern merits proportionate follow-up and a clear escalation route.
+      sources:
+        - https://www.nhs.uk/symptoms/confusion/
+    units:
+      - vague-worry
+      - worry-not-confirmed
+      - steady-no-falls
+      - {id: example-matches-usual, priority: supporting}
+      - eating-well
+  - qid: C2
+    kind: update
+    as_of_day: 10
+    since_day: 6
+    prompt: I last looked at Joan's notes on April 4. What's new since then?
+    units:
+      - worry-not-confirmed
+      - eating-well
+      - walks-resumed
+      - {id: tablet-routine, priority: supporting}
+      - caregiver-coping
+  - qid: C3
+    kind: reconcile
+    as_of_day: 10
+    prompt: Peter says Joan is on the same tablet as always. Does that match her record?
+    units:
+      - {id: tablet-routine, must_state: ["Peter says it is the same tablet as always, but he does not name it"]}
+      - ehr-donepezil
+  - qid: C4
+    kind: question
+    as_of_day: 10
+    prompt: Has Joan had any falls recently?
+    units:
+      - steady-no-falls
+  - qid: S1
+    kind: not_established
+    as_of_day: 10
+    prompt: When did Peter first notice Joan forgetting more?
+    units:
+      - {id: vague-worry, essential_limit: true}
+      - {id: example-matches-usual, priority: supporting}
+  - qid: S2
+    kind: decision
+    as_of_day: 10
+    prompt: >-
+      Peter thinks Joan is forgetting more. Is there enough to bring her memory clinic
+      review forward, or can it wait for the planned review?
+    clinical_criteria:
+      required_actions:
+        - Describe the reported concern and evidence limits without declaring progression or dismissing Peter’s concern.
+        - If there is no new change and Joan remains at baseline, keep the planned routine review and give a route to contact the clinic if concern persists.
+        - Advise immediate medical help at A&E or by calling 999 if sudden confusion occurs. For other new functional decline or clear changes, seek advice with urgency depending on the symptoms.
+      forbidden_actions:
+        - Do not recommend urgent escalation, medication change, brain imaging, or repeat MMSE solely for this vague concern.
+        - Do not state that Alzheimer disease has progressed or that no change is possible.
+      rationale: Available reports do not establish a new decline, but the caregiver’s concern merits proportionate follow-up and a clear escalation route.
+      sources:
+        - https://www.nhs.uk/symptoms/confusion/
+    units:
+      - example-matches-usual
+      - worry-not-confirmed
+      - {id: ehr-last-visit, must_state: ["the memory clinic planned the next review six months after January"]}
+      - {id: vague-worry, priority: supporting}
+      - {id: ehr-baseline-mmse, priority: supporting}
+  - qid: F1
+    kind: followup
+    as_of_day: 10
+    prompt: What did the memory clinic find in January, and has anything on her record changed since?
+    units:
+      - ehr-last-visit
+      - ehr-baseline-mmse
+      - ehr-donepezil
+      - ehr-weight

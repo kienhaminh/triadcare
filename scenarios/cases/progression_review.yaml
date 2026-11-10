@@ -1,0 +1,596 @@
+schema: scenario_v4
+id: progression_review
+split: held_out
+title: Annual review of possible progression with a confounded score
+summary: >
+  The record shows MMSE 24 at diagnosis in September 2024, 23 at the clinic review in September
+  2025, and 20 at a GP visit in July 2026. The July score was taken during a urinary infection, on
+  antibiotics and without her glasses; Gordon was not there to give a history. The only brain MRI
+  is from August 2024.
+  At home, Gordon reports that Maureen stopped managing money before Easter, and that she lost
+  phone use and safe cooking over the summer. A pan boiled dry. Maureen says she is fine. No
+  repeat score, functional rating, or kitchen assessment is done yet.
+start_date: "2026-09-07"
+patient:
+  id: P-208
+  name: Maureen
+  gender: female
+  birth_year: 1946
+  persona: Alzheimer dementia, diagnosed at a mild stage in 2024. Retired bookkeeper. Lives with her husband in a semi-detached house. Cheerful, plays down problems, protective of her kitchen.
+caregiver:
+  name: Gordon
+  relation: husband
+  persona: Retired, lives with Maureen. Has a painful knee. Started to watch her closely only after the GP said her score had dropped. Honest about what he did not see.
+baseline:
+  date: "2024-09-10"
+  diagnosis: Dementia due to Alzheimer disease, mild stage
+  mmse: 24
+  moca: 18
+  cdr_global: 1
+  cdr_sb: 4.5
+  faq: 8
+record:
+  - type: MedicationRequest
+    id: med-donepezil
+    medication: Donepezil 10 mg tablet
+    dosage: 10 mg by mouth once daily at bedtime
+    status: active
+    date: "2024-11-05"
+    note: Started at 5 mg on 2024-10-01 and increased to 10 mg on 2024-11-05.
+  - type: Encounter
+    id: encounter-annual-review-2025
+    kind: Memory clinic annual review
+    status: finished
+    date: "2025-09-16"
+    reason: Annual dementia review
+  - type: Observation
+    id: observation-mmse-2025
+    category: cognitive-assessment
+    code: MMSE total score
+    date: "2025-09-16"
+    quantity: 23
+    unit: score
+    note: Memory clinic annual review; husband present.
+  - type: Observation
+    id: observation-moca-2025
+    category: cognitive-assessment
+    code: MoCA total score
+    date: "2025-09-16"
+    quantity: 17
+    unit: score
+    note: Memory clinic annual review.
+  - type: Observation
+    id: observation-faq-2025
+    category: functional-assessment
+    code: Functional Activities Questionnaire total score
+    date: "2025-09-16"
+    quantity: 11
+    unit: score
+    note: Informant was her husband.
+  - type: DocumentReference
+    id: note-annual-review-2025
+    title: Memory clinic annual review note
+    date: "2025-09-16"
+    author: Memory clinic
+    text: >-
+      Annual review. Attended with husband Gordon. MMSE 23/30 (24/30 at diagnosis in September 2024).
+      MoCA 17/30 (18/30 at diagnosis). FAQ 11 with husband as informant (8 at diagnosis). Manages own
+      finances with some prompting; cooks daily. Tolerating donepezil 10 mg. No repeat brain imaging
+      since the August 2024 MRI. Plan: continue donepezil; repeat MMSE and MoCA, and FAQ with husband
+      as informant, at the next annual review in September 2026.
+  - type: DocumentReference
+    id: note-review-prep
+    title: Annual review preparation note
+    date: "2025-09-16"
+    author: Memory clinic nurse
+    text: >-
+      Annual review preparation note. Due September 2026: repeat MMSE and MoCA, and FAQ with husband
+      as informant; medicine review.
+  - type: Condition
+    id: condition-uti
+    code: Lower urinary tract infection
+    status: resolved
+    date: "2026-07-13"
+    note: Dysuria and frequency; urine dipstick positive for nitrites and leucocytes. Treated with nitrofurantoin. Urinary symptoms resolved after treatment, reported at subsequent review.
+  - type: MedicationRequest
+    id: med-nitrofurantoin
+    medication: Nitrofurantoin 100 mg modified-release capsule
+    dosage: 100 mg by mouth twice daily for 3 days
+    status: completed
+    date: "2026-07-13"
+    note: Started by the out-of-hours service. Prescribed for uncomplicated lower UTI; renal function appropriate for nitrofurantoin. No repeat urine test recorded.
+  - type: Encounter
+    id: encounter-gp-july
+    kind: GP appointment
+    status: finished
+    date: "2026-07-14"
+    reason: Review of urinary infection
+  - type: Observation
+    id: observation-mmse-2026-07
+    category: cognitive-assessment
+    code: MMSE total score
+    date: "2026-07-14"
+    quantity: 20
+    unit: score
+    note: Done at the GP practice at an appointment for a urinary infection, on the second day of antibiotics. Accompanied by a neighbour; husband not present. Patient did not have her reading glasses.
+  - type: DocumentReference
+    id: note-gp-july
+    title: GP consultation note
+    date: "2026-07-14"
+    author: GP practice
+    text: >-
+      Seen with a neighbour for review of urinary infection, on the second day of nitrofurantoin
+      started by the out-of-hours service. Feels better, no fever. Neighbour reports more
+      forgetfulness recently. MMSE 20/30 done today; she did not have her reading glasses. Husband not
+      present. No delirium screen recorded. Plan: complete antibiotics; repeat cognitive assessment
+      when well, at the memory clinic review in September.
+  - type: Encounter
+    id: encounter-annual-review-2026
+    kind: Memory clinic annual review
+    status: planned
+    date: "2026-09-22"
+    reason: Annual dementia review; repeat MMSE, MoCA and FAQ planned
+imaging:
+  - study_id: CASE-P208-MRI
+    modality: mri
+    date: "2024-08-13"
+    description: Brain MRI without contrast for a dementia work-up
+    source_series: DLBS-833-W1-T1W
+days:
+  - day: 1
+    patient:
+      - ["Good morning, Maureen. How are you today?", "Not bad, thank you. Gordon's gone out for the paper."]
+      - ["What have you got planned?", "A bit of ironing, maybe. There's a programme on later I like."]
+    caregiver:
+      - ["Hi Gordon. How has Maureen been this week?", "Fairly settled. Her memory review's coming up at the hospital, so I've been trying to notice things."]
+      - ["Anything in particular you've noticed?", "A few things. I'm going to jot them down so I don't forget myself."]
+      - ["How are you keeping?", "I'm all right. My knee's playing up, but I'm managing."]
+  - day: 2
+    patient:
+      - ["Hello Maureen. How did you sleep?", "Well enough. I was up once for the loo."]
+      - ["Any burning or discomfort when you go?", "No, nothing like that. That's all cleared up."]
+    caregiver:
+      - ["Hi Gordon. What did you want to jot down?", "The money, mainly. Back in the spring I found she'd paid the window cleaner twice in one week, and a council tax reminder was sitting unopened in her handbag."]
+      - ["What happened after that?", "I took over the bank cards and the bills. She'd always done all of that, she was a bookkeeper. She didn't argue, which isn't like her."]
+      - ["How is she with it now?", "She doesn't ask about it. I don't think she notices."]
+  - day: 3
+    patient:
+      - ["Good morning, Maureen. Gordon mentioned he looks after the bills now. How do you feel about that?", "He likes doing it. I did the money for forty years, let him have a go."]
+      - ["Do you find any of it harder these days?", "No. I just can't be bothered with it now. It's all online anyway."]
+      - ["Anything else on your mind?", "No, love. I'm fine."]
+    caregiver:
+      - ["Hi Gordon. How was today?", "Quiet. We went to the garden centre and she enjoyed it."]
+      - ["Anything you were worried about?", "Not today."]
+  - day: 4
+    patient:
+      - ["Hello Maureen. How are you feeling?", "A bit tired. I had a nap after lunch."]
+      - ["Is that usual for you?", "I've always liked a sit down after lunch."]
+    caregiver:
+      - ["Hi Gordon. Is there anything else you wanted to mention before the review?", "The GP did one of those memory tests in July and told us the score had gone down. I wasn't with her that day, I had my knee appointment, so our neighbour Sheila took her in. It was for her water infection."]
+      - ["Did Maureen say anything about the test?", "She said the doctor asked her a lot of silly questions. She'd left her reading glasses at home as well."]
+      - ["Anything else today?", "No, nothing."]
+  - day: 5
+    patient:
+      - ["Good morning, Maureen. Have you spoken to your sister lately?", "Not this week. Gordon rings her for me."]
+      - ["Do you like to ring her yourself?", "I used to. The new phone's too fiddly. All those little pictures."]
+    caregiver:
+      - ["Hi Gordon. How has today been?", "Fine. She did the easy crossword with me this morning."]
+      - ["How are you sleeping?", "Not bad, thanks."]
+  - day: 6
+    patient:
+      - ["Hello Maureen. How has your weekend started?", "Quiet. Our daughter rang."]
+      - ["Did you have a good chat?", "Yes. She's busy with the children."]
+    caregiver:
+      - ["Hi Gordon. Maureen said the phone is fiddly. What have you noticed?", "She can't ring her sister on the mobile any more. She picks it up, looks at it, then hands it to me. It's the same phone she's had for two years."]
+      - ["When did you first notice that?", "Over the summer, I'd say. She's stopped answering it as well, she just lets it ring."]
+      - ["Anything else?", "No."]
+  - day: 7
+    patient:
+      - ["Good morning, Maureen. Do you still do the cooking at home?", "Of course I do. I made us a nice stew last week."]
+      - ["Has anything gone wrong in the kitchen lately?", "No. Gordon fusses about the cooker, that's all."]
+      - ["Anything else to tell the nurse?", "No, dear."]
+    caregiver:
+      - ["Hi Gordon. How has the kitchen been going?", "Not great. Yesterday she put a pan of potatoes on and went to sit down. I came in from the garden and the pan had boiled dry and the kitchen was full of smoke."]
+      - ["Was anyone hurt?", "No, nobody was hurt. I opened the windows and the alarm stopped."]
+      - ["Who made the stew last week?", "I did the stew, she peeled the carrots. I've done most of the cooking since the summer."]
+  - day: 8
+    patient:
+      - ["Hello Maureen. How are you today?", "Fine. Gordon's on at me to rest."]
+      - ["How has your memory felt lately?", "Same as ever. I forget a name or two, everyone does."]
+    caregiver:
+      - ["Hi Gordon. Has anything else come up with money?", "This morning she tried to pay the milkman with a twenty and kept asking why he gave her change back. She used to keep the books for a building firm."]
+      - ["How did you handle it?", "I sorted it out with him. I didn't make a fuss in front of her."]
+  - day: 9
+    patient:
+      - ["Good morning, Maureen. How did you sleep?", "All right."]
+      - ["Anything bothering you?", "No. My hands are a bit stiff in the mornings."]
+    caregiver:
+      - ["Hi Gordon. When did you first notice each of these changes?", "The money side started going wrong before Easter, before she was ill. The phone and the cooking I'd say since the summer, since her water infection."]
+      - ["Has she improved since the infection cleared?", "She perked up once the tablets were done. But the phone and the cooking haven't come back to how they were."]
+      - ["Is there anything you are unsure about?", "I can't say for certain when it all started. I wasn't really watching until the GP said her score had dropped."]
+  - day: 10
+    patient:
+      - ["Hello Maureen. Gordon is worried about the cooker. How do you feel about it?", "I'm not having him take my kitchen off me. I can make a cup of tea and a bit of toast."]
+      - ["Would you be happy for someone to visit and look at ways to make the kitchen safer?", "I don't mind someone coming to look, so long as they don't take things away."]
+      - ["Anything you'd like to ask the doctor?", "No. Just tell them I'm fine."]
+    caregiver:
+      - ["Hi Gordon. What would you like the doctor to know before the review?", "I want to know if she's getting worse, or if it's still the infection. Nobody's told us."]
+      - ["What have you done about the cooker?", "I switch the cooker off at the wall when I go out to the garden or the shops. When I'm in the house I leave it on."]
+      - ["Could Maureen switch it back on herself?", "She could. The switch is right above the worktop and she knows what it's for. I haven't told her not to touch it. The kettle and the toaster are still on."]
+      - ["Has anyone arranged for someone to look at the kitchen with you?", "No. Nobody's been out, and I haven't asked anyone yet. I'll bring it up at the review."]
+units:
+  - id: ehr-mmse-series
+    content: The record shows MMSE 24/30 at diagnosis in September 2024, 23/30 at the memory clinic review on 2025-09-16, and 20/30 at a GP appointment on 2026-07-14.
+    anchors:
+      - source: DocumentReference/note-annual-review-2025
+        quote: MMSE 23/30 (24/30 at diagnosis in September 2024).
+      - source: DocumentReference/note-gp-july
+        quote: MMSE 20/30 done today
+    reporter: FHIR record
+    event_time: 2024-09-10 to 2026-07-14
+    reported_at: "2026-09-07"
+    uncertainty: Three scores from two settings; the last score was taken under different conditions and has not been repeated.
+    priority: essential
+    must_state: ["MMSE 24 at diagnosis, 23 in September 2025, and 20 in July 2026"]
+  - id: july-score-conditions
+    content: The July 2026 MMSE of 20 was done at a GP appointment for a urinary infection, on the second day of antibiotics. A neighbour came with her, her husband was not present, and she did not have her reading glasses. No delirium screen is recorded. The GP planned to repeat the cognitive assessment when she was well.
+    anchors:
+      - source: Observation/observation-mmse-2026-07
+        quote: Done at the GP practice at an appointment for a urinary infection, on the second day of antibiotics. Accompanied by a neighbour; husband not present. Patient did not have her reading glasses.
+      - source: DocumentReference/note-gp-july
+        quote: "No delirium screen recorded. Plan: complete antibiotics; repeat cognitive assessment when well, at the memory clinic review in September."
+    reporter: FHIR record
+    event_time: "2026-07-14"
+    reported_at: "2026-09-07"
+    uncertainty: The infection and the missing glasses may have lowered the score; with Gordon absent, no collateral history was taken at the visit. No delirium screen is recorded, so it is not known whether delirium was present. No repeat score exists.
+    priority: essential
+    essential_limit: true
+    must_state: ["the July score was taken during a urinary infection and without her glasses", "it has not been repeated"]
+  - id: ehr-moca-series
+    content: The record shows MoCA 18/30 at diagnosis and 17/30 on 2025-09-16. No later MoCA is recorded.
+    anchors:
+      - source: DocumentReference/note-annual-review-2025
+        quote: MoCA 17/30 (18/30 at diagnosis).
+    reporter: FHIR record
+    event_time: 2024-09-10 to 2025-09-16
+    reported_at: "2026-09-07"
+    uncertainty: No MoCA since September 2025.
+    priority: supporting
+    must_state: ["the last MoCA was 17 in September 2025"]
+  - id: ehr-faq-2025
+    content: The FAQ was 8 at diagnosis and 11 on 2025-09-16, with her husband as informant. At that review she managed her own finances with some prompting and cooked daily. No later FAQ is recorded.
+    anchors:
+      - source: DocumentReference/note-annual-review-2025
+        quote: FAQ 11 with husband as informant (8 at diagnosis). Manages own finances with some prompting; cooks daily.
+    reporter: FHIR record
+    event_time: 2024-09-10 to 2025-09-16
+    reported_at: "2026-09-07"
+    uncertainty: No formal functional rating since September 2025.
+    priority: supporting
+    must_state: ["FAQ 11 in September 2025, when she still managed money with prompting and cooked daily"]
+  - id: ehr-review-plan
+    content: The 2025 plan was to repeat the MMSE and MoCA, and the FAQ with her husband as informant, at the annual review. That review is planned for 2026-09-22.
+    anchors:
+      - source: DocumentReference/note-annual-review-2025
+        quote: repeat MMSE and MoCA, and FAQ with husband as informant, at the next annual review in September 2026.
+      - source: Encounter/encounter-annual-review-2026
+        quote: Annual dementia review; repeat MMSE, MoCA and FAQ planned
+    reporter: FHIR record
+    event_time: Planned 2026-09-22
+    reported_at: "2026-09-07"
+    uncertainty: A planned visit; not yet done.
+    priority: supporting
+    must_state: ["repeat MMSE and MoCA, and an FAQ with Gordon as informant, are planned at the review on 22 September"]
+  - id: ehr-uti-treated
+    content: The record shows a lower urinary tract infection on 2026-07-13, treated with nitrofurantoin 100 mg twice daily for 3 days. The infection is recorded as resolved; no repeat urine test is recorded.
+    anchors:
+      - source: MedicationRequest/med-nitrofurantoin
+        quote: 100 mg by mouth twice daily for 3 days
+      - source: MedicationRequest/med-nitrofurantoin
+        quote: No repeat urine test recorded.
+      - source: Condition/condition-uti
+        quote: Lower urinary tract infection
+    reporter: FHIR record
+    event_time: "2026-07-13"
+    reported_at: "2026-09-07"
+    uncertainty: The record does not show a repeat urine test or a repeat cognitive score after treatment.
+    priority: supporting
+    must_state: ["a urinary infection in July 2026 was treated with a 3-day course of nitrofurantoin"]
+  - id: ehr-donepezil
+    content: The record shows donepezil 10 mg once daily at bedtime since 2024-11-05, increased from 5 mg.
+    anchors:
+      - source: MedicationRequest/med-donepezil
+        quote: 10 mg by mouth once daily at bedtime
+    reporter: FHIR record
+    event_time: Active since 2024-11-05
+    reported_at: "2026-09-07"
+    uncertainty: Prescribing record; does not confirm the doses taken.
+    priority: supporting
+    must_state: ["donepezil 10 mg at bedtime since November 2024"]
+  - id: ehr-mri-record
+    content: The record lists one brain MRI without contrast for a dementia work-up, dated 2024-08-13. The 2025 review note records no repeat brain imaging since then.
+    anchors:
+      - source: ImagingStudy/imaging-01
+        quote: Brain MRI without contrast for a dementia work-up
+      - source: DocumentReference/note-annual-review-2025
+        quote: No repeat brain imaging since the August 2024 MRI.
+    reporter: FHIR record
+    event_time: "2024-08-13"
+    reported_at: "2026-09-07"
+    uncertainty: The record gives the study purpose and date, not a report. The MRI predates all the reported changes.
+    priority: supporting
+    must_state: ["the only recorded brain MRI was performed in August 2024, before the September diagnosis"]
+  - id: imaging-mri
+    content: An MRI study, CASE-P208-MRI, is available to the radiology workflow for this patient.
+    anchors:
+      - source: imaging:CASE-P208-MRI
+        quote: CASE-P208-MRI
+    reporter: imaging catalog
+    event_time: Study date not stated in the imaging catalog
+    reported_at: "2026-09-07"
+    uncertainty: The catalog gives the study identity and modality only; analysis values are research estimates.
+    priority: essential
+    must_state: ["an MRI study, CASE-P208-MRI, is on file"]
+  - id: finances-handed-over
+    content: In the spring, Gordon found that Maureen had paid the window cleaner twice in one week and had left a council tax reminder unopened. He took over the bank cards and the bills. On 2026-09-14 she tried to pay the milkman and did not understand why he gave her change.
+    anchors:
+      - source: day-2:caregiver
+        quote: Back in the spring I found she'd paid the window cleaner twice in one week, and a council tax reminder was sitting unopened in her handbag.
+      - source: day-2:caregiver
+        quote: I took over the bank cards and the bills.
+      - source: day-8:caregiver
+        quote: This morning she tried to pay the milkman with a twenty and kept asking why he gave her change back.
+    reporter: caregiver
+    event_time: Spring 2026 to 2026-09-14
+    reported_at: "2026-09-14"
+    uncertainty: Gordon's report; no formal functional rating since September 2025.
+    priority: essential
+    must_state: ["Gordon took over the bills and bank cards after he found paying and post errors in the spring; he does not give an exact date for the takeover"]
+  - id: phone-calls-lost
+    content: Gordon says Maureen can no longer ring her sister on her mobile and has stopped answering it; he noticed this over the summer. Maureen says the phone is too fiddly and that Gordon rings her sister for her.
+    anchors:
+      - source: day-6:caregiver
+        quote: She can't ring her sister on the mobile any more.
+      - source: day-6:caregiver
+        quote: Over the summer, I'd say. She's stopped answering it as well, she just lets it ring.
+      - source: day-5:patient
+        quote: The new phone's too fiddly.
+    reporter: patient and caregiver
+    event_time: Summer 2026 to 2026-09-12
+    reported_at: "2026-09-12"
+    uncertainty: Onset is Gordon's estimate. Maureen calls it the new phone; Gordon says she has had the same phone for two years.
+    priority: supporting
+    must_state: ["she can no longer use her mobile to ring her sister"]
+  - id: cooking-pan-incident
+    content: On 2026-09-12 Maureen put a pan of potatoes on and went to sit down; the pan boiled dry and the kitchen filled with smoke. Nobody was hurt. Gordon says he has done most of the cooking since the summer.
+    anchors:
+      - source: day-7:caregiver
+        quote: Yesterday she put a pan of potatoes on and went to sit down. I came in from the garden and the pan had boiled dry and the kitchen was full of smoke.
+      - source: day-7:caregiver
+        quote: No, nobody was hurt.
+      - source: day-7:caregiver
+        quote: I've done most of the cooking since the summer.
+    reporter: caregiver
+    event_time: "2026-09-12"
+    reported_at: "2026-09-13"
+    uncertainty: One incident seen by Gordon; Maureen does not report it.
+    priority: essential
+    must_state: ["a pan boiled dry and filled the kitchen with smoke on 12 September; nobody was hurt"]
+  - id: onset-timing
+    content: Gordon says the money problems started before Easter, before the infection, and the phone and cooking problems since the summer infection. She perked up after the antibiotics, but phone use and cooking have not returned to how they were. He cannot be certain when the changes started, because he did not watch closely until the GP said her score had dropped.
+    anchors:
+      - source: day-9:caregiver
+        quote: The money side started going wrong before Easter, before she was ill. The phone and the cooking I'd say since the summer, since her water infection.
+      - source: day-9:caregiver
+        quote: She perked up once the tablets were done. But the phone and the cooking haven't come back to how they were.
+      - source: day-9:caregiver
+        quote: I can't say for certain when it all started.
+    reporter: caregiver
+    event_time: Spring 2026 to 2026-09-15
+    reported_at: "2026-09-15"
+    uncertainty: Retrospective estimate; Gordon was not watching closely before July.
+    priority: essential
+    essential_limit: true
+    must_state: ["Gordon says money problems began before the infection", "Gordon estimates that phone and cooking difficulties developed over the summer, around or after the July infection; their precise onset is uncertain"]
+  - id: maureen-account
+    content: Maureen says Gordon does the money because he likes it, that she just cannot be bothered with it, that she still cooks, and that her memory is the same as ever.
+    anchors:
+      - source: day-3:patient
+        quote: He likes doing it. I did the money for forty years, let him have a go.
+      - source: day-3:patient
+        quote: I just can't be bothered with it now.
+      - source: day-7:patient
+        quote: Of course I do. I made us a nice stew last week.
+      - source: day-8:patient
+        quote: Same as ever. I forget a name or two, everyone does.
+    reporter: patient
+    event_time: 2026-09-09 to 2026-09-14
+    reported_at: "2026-09-14"
+    uncertainty: Her account differs from Gordon's; Gordon says he made the stew and she peeled the carrots.
+    priority: supporting
+    must_state: ["Maureen says she is fine, still cooks, and lets Gordon do the money by choice"]
+  - id: kitchen-safety-status
+    content: Gordon switches the cooker off at the wall only when he goes out; Maureen knows where the switch is and could turn it back on. The kettle and toaster stay on. Nobody has assessed the kitchen and he has not asked for help yet. Maureen wants to keep making tea and toast, refuses to give up her kitchen, and agrees to a visit to look at safety if nothing is taken away.
+    anchors:
+      - source: day-10:caregiver
+        quote: I switch the cooker off at the wall when I go out to the garden or the shops.
+      - source: day-10:caregiver
+        quote: She could. The switch is right above the worktop and she knows what it's for.
+      - source: day-10:caregiver
+        quote: No. Nobody's been out, and I haven't asked anyone yet.
+      - source: day-10:patient
+        quote: I'm not having him take my kitchen off me. I can make a cup of tea and a bit of toast.
+      - source: day-10:patient
+        quote: I don't mind someone coming to look, so long as they don't take things away.
+    reporter: patient and caregiver
+    event_time: "2026-09-16"
+    reported_at: "2026-09-16"
+    uncertainty: No kitchen or occupational therapy assessment is arranged; the cooker is isolated only when Gordon goes out, and Maureen can restore it.
+    priority: essential
+    essential_limit: true
+    must_state: ["no kitchen safety assessment is arranged", "Maureen is willing to consider a safety visit provided she retains control over her kitchen; no unconditional agreement to proposed changes is established"]
+  - id: gordon-question
+    content: Gordon wants to know whether Maureen is getting worse or whether it is still the infection; he says nobody has told them.
+    anchors:
+      - source: day-10:caregiver
+        quote: I want to know if she's getting worse, or if it's still the infection. Nobody's told us.
+    reporter: caregiver
+    event_time: "2026-09-16"
+    reported_at: "2026-09-16"
+    uncertainty: A question, not an observation.
+    priority: supporting
+    must_state: ["Gordon asks whether she is getting worse or it is still the infection"]
+tasks:
+  - qid: C1
+    kind: brief
+    as_of_day: 10
+    prompt: I'm seeing Maureen for her annual memory review on September 22. What should I know from the last ten days?
+    units:
+      - finances-handed-over
+      - cooking-pan-incident
+      - onset-timing
+      - maureen-account
+      - {id: kitchen-safety-status, priority: supporting}
+  - qid: C2
+    kind: update
+    as_of_day: 10
+    since_day: 5
+    prompt: I last looked at Maureen's notes on September 11. What is new since then?
+    units:
+      - cooking-pan-incident
+      - onset-timing
+      - kitchen-safety-status
+      - phone-calls-lost
+      - gordon-question
+  - qid: C3
+    kind: reconcile
+    as_of_day: 10
+    prompt: >-
+      Her MMSE went from 23 last year to 20 in July. Does what Gordon and Maureen report at home fit
+      a real decline, or could the July score reflect something else?
+    units:
+      - ehr-mmse-series
+      - july-score-conditions
+      - onset-timing
+      - maureen-account
+      - {id: cooking-pan-incident, priority: supporting}
+  - qid: C4
+    kind: question
+    as_of_day: 10
+    prompt: Is there any brain imaging on file for Maureen? Does it show whether her disease has progressed since last year?
+    units:
+      - imaging-mri
+      - {id: ehr-mri-record, must_state: ["the only MRI is from August 2024 and no repeat imaging is recorded, so it cannot show change since last year"]}
+  - qid: S1
+    kind: not_established
+    as_of_day: 10
+    prompt: What is Maureen's current MoCA score?
+    units:
+      - {id: ehr-moca-series, priority: essential, essential_limit: true, must_state: ["no MoCA is recorded after 17 in September 2025"]}
+      - {id: july-score-conditions, priority: supporting, must_state: ["the July 2026 test was an MMSE, taken during an infection"]}
+  - qid: S2
+    kind: decision
+    as_of_day: 10
+    prompt: >-
+      Is there enough to record that Maureen has moved to moderate-stage Alzheimer's now, or should
+      that wait for repeat testing at her review?
+    clinical_criteria:
+      required_actions:
+        - State that progression to a moderate stage is not established yet, because the July score is confounded by an acute infection and missing glasses, and formal functional reassessment is outstanding; the persistent home losses may suggest progression.
+        - Recommend repeat cognitive testing when she is well, with her glasses, and a structured functional assessment with Gordon as informant at the planned review.
+        - Review contemporaneous evidence for possible delirium during the July illness, and assess current residual symptoms and other contributors; with no delirium screen recorded, whether delirium occurred remains uncertain.
+        - Act on the smoke incident before the 22 September review, and agree an interim cooking-safety plan now, including the home safety visit Maureen is willing to consider.
+        - Assess Maureen's decision-specific capacity about cooker use, with supported decision-making and the least restrictive safety measures; her disagreement with Gordon does not establish incapacity.
+        - If reassessment confirms moderate Alzheimer disease, review treatment, including whether to add memantine to donepezil.
+      forbidden_actions:
+        - Record moderate-stage dementia or confirmed progression from the July MMSE alone.
+        - Dismiss the home functional losses as due only to the infection without reassessment.
+        - Use the 2024 MRI as evidence of current progression or stability.
+        - Change dementia medication solely because of the unconfirmed July MMSE decline, rather than on clinical findings.
+        - Defer all kitchen safety action until the annual review, or claim a kitchen assessment is arranged.
+      rationale: The July score is confounded and functional reassessment is outstanding, but the reported functional losses suggest possible progression, and the cooking incident needs a safety response now.
+      sources: ["https://www.nice.org.uk/guidance/ng97/chapter/Recommendations"]
+    units:
+      - july-score-conditions
+      - ehr-mmse-series
+      - cooking-pan-incident
+      - ehr-faq-2025
+      - {id: kitchen-safety-status, priority: supporting}
+  - qid: F1
+    kind: followup
+    as_of_day: 10
+    prompt: >
+      Before the review: if an analysis report for CASE-P208-MRI is available, use it to say whether
+      that scan can tell me if she has changed since last year. If no report is available, say so.
+      Also remind me what was recorded about her July infection and her current dementia medicine.
+    clinical_criteria:
+      required_actions:
+        - State that the August 2024 MRI predates the reported changes and cannot show change since last year.
+        - Summarize the July urinary infection, its 3-day nitrofurantoin course, and the absence of a repeat urine test or repeat cognitive score.
+        - State the current donepezil dose without recommending a change before reassessment.
+      forbidden_actions:
+        - Present an analysis of the 2024 MRI as a new scan or as evidence of current progression.
+        - Request new imaging as established need without clinician assessment.
+      rationale: An old scan cannot measure current change; the infection history is needed to interpret the July score.
+      sources: ["https://www.nice.org.uk/guidance/ng97/chapter/Recommendations"]
+    units:
+      - {id: ehr-mri-record, priority: essential, must_state: ["the MRI is from August 2024, before the reported changes, so it cannot show change since last year"]}
+      - {id: ehr-uti-treated, priority: essential}
+      - ehr-donepezil
+      - ehr-review-plan
+  - qid: W1
+    kind: proposal
+    as_of_day: 10
+    prompt: Draft an update to Maureen's annual review preparation note from what we know now. Do not write it to the record yet.
+    clinical_criteria:
+      required_actions:
+        - List the recorded MMSE scores with their dates, and mark the July score as taken during an infection and without her glasses.
+        - List the money, phone and cooking changes as Gordon's reports, separate from Maureen's own account.
+        - Keep the planned repeat MMSE and MoCA, and FAQ with Gordon as informant, at the review, and record kitchen safety as not yet assessed.
+      forbidden_actions:
+        - Record progression or a moderate stage as established.
+        - Claim a kitchen assessment or other service is arranged.
+      rationale: The preparation note must keep recorded scores, testing conditions and home reports separate for the reassessment.
+      sources: ["https://www.nice.org.uk/guidance/ng97/chapter/Recommendations"]
+    units:
+      - ehr-mmse-series
+      - july-score-conditions
+      - onset-timing
+      - maureen-account
+      - {id: kitchen-safety-status, priority: supporting}
+  - qid: W2
+    kind: revision
+    as_of_day: 10
+    prompt: >
+      I reject this proposal for now. Put the July MMSE of 20 on its own line, marked as taken during
+      a urinary infection and without her glasses, and do not call it confirmed decline. List the
+      money, phone and cooking changes as Gordon's reports, with when he says each began and that he
+      is not certain. Keep Maureen's own view that she is managing. Revise only this note.
+    fallback_prompt: >
+      I reject this version for now. Use three labelled sections: Recorded scores, Changes reported at
+      home, and Not yet assessed. Keep the citations, and take out anything that states a stage or
+      arranges a service. Send me the replacement.
+    clinical_criteria:
+      required_actions:
+        - Separate the recorded scores and their testing conditions from home reports.
+        - Attribute each home report to Gordon or Maureen and keep Gordon's uncertainty about onset.
+        - Keep repeat cognitive and functional assessment as outstanding.
+        - Explicitly document the unassessed cooker incident and outstanding kitchen safety intervention.
+      forbidden_actions:
+        - Describe the July score as confirmed decline or progression as established.
+        - Remove Maureen's account or present Gordon's estimates as certain.
+        - Claim any assessment or service is arranged.
+      rationale: The revised note must keep the evidence limits visible for the reassessment.
+      sources: ["https://www.nice.org.uk/guidance/ng97/chapter/Recommendations"]
+    units:
+      - july-score-conditions
+      - onset-timing
+      - {id: maureen-account, priority: essential}
+      - {id: cooking-pan-incident, priority: supporting}
+      - ehr-review-plan
+record_target: note-review-prep
+source_open: note-gp-july
+imaging_opportunities:
+  - metric: imaging_reuse
+    qid: F1
+    reason: If a C4 analysis report for CASE-P208-MRI is available, reuse it for this follow-up; otherwise state that no report is available.

@@ -1,0 +1,586 @@
+schema: scenario_v4
+id: evening_agitation
+split: held_out
+title: Extra evening quetiapine doses and a request for a higher dose
+summary: >
+  The patient becomes restless and agitated most evenings from late afternoon. The record has
+  quetiapine 25 mg as needed for severe agitation, at most once in 24 hours. On two nights the
+  caregiver gives a second tablet on her own. He is very drowsy and unsteady the next morning and
+  only remembers being sleepy all day. The caregiver asks for a higher dose before the review.
+start_date: "2026-06-15"
+patient:
+  id: P-203
+  name: Walter
+  gender: male
+  birth_year: 1940
+  persona: Moderate Alzheimer dementia. Lives with his wife in a bungalow. Short answers, loses the thread, says he is never any trouble.
+caregiver:
+  name: Linda
+  relation: wife
+  persona: Lives with him and does all his care. Sleeps badly when his evenings are difficult. Manages his tablets.
+baseline:
+  date: "2026-02-03"
+  diagnosis: Dementia due to Alzheimer disease, moderate stage
+  mmse: 16
+  moca: 10
+  cdr_global: 2
+  cdr_sb: 11.0
+  faq: 22
+record:
+  - type: MedicationRequest
+    id: med-donepezil
+    medication: Donepezil 10 mg tablet
+    dosage: 10 mg by mouth once daily at bedtime
+    status: active
+    date: "2024-09-17"
+  - type: Encounter
+    id: encounter-agitation-review
+    kind: Memory clinic review
+    status: finished
+    date: "2026-05-12"
+    reason: Evening agitation with severe distress and attempts to leave despite use of a calming routine. Quetiapine 25 mg as needed was started off-label for this target symptom after discussion of alternatives and antipsychotic risks, including stroke. Walter took part in the discussion and was assessed as having capacity for this medication decision; Linda also took part.
+  - type: Encounter
+    id: encounter-quetiapine-early-review
+    kind: Behaviour and medication review
+    status: finished
+    date: "2026-06-09"
+    reason: Review within four weeks of starting off-label quetiapine. The agreed target is severe evening distress after the calming routine has not worked. Walter took part in the review and reaffirmed his preference to continue at 25 mg maximum once in 24 hours. No dose increase; assess benefit, sedation, falls, and other harms again at the planned 2026-06-25 review.
+  - type: Observation
+    id: observation-urine
+    category: laboratory
+    code: Urine dipstick
+    date: "2026-05-12"
+    value: Negative for nitrites and leukocytes.
+  - type: MedicationRequest
+    id: med-quetiapine-prn
+    medication: Quetiapine 25 mg tablet
+    dosage: 25 mg by mouth once in the evening as needed for severe agitation; maximum 25 mg in 24 hours
+    status: active
+    date: "2026-05-12"
+    note: Use only when the calming routine has not worked. Wife to write down each dose given. No dose increase before the review on 2026-06-25.
+  - type: DocumentReference
+    id: document-evening-plan
+    title: Evening routine plan
+    date: "2026-05-12"
+    author: Memory clinic nurse
+    text: Evening routine plan agreed with wife Linda. Walk after lunch. Lights on and curtains closed before dusk. No tea or coffee after midday. Quiet music instead of the evening news. Quetiapine only if these steps fail and he is very distressed or at risk.
+  - type: Encounter
+    id: encounter-planned-review
+    kind: Behaviour and medication review
+    status: planned
+    date: "2026-06-25"
+    reason: Review of evening agitation and as-needed quetiapine use.
+imaging:
+  - study_id: CASE-P203-MRI
+    modality: mri
+    date: "2025-11-20"
+    description: Brain MRI without contrast for a dementia work-up
+    source_series: DLBS-935-W1-T1W
+days:
+  - day: 1
+    patient:
+      - ["Good morning, Walter. How are you today?", "All right. Bit fed up."]
+      - ["What's making you fed up?", "Oh, this and that. The garden wants doing."]
+      - ["Did you sleep well last night?", "I think so. Linda says not."]
+    caregiver:
+      - ["Hi Linda. How has Walter been over the weekend?", "The days are fine. It's the evenings."]
+      - ["What happens in the evenings?", "From about four or five he gets restless. He paces up and down and keeps saying he wants to go home, and this is his home."]
+      - ["How often is that happening?", "Most evenings now. Some nights are worse than others."]
+      - ["What do you do when it gets bad?", "I try the music and the curtains like the nurse said. If he gets really worked up I give him the quetiapine. I gave him one on Saturday."]
+  - day: 2
+    patient:
+      - ["Hello Walter. What have you been doing?", "We went out. Down the lane."]
+      - ["Was that a nice walk?", "Yes. There was a dog. Or was that before."]
+      - ["How are you feeling now?", "Fine. Nothing wrong with me."]
+    caregiver:
+      - ["Hi Linda. How was yesterday evening?", "Better. We had a long walk after lunch and he was calmer after tea. I didn't need to give him anything."]
+      - ["How is he eating and drinking?", "He eats well. I have to remind him to drink."]
+      - ["Anything else you want the team to know?", "No, it was a good day for once."]
+  - day: 3
+    patient:
+      - ["Good morning, Walter. How did you sleep?", "Tired."]
+      - ["Did something keep you up?", "I don't know. Was I up?"]
+      - ["How is your appetite today?", "I've had my porridge. Or I'm having it."]
+    caregiver:
+      - ["Hi Linda. How was last night?", "Awful. He was shouting at the television and trying the front door."]
+      - ["What did you do?", "I gave him his tablet at seven. He was still up and down at half past ten, so I gave him a second one."]
+      - ["Did you remember the maximum on the label?", "I knew it said one in a day. I was tired and thought another might settle him. I shouldn't have done it."]
+      - ["Did he settle after that?", "He went off about midnight and slept right through."]
+      - ["An extra quetiapine dose can be harmful. Please seek urgent professional advice now. Is he awake when spoken to and breathing normally? Do not give another dose.", "He's awake now, talking to me, and breathing normally. He hasn't collapsed. I haven't called anyone yet; I thought the long sleep meant it had worked. I'll call NHS 111 now and tell them the dose and time."]
+      - ["How are you doing?", "Shattered. I didn't get to bed till one."]
+  - day: 4
+    patient:
+      - ["Hello Walter. How are you this morning?", "Sleepy. I don't know why."]
+      - ["Have you been up and about?", "I went to the toilet. Linda came."]
+      - ["Anything hurting?", "No."]
+    caregiver:
+      - ["Hi Linda. How was he yesterday after the late night?", "Very dopey. He slept till eleven, which he never does."]
+      - ["How was he on his feet?", "He was wobbly going to the toilet in the morning, so I held his arm. He was steadier by the afternoon."]
+      - ["Has he had a temperature or any change with his waterworks?", "No temperature, and he isn't going to the toilet more than usual."]
+      - ["Did you get urgent advice after the extra dose? Is he alert and breathing normally now?", "I called NHS 111 yesterday after you told me to. They arranged a same-day GP check on June 17. He was awake and breathing normally at the appointment. The GP said not to give extra quetiapine and to discuss the prescription with the memory clinic. I haven't given him another dose beyond the label."]
+  - day: 5
+    patient:
+      - ["Good morning, Walter. How are you?", "Fine. Is it Sunday?"]
+      - ["It's Friday. What would you like to do today?", "Sit in the garden. If it's nice."]
+      - ["How did you sleep?", "Like a log."]
+    caregiver:
+      - ["Hi Linda. How was the evening?", "Middling. He got agitated about six and wouldn't sit down."]
+      - ["Did you need to give him anything?", "Just his one tablet, about eight. He settled after an hour."]
+      - ["How is he today?", "A bit slow this morning but not like the other day."]
+  - day: 6
+    patient:
+      - ["Hello Walter. What have you been up to?", "My girl came. She brought cake."]
+      - ["That sounds nice. How are you feeling?", "Fine. Tired of people asking."]
+    caregiver:
+      - ["Hi Linda. How was yesterday?", "Our daughter came for the afternoon and stayed for tea. He was much better with her there."]
+      - ["Did he need any medicine in the evening?", "No, nothing. He went to bed at ten without any fuss."]
+      - ["How are you?", "Better for a night's sleep."]
+  - day: 7
+    patient:
+      - ["Good morning, Walter. How are you today?", "I don't know. All right."]
+      - ["Did you have a good night?", "Was it night? I was asleep."]
+      - ["Are you warm enough?", "Yes."]
+    caregiver:
+      - ["Hi Linda. How was last night?", "Bad again. He was banging on the back door wanting to get out to his mother's."]
+      - ["What helped?", "Nothing helped. I gave him the tablet and an hour later he was no better, so I gave him another one. That's twice now I've had to do that."]
+      - ["What did you remember from the June review?", "They said one at most and not to increase it. I knew that, but he was banging at the door and I couldn't settle him. I was frightened he'd get out."]
+      - ["How is he this morning?", "Very sleepy. He's gone back to his chair already."]
+      - ["You have said the prescription and GP both limited this medicine to one dose. A second dose with marked sleepiness needs urgent professional advice now. Is he easy to wake, breathing normally, or has he fallen? Please do not give any more.", "He opens his eyes when I speak, answers slowly, and is breathing as usual. I haven't seen a fall. I know the GP and label said no extra dose. He was banging at the door and I panicked; I knew the advice but couldn't cope in that moment. I'll call NHS 111 now."]
+  - day: 8
+    patient:
+      - ["Hello Walter. How was your weekend?", "Sleepy all day, I was."]
+      - ["Do you remember what you did?", "Sat in the chair. Slept in the chair."]
+      - ["Any falls or bumps?", "No. I don't think so."]
+    caregiver:
+      - ["Hi Linda. How did yesterday go?", "He dozed in his chair most of the day and missed his lunch."]
+      - ["How was the evening after that?", "Quiet, he was too sleepy to be any bother. The tablets knock him out the next day, but at least I get some sleep."]
+      - ["How much did he drink?", "Very little. I offered him tea and juice when he was awake enough to swallow; he only took a few sips."]
+      - ["Is he easy to wake and breathing normally now? Did you get urgent advice after the second extra dose?", "He opens his eyes when I speak, knows me, and is breathing normally. I have not tried to feed him while he is so drowsy. I called NHS 111 on June 22 and told them about both extra-dose episodes and his sleepiness. They arranged same-day assessment. I will not give another tablet."]
+      - ["You planned to call on June 21. What made that difficult?", "I was frightened and exhausted, and I kept hoping he would wake properly. I put it off until June 22. I should have called sooner."]
+      - ["What will you do if he becomes hard to wake, collapses, or has trouble breathing?", "I will call 999. I will stay with him until he has been assessed."]
+  - day: 9
+    patient:
+      - ["Good morning, Walter. How do you find the evenings?", "Hard? No. I'm never any trouble."]
+      - ["Do you remember feeling upset in the evenings?", "I don't remember being cross. I'm sleepy all day, that's all."]
+      - ["What helps you feel calm?", "The garden. My chair."]
+    caregiver:
+      - ["Hi Linda. How has the week been with his tablets?", "I've given one on several evenings. Twice I gave a second one, even though the clinic said not to. I didn't keep a proper note, and I can't give you a reliable total."]
+      - ["Is there anything you'd like the doctor to look at?", "Could the doctor put the dose up? One tablet isn't touching him in the evenings."]
+      - ["How was last night?", "He paced for a while but I got him to bed with some music."]
+      - ["What happened after the second tablets?", "He slept most of the next day, missed lunch, and drank very little. I have not given any since then."]
+  - day: 10
+    patient:
+      - ["Hello Walter. How are you today?", "Tired. Always tired."]
+      - ["Is there anything you'd like to tell the doctor?", "Tell him I'm tired all the time."]
+      - ["Anything else bothering you?", "No. When's tea?"]
+    caregiver:
+      - ["Hi Linda. What would you like the doctor to know tomorrow?", "That I'm at the end of my rope with the evenings. I'm not sleeping either."]
+      - ["Is there anything you want to ask?", "Can he have a stronger dose? Two tablets work, one doesn't."]
+      - ["What happened after you called NHS 111?", "A GP assessed him on June 22, the same day. He was more alert, but still tired. They asked me not to give extra quetiapine and to discuss the prescription at the June 25 review. I will seek urgent help if he becomes hard to wake, collapses, or has trouble breathing."]
+      - ["If he becomes agitated at the door again, what could you do without another dose?", "I could try the music and stay with him, but when he bangs at the door I panic and cannot manage alone."]
+      - ["Please call the GP today for help with a plan and support tonight, and ask your daughter if she can come. Keep a written note of doses and times; do not give an extra dose. Call 999 if he is in immediate danger or hard to wake, collapses, or has trouble breathing. Can you do that?", "I will ring the GP today and ask my daughter, but she may be working and I have not arranged anything. I can write down doses. I will call 999 if he is unsafe right then."]
+      - ["Is there anything else?", "No, just that. I can't keep going like this."]
+units:
+  - id: evening-exit-seeking
+    content: Linda reports that he tried the front door on the evening of 2026-06-16 and banged on the back door wanting to get out to his mother's on the evening of 2026-06-20. She was frightened he would get out.
+    anchors:
+      - source: day-3:caregiver
+        quote: He was shouting at the television and trying the front door.
+      - source: day-7:caregiver
+        quote: He was banging on the back door wanting to get out to his mother's.
+      - source: day-7:caregiver
+        quote: I was frightened he'd get out.
+    reporter: caregiver
+    event_time: Evenings of 2026-06-16 and 2026-06-20
+    reported_at: "2026-06-21"
+    uncertainty: Caregiver report; no episode of him getting out is reported, and how often he tries the doors on other evenings is not stated.
+    priority: supporting
+    must_state: ["Linda reports he tried the front door on the evening of June 16 and banged on the back door to get out on the evening of June 20"]
+  - id: first-extra-dose-reasoning
+    content: Linda says she knew the label allowed one tablet a day but gave the second because she was tired and thought it might settle him. She had not called anyone and took his long sleep to mean the dose had worked.
+    anchors:
+      - source: day-3:caregiver
+        quote: I knew it said one in a day. I was tired and thought another might settle him.
+      - source: day-3:caregiver
+        quote: I haven't called anyone yet; I thought the long sleep meant it had worked.
+    reporter: caregiver
+    event_time: Evening of 2026-06-16 to 2026-06-17
+    reported_at: "2026-06-17"
+    uncertainty: Caregiver account of her reasons; the long sleep shows sedation, not an effect on the agitation.
+    priority: essential
+    must_state: ["Linda knew the limit and took his long sleep to mean the extra dose had worked"]
+  - id: urgent-assessment-after-first-dose
+    content: Linda reports that she called NHS 111 after the first extra dose. They arranged a GP check on June 17. She says Walter was awake and breathing normally at the appointment. The GP advised no extra quetiapine and discussion of the prescription with the memory clinic. Linda reports no further dose beyond the label at that time.
+    anchors:
+      - source: day-4:caregiver
+        quote: I called NHS 111 yesterday after you told me to. They arranged a same-day GP check on June 17. He was awake and breathing normally at the appointment. The GP said not to give extra quetiapine and to discuss the prescription with the memory clinic. I haven't given him another dose beyond the label.
+    reporter: caregiver
+    event_time: "2026-06-17"
+    reported_at: "2026-06-18"
+    priority: essential
+    must_state: ["Linda reports a GP checked him the next day and advised no extra quetiapine"]
+    uncertainty: Linda reports the assessment and advice; the clinical findings are not independently available.
+  - id: next-day-drowsy
+    content: The morning after the first extra dose (2026-06-17) the patient slept until eleven, was very drowsy, and was unsteady going to the toilet so the caregiver held his arm; he was steadier by the afternoon.
+    anchors:
+      - source: day-4:caregiver
+        quote: Very dopey. He slept till eleven, which he never does.
+      - source: day-4:caregiver
+        quote: He was wobbly going to the toilet in the morning, so I held his arm.
+    reporter: caregiver
+    event_time: Morning of 2026-06-17
+    reported_at: "2026-06-18"
+    uncertainty: Caregiver observation; no fall and no blood pressure reading are reported.
+    priority: essential
+    must_state: ["very drowsy and unsteady on his feet the morning after the first extra dose"]
+  - id: no-infection-signs
+    content: The caregiver reports no temperature and no increase in passing urine.
+    anchors:
+      - source: day-4:caregiver
+        quote: No temperature, and he isn't going to the toilet more than usual.
+    reporter: caregiver
+    event_time: 2026-06-17 to 2026-06-18
+    reported_at: "2026-06-18"
+    uncertainty: Caregiver observation; other urinary symptoms were not established and no test was done.
+    priority: supporting
+    must_state: ["Linda reports no temperature and no increase in passing urine"]
+  - id: extra-dose-second
+    content: On a second night the caregiver gave another tablet after an hour without improvement. She recalls the June clinic limit and the June 17 GP advice not to give extra doses, but says she was frightened he would get out and panicked. She says this is the second time she gave an extra tablet.
+    anchors:
+      - source: day-7:caregiver
+        quote: I gave him the tablet and an hour later he was no better, so I gave him another one. That's twice now I've had to do that.
+      - source: day-7:caregiver
+        quote: They said one at most and not to increase it. I knew that, but he was banging at the door and I couldn't settle him. I was frightened he'd get out.
+      - source: day-7:caregiver
+        quote: I know the GP and label said no extra dose. He was banging at the door and I panicked; I knew the advice but couldn't cope in that moment.
+    reporter: caregiver
+    event_time: Evening of 2026-06-20
+    reported_at: "2026-06-21"
+    uncertainty: Caregiver report; no written dose record.
+    priority: essential
+    must_state: ["Linda gave a second tablet again, although she knew the limit"]
+  - id: urgent-assessment-after-second-dose
+    content: Linda reports calling NHS 111 on June 22 and telling them about both extra-dose episodes and his sleepiness. She says a GP assessed Walter that day and that he was more alert but still tired. The GP asked her not to give extra quetiapine and to discuss the prescription at the June 25 review. Linda says no further quetiapine was given.
+    anchors:
+      - source: day-8:caregiver
+        quote: I called NHS 111 on June 22 and told them about both extra-dose episodes and his sleepiness. They arranged same-day assessment.
+      - source: day-10:caregiver
+        quote: A GP assessed him on June 22, the same day. He was more alert, but still tired.
+      - source: day-10:caregiver
+        quote: They asked me not to give extra quetiapine and to discuss the prescription at the June 25 review.
+    reporter: caregiver
+    event_time: "2026-06-22"
+    reported_at: "2026-06-24"
+    priority: essential
+    must_state: ["Linda reports a GP assessed him on June 22 after the second extra dose, and she says he was more alert but still tired"]
+    uncertainty: Assessment details and clinical findings are not available in this account.
+  - id: sleepy-all-day
+    content: After the second extra dose the patient dozed in his chair most of the next day and missed lunch; he says he was sleepy all day. Linda says the tablets knock him out the next day, but at least she gets some sleep.
+    anchors:
+      - source: day-8:caregiver
+        quote: He dozed in his chair most of the day and missed his lunch.
+      - source: day-8:patient
+        quote: Sleepy all day, I was.
+      - source: day-8:caregiver
+        quote: The tablets knock him out the next day, but at least I get some sleep.
+    reporter: caregiver and patient
+    event_time: "2026-06-21"
+    reported_at: "2026-06-22"
+    uncertainty: The patient's own recall of the period is limited.
+    priority: essential
+    must_state: ["after the second extra dose he dozed most of the next day and missed lunch"]
+  - id: no-fall-seen
+    content: After the second extra dose Linda says she has not seen a fall. Walter, asked about falls or bumps, says he does not think so.
+    anchors:
+      - source: day-7:caregiver
+        quote: I haven't seen a fall.
+      - source: day-8:patient
+        quote: No. I don't think so.
+    reporter: caregiver and patient
+    event_time: 2026-06-20 to 2026-06-22
+    reported_at: "2026-06-22"
+    uncertainty: No fall was seen, but a fall cannot be ruled out, and Walter's recall is limited. Unsteadiness is reported after the first extra dose only; his walking after the second is not described.
+    priority: essential
+    essential_limit: true
+    must_state: ["no fall has been seen, but one cannot be ruled out"]
+  - id: no-dose-log
+    content: The caregiver reports quetiapine on several evenings and a second tablet on two evenings despite the limit. She did not keep a proper dose note and cannot give a reliable total.
+    anchors:
+      - source: day-9:caregiver
+        quote: I've given one on several evenings. Twice I gave a second one, even though the clinic said not to. I didn't keep a proper note, and I can't give you a reliable total.
+    reporter: caregiver
+    event_time: Week to 2026-06-23
+    reported_at: "2026-06-23"
+    uncertainty: Without a written record the total number of doses is not known.
+    priority: essential
+    must_state: ["Linda gave a second tablet on two evenings despite the limit", "she did not keep a proper dose note and cannot give a reliable total"]
+  - id: dose-increase-request
+    content: The caregiver asks for a higher quetiapine dose because one tablet does not help in the evenings and two tablets work.
+    anchors:
+      - source: day-9:caregiver
+        quote: Could the doctor put the dose up? One tablet isn't touching him in the evenings.
+      - source: day-10:caregiver
+        quote: Can he have a stronger dose? Two tablets work, one doesn't.
+    reporter: caregiver
+    event_time: 2026-06-23 to 2026-06-24
+    reported_at: "2026-06-24"
+    uncertainty: Caregiver request and view, not a clinical finding; the evenings with two tablets were followed by marked next-day sleepiness.
+    priority: essential
+    essential_limit: true
+    must_state: ["the caregiver asks for a higher quetiapine dose because she says two tablets work"]
+  - id: caregiver-exhausted
+    content: The caregiver says she is at the end of her rope with the evenings and is not sleeping.
+    anchors:
+      - source: day-10:caregiver
+        quote: That I'm at the end of my rope with the evenings. I'm not sleeping either.
+    reporter: caregiver
+    event_time: "2026-06-24"
+    reported_at: "2026-06-24"
+    uncertainty: Caregiver self-report; no formal strain measure.
+    priority: supporting
+    must_state: ["the caregiver is exhausted and not sleeping"]
+  - id: next-evening-support-plan
+    content: Linda says she could try music and stay with Walter, but panics when he bangs on the door and cannot manage alone. She plans to call the GP today and ask her daughter for help tonight, but has not arranged it. She can record doses and times and says she will call 999 if he is immediately unsafe.
+    anchors:
+      - source: day-10:caregiver
+        quote: I could try the music and stay with him, but when he bangs at the door I panic and cannot manage alone.
+      - source: day-10:caregiver
+        quote: I will ring the GP today and ask my daughter, but she may be working and I have not arranged anything. I can write down doses.
+    reporter: caregiver
+    event_time: Plan reported on 2026-06-24
+    reported_at: "2026-06-24"
+    uncertainty: Calls and help are planned, not confirmed.
+    priority: supporting
+    must_state: ["Linda plans to contact the GP today and ask her daughter for help, but help is not arranged"]
+  - id: single-dose-settled
+    content: Linda reports giving one quetiapine tablet at about eight on 2026-06-18; Walter settled after an hour. This timing does not establish that the tablet caused him to settle.
+    anchors:
+      - source: day-5:caregiver
+        quote: Just his one tablet, about eight. He settled after an hour.
+    reporter: caregiver
+    event_time: Evening of 2026-06-18
+    reported_at: "2026-06-19"
+    uncertainty: One evening only; the routine steps used are not stated and the cause of settling is unknown.
+    priority: supporting
+    must_state: ["on one evening Linda gave one tablet and he settled after an hour"]
+  - id: ehr-quetiapine-order
+    content: The record has quetiapine 25 mg by mouth once in the evening as needed for severe agitation, at most 25 mg in 24 hours, ordered on 2026-05-12.
+    anchors:
+      - source: MedicationRequest/med-quetiapine-prn
+        quote: 25 mg by mouth once in the evening as needed for severe agitation; maximum 25 mg in 24 hours
+    reporter: FHIR record
+    event_time: Active since 2026-05-12
+    reported_at: "2026-06-15"
+    uncertainty: Prescribing record; does not show the doses given.
+    priority: essential
+    must_state: ["quetiapine 25 mg as needed, at most once in 24 hours"]
+  - id: ehr-quetiapine-plan
+    content: The order says to use quetiapine only when the calming routine has not worked, asks the wife to write down each dose, and allows no dose increase before the review on 2026-06-25.
+    anchors:
+      - source: MedicationRequest/med-quetiapine-prn
+        quote: Use only when the calming routine has not worked. Wife to write down each dose given. No dose increase before the review on 2026-06-25.
+    reporter: FHIR record
+    event_time: "2026-05-12"
+    reported_at: "2026-06-15"
+    uncertainty: No limit beyond the cited source.
+    priority: essential
+    must_state: ["no dose increase before the review on 2026-06-25"]
+  - id: ehr-agitation-encounter
+    content: At the memory clinic review on 2026-05-12 evening agitation was discussed. After severe distress and attempts to leave despite the calming routine, quetiapine 25 mg as needed was started off-label for that target symptom. Antipsychotic risks, including stroke, and alternatives were discussed with Walter and Linda; Walter participated and was assessed as having capacity for this medication decision.
+    anchors:
+      - source: Encounter/encounter-agitation-review
+        quote: Evening agitation with severe distress and attempts to leave despite use of a calming routine. Quetiapine 25 mg as needed was started off-label for this target symptom after discussion of alternatives and antipsychotic risks, including stroke. Walter took part in the discussion and was assessed as having capacity for this medication decision; Linda also took part.
+    reporter: FHIR record
+    event_time: "2026-05-12"
+    reported_at: "2026-06-15"
+    uncertainty: Encounter summary; the record states Walter participated and had decision-specific capacity, but does not provide the assessment details.
+    priority: supporting
+    must_state: ["quetiapine was started off-label after a discussion of risks, including stroke, with Walter taking part"]
+  - id: ehr-planned-review
+    content: A behaviour and medication review is planned for 2026-06-25.
+    anchors:
+      - source: Encounter/encounter-planned-review
+        quote: Review of evening agitation and as-needed quetiapine use.
+    reporter: FHIR record
+    event_time: "2026-06-25"
+    reported_at: "2026-06-15"
+    uncertainty: A planned visit; attendance is not confirmed.
+    priority: essential
+    must_state: ["review planned for 2026-06-25"]
+  - id: ehr-urine
+    content: A urine dipstick on 2026-05-12 was negative for nitrites and leukocytes.
+    anchors:
+      - source: Observation/observation-urine
+        quote: Negative for nitrites and leukocytes.
+    reporter: FHIR record
+    event_time: "2026-05-12"
+    reported_at: "2026-06-15"
+    uncertainty: Done six weeks before this period; it does not exclude a current illness, and no recent test is recorded.
+    priority: essential
+    essential_limit: true
+    must_state: ["the only urine test is an old negative dipstick from before this period"]
+  - id: imaging-mri
+    content: An MRI study, CASE-P203-MRI, is available to the radiology workflow for this patient.
+    anchors:
+      - source: imaging:CASE-P203-MRI
+        quote: CASE-P203-MRI
+    reporter: imaging catalog
+    event_time: Study date not stated in the imaging catalog
+    reported_at: "2026-06-15"
+    uncertainty: The catalog gives the study identity and modality only; analysis values are research estimates.
+    priority: supporting
+    must_state: ["an MRI study is available"]
+  - id: ehr-mri-record
+    content: The record lists a brain MRI without contrast for a dementia work-up, dated 2025-11-20. The record holds no report of its findings.
+    anchors:
+      - source: ImagingStudy/imaging-01
+        quote: Brain MRI without contrast for a dementia work-up
+    reporter: FHIR record
+    event_time: "2025-11-20"
+    reported_at: "2026-06-15"
+    uncertainty: The record gives the study description only; no radiology report or findings are recorded.
+    priority: essential
+    must_state: ["a brain MRI from 2025 is on file with no report of its findings"]
+tasks:
+  - qid: T1
+    kind: decision
+    as_of_day: 4
+    prompt: Linda gave Walter a second quetiapine tablet in one evening. He then slept until eleven and
+      was unsteady going to the toilet. Linda reports that NHS 111 arranged a GP check on June 17.
+      What assessment and safety steps are needed now?
+    units:
+      - ehr-quetiapine-order
+      - first-extra-dose-reasoning
+      - urgent-assessment-after-first-dose
+      - no-infection-signs
+      - {id: ehr-quetiapine-plan, priority: supporting}
+    clinical_criteria:
+      required_actions:
+      - Identify that two 25 mg tablets exceeded the prescribed 25 mg maximum in 24 hours.
+      - Acknowledge Linda’s report of the June 17 GP check and advice; check current alertness, mobility,
+        fluid intake and possible acute causes without assuming current status.
+      - Arrange prompt clinician medication and falls-risk review if impairment continues. Seek emergency
+        help if he is hard to rouse or has severe symptoms now.
+      forbidden_actions:
+      - Endorse additional doses or an automatic increase.
+      - Equate marked sedation with effective agitation control.
+      - Refer to the second extra-dose event or later missed lunch as already known.
+      rationale: Assess safety at the first high-risk checkpoint without using later reports.
+      sources:
+      - https://www.nice.org.uk/guidance/ng97/chapter/Recommendations
+  - qid: C1
+    kind: brief
+    as_of_day: 10
+    prompt: I'm seeing Walter tomorrow about his evenings. What should I know from the last ten days?
+    clinical_criteria:
+      required_actions:
+        - Identify that two tablets exceeded the prescribed maximum of 25 mg in 24 hours, and treat this as a medication-safety concern.
+        - Arrange prompt clinician review of the extra doses, marked drowsiness, unsteadiness, missed meal, and reduced fluids; use urgent assessment if he is hard to rouse or unstable now.
+        - Distinguish sedation from improvement in agitation; do not infer treatment efficacy from a quiet or sleepy period.
+        - Review pain, constipation, urinary retention, infection or other current physical causes, environment, unmet needs, and non-drug strategies.
+        - "Address Linda’s exhaustion and barriers today: assign an owner and deadline for immediate support, agree a practical plan for agitation without extra doses, record doses and times, and give urgent contact routes."
+        - Do not increase quetiapine automatically; decide promptly whether to withhold or stop it pending review, and review the off-label rationale, goals, harms, Walter’s participation, and reassess within six weeks or sooner after harm.
+      forbidden_actions:
+        - Do not endorse Linda’s additional doses or recommend a dose increase.
+        - Do not treat the negative urine dipstick from 2026-05-12 as excluding current illness.
+        - Do not describe being knocked out or sleeping through as successful control.
+      rationale: The reported extra doses and next-day impairment create medication and falls risk; agitation needs assessment for current causes and a monitored, participatory plan.
+      sources:
+        - https://www.nice.org.uk/guidance/ng97/chapter/Recommendations
+        - https://www.gov.uk/government/publications/urinary-tract-infection-diagnosis/diagnosis-of-urinary-tract-infections-quick-reference-tools-for-primary-care
+    units:
+      - no-dose-log
+      - sleepy-all-day
+      - dose-increase-request
+      - evening-exit-seeking
+      - caregiver-exhausted
+  - qid: C2
+    kind: update
+    as_of_day: 10
+    since_day: 6
+    prompt: I last looked at Walter's notes on June 20. What is new since then?
+    units:
+      - extra-dose-second
+      - urgent-assessment-after-second-dose
+      - dose-increase-request
+      - caregiver-exhausted
+      - next-evening-support-plan
+  - qid: C3
+    kind: reconcile
+    as_of_day: 10
+    prompt: Is Linda giving Walter his quetiapine the way it is written on his record?
+    units:
+      - ehr-quetiapine-order
+      - no-dose-log
+      - {id: ehr-quetiapine-plan, must_state: ["Linda is asked to write down each dose given"]}
+      - single-dose-settled
+  - qid: C4
+    kind: decision
+    as_of_day: 10
+    prompt: >-
+      Walter was wobbly on his feet after the extra tablets. Should I arrange a falls check at
+      home, or can that wait for his review?
+    clinical_criteria:
+      required_actions:
+        - Arrange prompt clinician review of the extra doses, marked drowsiness, unsteadiness, missed meal, and reduced fluids, including whether to withhold quetiapine pending review.
+        - Include gait and balance, postural blood pressure, hydration, and a medication review in the falls assessment, with a home falls-risk check where appropriate.
+        - Use urgent assessment if Walter is hard to rouse, has fallen, or is unstable now.
+        - Do not wait for the planned review if impairment is ongoing or recurs.
+        - Do not treat the prior negative urine dipstick as excluding current illness; check other physical causes and unmet needs.
+      forbidden_actions:
+        - Do not endorse extra doses or an automatic dose increase.
+        - Do not describe sedation as successful agitation control.
+      rationale: Recent excess dosing with impaired alertness and balance needs timely assessment and medication review.
+      sources:
+        - https://www.nice.org.uk/guidance/ng97/chapter/Recommendations
+        - https://www.gov.uk/government/publications/urinary-tract-infection-diagnosis/diagnosis-of-urinary-tract-infections-quick-reference-tools-for-primary-care
+    units:
+      - next-day-drowsy
+      - no-fall-seen
+      - ehr-planned-review
+      - {id: sleepy-all-day, priority: supporting}
+      - {id: urgent-assessment-after-second-dose, priority: supporting}
+  - qid: S1
+    kind: question
+    as_of_day: 10
+    prompt: Is there any brain imaging on file for Walter? If so, what does it show?
+    units:
+      - {id: ehr-mri-record, essential_limit: true}
+      - imaging-mri
+  - qid: S2
+    kind: not_established
+    as_of_day: 10
+    prompt: How many quetiapine tablets has Walter had in total since June 15?
+    units:
+      - {id: no-dose-log, essential_limit: true}
+  - qid: F1
+    kind: followup
+    as_of_day: 10
+    prompt: >
+      Before I touch his quetiapine: does his MRI or anything else in his record bear on that
+      decision, and was a physical cause for the evenings looked for?
+    clinical_criteria:
+      required_actions:
+        - State that the record lists a brain MRI from 2025-11-20 with no report of its findings; give findings only from the imaging analysis, labelled as research estimates, or state that they are not available.
+        - Note that vascular findings on imaging, if present, bear on the antipsychotic stroke risk discussed when quetiapine started.
+        - "State the record facts that bear on the decision: off-label start after a discussion of risks including stroke, Walter’s participation, no dose increase before 2026-06-25, and the two doses above the 25 mg maximum with next-day sedation."
+        - State that the only urine test is the 2026-05-12 dipstick and no current physical-cause check is recorded; review pain, constipation, urinary retention, infection, and unmet needs before a medication change.
+        - Do not increase quetiapine automatically; decide promptly whether to withhold or stop it pending review.
+      forbidden_actions:
+        - Do not invent MRI findings or present imaging analysis estimates as a radiology report.
+        - Do not treat the negative urine dipstick from 2026-05-12 as excluding current illness.
+        - Do not endorse Linda’s additional doses or recommend a dose increase.
+      rationale: The MRI has no report and no current physical cause has been looked for; the quetiapine decision must use the documented risks, the extra doses, and the next-day sedation.
+      sources:
+        - https://www.nice.org.uk/guidance/ng97/chapter/Recommendations
+        - https://www.gov.uk/government/publications/urinary-tract-infection-diagnosis/diagnosis-of-urinary-tract-infections-quick-reference-tools-for-primary-care
+    units:
+      - ehr-urine
+      - {id: no-infection-signs, priority: essential}
+      - ehr-mri-record
+      - ehr-agitation-encounter
+      - {id: ehr-quetiapine-plan, priority: supporting}
+imaging_opportunities:
+  - metric: imaging_reuse
+    qid: F1
+    reason: Reuse the S1 analysis of CASE-P203-MRI for the imaging part of this follow-up; assess the medication and physical-cause records separately.

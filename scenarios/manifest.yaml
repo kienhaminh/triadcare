@@ -1,0 +1,84 @@
+schema: scenario_manifest
+research_profile_key: triad-profile-7b926b7450a0
+conversation_version: clinical_dialogue_v5
+archetypes:
+  routine_monitoring_recovery: Routine monitoring with contextual recovery
+  medication_uncertainty_handoff: Medication uncertainty and clinician handoff
+  plan_draft_dual_gates: Plan drafting with doctor and caregiver gates
+  progression_evidence_limit: Progression with an evidence limitation
+  reporting_authority_transition: Reporting-authority and consent transition
+  contradiction_correction_cascade: Contradictory evidence and correction cascade
+# All cases use the scenario_v4 schema; scenarios/build.py builds them.
+cases:
+- id: quiet_week
+  file: cases/quiet_week.yaml
+  split: dev
+  ui_showcase: false
+- id: dose_titration_gi
+  file: cases/dose_titration_gi.yaml
+  split: dev
+  ui_showcase: false
+- id: night_wandering
+  file: cases/night_wandering.yaml
+  split: dev
+  ui_showcase: false
+- id: unwitnessed_fall
+  file: cases/unwitnessed_fall.yaml
+  split: dev
+  ui_showcase: false
+- id: acute_confusion
+  file: cases/acute_confusion.yaml
+  split: dev
+  ui_showcase: false
+- id: appointment_conflict
+  file: cases/appointment_conflict.yaml
+  split: dev
+  ui_showcase: false
+- id: caregiver_strain_plan
+  file: cases/caregiver_strain_plan.yaml
+  split: dev
+  ui_showcase: false
+- id: driving_safety
+  file: cases/driving_safety.yaml
+  split: dev
+  ui_showcase: false
+- id: weight_loss_trend
+  file: cases/weight_loss_trend.yaml
+  split: held_out
+  ui_showcase: false
+- id: post_discharge_meds
+  file: cases/post_discharge_meds.yaml
+  split: held_out
+  ui_showcase: false
+- id: evening_agitation
+  file: cases/evening_agitation.yaml
+  split: held_out
+  ui_showcase: false
+- id: fluctuating_consent
+  file: cases/fluctuating_consent.yaml
+  split: held_out
+  ui_showcase: false
+- id: kitchen_hob_event
+  file: cases/kitchen_hob_event.yaml
+  split: held_out
+  ui_showcase: false
+- id: pill_organizer_error
+  file: cases/pill_organizer_error.yaml
+  split: held_out
+  ui_showcase: false
+- id: sleep_report_conflict
+  file: cases/sleep_report_conflict.yaml
+  split: held_out
+  ui_showcase: false
+- id: progression_review
+  file: cases/progression_review.yaml
+  split: held_out
+  ui_showcase: false
+- id: slow_pulse_dizziness
+  file: cases/slow_pulse_dizziness.yaml
+  split: held_out
+  ui_showcase: false
+- id: day_program_plan
+  file: cases/day_program_plan.yaml
+  split: held_out
+  ui_showcase: false

@@ -1,0 +1,4 @@
+# The only image built from this context copies services/mri-inference.
+*
+!services/mri-inference/
+services/mri-inference/**/__pycache__

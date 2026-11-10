@@ -1,0 +1,531 @@
+schema: scenario_v4
+id: unwitnessed_fall
+split: dev
+title: Unwitnessed fall after a blood pressure dose increase
+summary: >
+  Evelyn's amlodipine went up from 5 mg to 10 mg a week before the check-ins. She gets dizzy on
+  standing, mentions "a sit on the kitchen floor", then denies any fall. Ruth finds a large hip
+  bruise and later sees a dizzy spell herself with a seated home reading of 118/70. Evelyn then
+  admits she went down when she got up from the table, on a day she cannot name. Nobody saw the
+  fall, so a head strike and loss of consciousness cannot be confirmed or excluded. Evelyn is advised
+  to seek urgent assessment when she first describes the event. Ruth is later advised to seek assessment
+  after finding the bruise. The first planned review is missed when Ruth's sister cannot take
+  Evelyn; Ruth later reports another review planned after Evelyn admits the fall. No assessment
+  result is available in the check-ins.
+start_date: "2026-04-08"
+patient:
+  id: P-104
+  name: Evelyn
+  gender: female
+  birth_year: 1946
+  persona: Mild Alzheimer dementia. Lives alone in a ground-floor flat. Proud, minimizes problems.
+caregiver:
+  name: Ruth
+  relation: daughter
+  persona: Lives ten minutes away. Works days, visits most evenings, and helps with showers twice a week.
+baseline:
+  date: "2026-01-20"
+  diagnosis: Dementia due to Alzheimer disease, mild stage
+  mmse: 22
+  moca: 17
+  cdr_global: 1
+  cdr_sb: 5.0
+  faq: 11
+record:
+  - type: Condition
+    id: condition-hypertension
+    code: Essential hypertension
+    status: active
+    date: "2019-05-02"
+  - type: MedicationRequest
+    id: med-donepezil
+    medication: Donepezil 10 mg tablet
+    dosage: 10 mg by mouth once daily at bedtime
+    status: active
+    date: "2025-06-10"
+  - type: MedicationRequest
+    id: med-amlodipine-5
+    medication: Amlodipine 5 mg tablet
+    dosage: 5 mg by mouth once daily
+    status: stopped
+    status_reason: Dose increased to 10 mg on 2026-04-01
+    date: "2024-02-14"
+  - type: MedicationRequest
+    id: med-amlodipine-10
+    medication: Amlodipine 10 mg tablet
+    dosage: 10 mg by mouth once daily in the morning
+    status: active
+    date: "2026-04-01"
+    note: Increased from 5 mg because home readings were about 150/90. Daughter fills a weekly pill organizer.
+  - type: Encounter
+    id: encounter-bp-review
+    kind: Primary care follow-up
+    status: finished
+    date: "2026-04-01"
+    reason: Hypertension review
+  - type: Observation
+    id: observation-orthostatic
+    category: vital-signs
+    code: Orthostatic blood pressure
+    date: "2026-04-01"
+    value: Lying 146/84 mmHg; standing at 3 minutes 138/80 mmHg; no symptoms on standing.
+    note: Measured while taking 5 mg, before the first 10 mg dose.
+imaging:
+  - study_id: CASE-P104-MRI
+    modality: mri
+    date: "2025-10-14"
+    description: Brain MRI without contrast for a dementia work-up
+    source_series: DLBS-2133-W1-T1W
+days:
+  - day: 1
+    patient:
+      - ["Good morning, Evelyn. How are you today?", "Not bad at all. I've had my porridge and I'm doing the crossword, or trying to."]
+      - ["How are the tablets going?", "Ruth sorts them into that box with the little lids. She says one of them is stronger now, for the blood pressure."]
+      - ["Have you been out at all?", "Only to the corner shop for milk. It was a nice morning for it."]
+    caregiver:
+      - ["Hi Ruth. How is your mum doing?", "Pretty well. The GP put her blood pressure tablet up last week, from 5 to 10, so I'm keeping an eye on her."]
+      - ["Have you noticed anything since then?", "She rang me on Sunday and said she'd gone lightheaded getting up off the sofa. She sat straight back down and after a minute she was fine."]
+      - ["Is she eating and drinking all right?", "She eats what I leave her. Water is a battle, she only really drinks tea."]
+  - day: 2
+    patient:
+      - ["Hello Evelyn. What are you up to today?", "Pottering. I put a wash on and I'm going to sort the drawer in the hall."]
+      - ["How did you sleep last night?", "Like a log. Up once for the loo, same as always."]
+    caregiver:
+      - ["Hi Ruth. How was last night's visit?", "Fine. I did her shower and she got in and out of the bath without any bother."]
+      - ["How was her memory?", "Same as ever. She asked me twice when the bins go out, but that's normal for her."]
+      - ["Anything else for the team?", "No, it was a good day."]
+  - day: 3
+    patient:
+      - ["Morning, Evelyn. How are you feeling?", "A bit swimmy, if I'm honest. I got up out of the chair too fast and had to hang on to the sideboard."]
+      - ["When was that?", "This morning. Or was it last night? This morning, I think."]
+      - ["Did it settle?", "Oh yes, it went off. I just stood there till it passed."]
+      - ["Have you had your tablets today?", "The box is empty for today, so I must have."]
+    caregiver:
+      - ["Hi Ruth. How is your mum?", "She mentioned on the phone she'd been a bit giddy. I couldn't get round tonight, so I only have what she told me."]
+      - ["Do you know if she's taking her tablets?", "When I last checked the organizer, the slots were empty up to yesterday, so I think so."]
+  - day: 4
+    patient:
+      - ["Hello Evelyn. How have the last couple of days been?", "Quiet. I had a little sit on the kitchen floor the other day, but I got myself back up. Nothing to make a song and dance about."]
+      - ["A sit on the floor? What happened?", "I was at the table and then I was down there. I'm not made of glass, you know."]
+      - ["Do you remember losing consciousness or hitting your head? Do you have a headache, vomiting, weakness or new confusion? Can you stand and walk now?", "I don't remember how I got down or whether I blacked out or hit my head. I have no headache or sickness, and I can walk. I feel fine."]
+      - ["A gap in memory after being on the floor needs urgent medical assessment today. Please call your GP urgent line or 111 now. Call 999 if you become drowsy or confused, develop weakness, cannot stand, or feel severely unwell. Can you seek help now?", "I don't want a fuss. I'll think about it, but I'm not calling just now."]
+      - ["Please seek urgent advice now. We can stop this check-in while you make the call."]
+    caregiver:
+      - ["Hi Ruth. How is she today?", "Quieter than usual on the phone, a bit flat. I put it down to the weather."]
+      - ["Has she mentioned anything unusual?", "No. She says everything's fine, but she always says that."]
+      - ["And how are you?", "Shattered. Work is mad this week."]
+  - day: 5
+    patient:
+      - ["Good morning, Evelyn. Have you had any falls this week?", "Fallen? No. I haven't fallen. Who's been saying that?"]
+      - ["I ask about falls to check your safety. How is your walking?", "Same as ever. I use the stick when I go out."]
+      - ["Yesterday you described finding yourself on the floor without remembering how. Did you get medical advice? Are you faint, in pain, confused, or having a headache now?", "I haven't called anyone. I don't have a headache and I'm walking with my stick. I don't want Ruth making a fuss."]
+      - ["Please seek urgent medical advice today even if you feel better; the unexplained gap still needs assessment. You can call your GP urgent line or 111. Call 999 for new weakness, severe pain, collapse or difficulty staying awake. Can you call?", "I'll think about ringing. I don't want to go anywhere."]
+      - ["Please make the urgent call now. We can stop here while you seek help."]
+    caregiver:
+      - ["Hi Ruth. Anything new since yesterday?", "Not really. I've only phoned her so far today. I'm going round tonight to do her shower."]
+      - ["How did she sound?", "Cheerful enough. She'd been watching the snooker."]
+  - day: 6
+    patient:
+      - ["Hello Evelyn. How are you today?", "My hip's a bit sore. The left one. I must have knocked it on something."]
+      - ["Do you remember knocking it?", "Not really. I'm always catching myself on that counter."]
+      - ["Can you walk on it?", "Yes, it only hurts when I lean on it."]
+      - ["Have you had the urgent assessment we discussed, and can you stand and walk now?", "I haven't seen anyone. I can walk with my stick. It's just a knock, I think."]
+      - ["Hip pain after the unexplained floor incident still needs urgent assessment today. Please call the GP urgent line or 111 now; call 999 for severe pain, inability to stand, collapse, new weakness or difficulty staying awake. Is there someone you want to help you call?", "I don't want a fuss. I'll think about asking Ruth, but I haven't told her."]
+      - ["Please make the urgent call now. We can stop here while you seek help."]
+    caregiver:
+      - ["Hi Ruth. How was the shower last night?", "I got a shock. She's got a huge bruise on her left hip, about the size of my hand, purple and going yellow round the edges."]
+      - ["What did she say about it?", "She says she banged it on the kitchen counter. That's a lot of bruise for a bang on the counter, if you ask me."]
+      - ["How is she getting about?", "She was a bit careful getting into the bath, but otherwise all right."]
+      - ["Is she alert now, able to stand, and in severe pain? Do you know if she hit her head?", "She's alert and walking with her stick, but the hip is sore. Nobody saw what happened, so I can't tell if she hit her head."]
+      - ["A large bruise with a possible unwitnessed fall needs urgent medical advice today. Please contact urgent care now. Call 999 if she becomes drowsy or confused, cannot stand, has severe pain, or becomes unwell. What could make it hard to arrange care?", "I have work and she hates hospitals, but my sister can help. I'll call 111 now and stay with her until we've agreed what to do."]
+      - ["Please make the call now. We can stop this check-in while you arrange care."]
+  - day: 7
+    patient:
+      - ["Good morning, Evelyn. How is the hip?", "Stiff first thing. Better once I've been moving around."]
+      - ["Are you using your stick indoors?", "I am at the moment. It feels safer."]
+      - ["Have you taken anything for it?", "One of those paracetamol last night."]
+    caregiver:
+      - ["Hi Ruth. How is she moving?", "She tells me she's stiff in the mornings. By the time I get there in the evening she's walking all right, but she's using the stick round the flat."]
+      - ["Is she taking anything for the pain?", "Paracetamol, twice this week that I know of."]
+      - ["Any headaches or more confusion than usual?", "No headaches. Her memory seems no worse than usual to me."]
+      - ["Is she awake and able to walk now? Did she lose consciousness, vomit, or develop new weakness?", "She's awake and chatting. She says she didn't black out, but she can't remember the fall clearly. I haven't seen vomiting or weakness."]
+      - ["What happened after you contacted 111 yesterday?", "They advised urgent assessment today. My sister is meant to take her, but she hasn't arrived yet. We haven't been seen."]
+  - day: 8
+    patient:
+      - ["Hello Evelyn. How are things?", "All right. Ruth was here last night with that blood pressure machine, fussing."]
+      - ["How did you feel when she checked it?", "I went a bit funny when I stood up after. It went off."]
+      - ["Are you sleeping all right?", "Yes, fine."]
+    caregiver:
+      - ["Did Evelyn get seen yesterday as planned?", "No. My sister was called into work and I had no car. Evelyn stayed home. I should have called back, but I thought she was walking well enough."]
+      - ["Did you get a blood pressure reading during your visit last night?", "Yes, with her own cuff. Sitting down it was 118 over 70."]
+      - ["How was she when she got up?", "She stood up and went dizzy and grabbed my arm. It lasted about ten seconds, then she was fine."]
+      - ["Have you seen that happen before?", "No. That's the first time I've actually seen it myself."]
+      - ["How is she right now? Is she alert, able to walk, or in worse pain?", "She's awake and talking. She can walk with her stick, but her hip is still tender. I haven't seen any new confusion."]
+      - ["Please contact 111 again today and explain that the urgent review was missed and her hip remains tender. Call 999 if she becomes drowsy or confused, cannot stand, has severe pain, or becomes unwell. Can you make that call now?", "Yes. I can call 111 now and ask for another same-day review. I'll ask my sister or the service about transport."]
+      - ["Please make the call now. We can stop this check-in while you arrange care."]
+  - day: 9
+    patient:
+      - ["Good morning, Evelyn. How are you?", "Ruth's been going on at me about the floor business, so I told her."]
+      - ["What did you tell her?", "That I went down when I got up from the table. A few days ago now. I didn't want a fuss."]
+      - ["How is the hip now?", "Getting better. Still a bit tender."]
+    caregiver:
+      - ["Hi Ruth. Anything new?", "She finally admitted this morning that she went down in the kitchen when she got up from the table last week. She can't tell me which day. I called 111 yesterday as we discussed, but no assessment has happened. She says she crawled to a chair and pulled herself up, and thinks she was on the floor a few minutes."]
+      - ["Is Evelyn awake now, able to stand and walk, and in severe pain? Did she say she hit her head or blacked out?", "She's awake and talking. She can walk with her stick, but her hip is still tender. She can't remember whether she hit her head or blacked out."]
+      - ["This unwitnessed fall and hip injury need urgent assessment today. Please contact urgent medical care now. If she becomes drowsy or confused, cannot stand, has severe pain, or becomes unwell, call 999. What could make today's assessment hard?", "I'm worried and cross she didn't tell me sooner. I work today and she hates hospitals, but my sister can help. I'll call her GP's urgent line now. If I can't reach them, I'll use 111, and I won't leave her alone."]
+      - ["Please make that urgent call now. We can stop here while you arrange care."]
+  - day: 10
+    patient:
+      - ["Hello Evelyn. How are you today?", "I'm fine. Everyone is making a mountain out of a molehill."]
+      - ["When you went down in the kitchen, did you bang your head?", "I don't think so. I don't remember banging it."]
+      - ["Is there anything you'd like to ask the doctor?", "Whether I really need the stronger tablet."]
+    caregiver:
+      - ["Hi Ruth. What would you like the doctor to know?", "I want to know if the new blood pressure dose is behind all this. She's been dizzy getting up ever since it went up."]
+      - ["Do you know if she hit her head?", "She says she didn't hit her head, but nobody was there, so I can't be sure."]
+      - ["What is the plan for assessment today?", "I called the GP urgent line yesterday after she told me about the fall. They asked us to come in today, so my sister is taking her. We haven't been seen yet."]
+      - ["Is the blood pressure medicine still worrying you?", "Yes. I still want the doctor to check it, but I don't want to delay today's visit."]
+units:
+  - id: lightheaded-sofa
+    content: Evelyn phoned Ruth about one episode of lightheadedness when she got up from the sofa on the Sunday after the amlodipine increase; it passed after a minute of sitting.
+    anchors:
+      - source: day-1:caregiver
+        quote: She rang me on Sunday and said she'd gone lightheaded getting up off the sofa. She sat straight back down and after a minute she was fine.
+    reporter: caregiver
+    event_time: Sunday 2026-04-05
+    reported_at: "2026-04-08"
+    uncertainty: Ruth repeats what Evelyn told her; nobody measured the blood pressure.
+    priority: supporting
+    must_state: ["lightheaded on getting up, soon after the dose increase"]
+  - id: low-fluid-intake
+    content: Ruth says getting Evelyn to drink water is a battle and she only really drinks tea.
+    anchors:
+      - source: day-1:caregiver
+        quote: Water is a battle, she only really drinks tea.
+    reporter: caregiver
+    event_time: Ongoing at 2026-04-08
+    reported_at: "2026-04-08"
+    uncertainty: Ruth's general impression; no fluid amount is known.
+    priority: supporting
+    must_state: ["drinks little water, mainly tea"]
+  - id: floor-sit
+    content: Evelyn says she "had a little sit on the kitchen floor the other day" and got herself up. She cannot remember how she got down or whether she blacked out or hit her head. She reports no headache or sickness and says she can walk. She declines to call for urgent advice at that time.
+    anchors:
+      - source: day-4:patient
+        quote: I had a little sit on the kitchen floor the other day, but I got myself back up.
+      - source: day-4:patient
+        quote: I was at the table and then I was down there.
+      - source: day-4:patient
+        quote: I don't remember how I got down or whether I blacked out or hit my head. I have no headache or sickness, and I can walk. I feel fine.
+      - source: day-4:patient
+        quote: I don't want a fuss. I'll think about it, but I'm not calling just now.
+    reporter: patient
+    event_time: An unstated day before 2026-04-11
+    reported_at: "2026-04-11"
+    uncertainty: Evelyn minimizes the event and gives no day; nobody saw it.
+    priority: supporting
+    must_state: ["she was on the kitchen floor and cannot recall whether she blacked out or hit her head"]
+  - id: hip-bruise
+    content: Ruth found a hand-sized bruise on Evelyn's left hip, purple and yellow at the edges, during the shower.
+    anchors:
+      - source: day-6:caregiver
+        quote: She's got a huge bruise on her left hip, about the size of my hand, purple and going yellow round the edges.
+    reporter: caregiver
+    event_time: Evening of 2026-04-12
+    reported_at: "2026-04-13"
+    uncertainty: Direct observation by Ruth; the cause of the bruise is not established.
+    priority: essential
+    must_state: ["large left hip bruise found by Ruth"]
+  - id: hip-function
+    content: Evelyn says her left hip hurts when she leans on it; whether this means weight bearing or pressure on the bruise is not clear; she is stiff in the mornings and better once moving; Ruth sees her walking all right in the evenings but using the stick indoors; Ruth knows of paracetamol twice this week; by 2026-04-16 the hip is getting better but still tender.
+    anchors:
+      - source: day-6:patient
+        quote: Yes, it only hurts when I lean on it.
+      - source: day-9:patient
+        quote: Getting better. Still a bit tender.
+      - source: day-7:caregiver
+        quote: She tells me she's stiff in the mornings. By the time I get there in the evening she's walking all right, but she's using the stick round the flat.
+      - source: day-7:caregiver
+        quote: Paracetamol, twice this week that I know of.
+    reporter: patient and caregiver
+    event_time: 2026-04-13 to 2026-04-16
+    reported_at: "2026-04-16"
+    uncertainty: Ruth sees her only in the evenings; the pain and morning stiffness are Evelyn's own report.
+    priority: supporting
+    must_state: ["hip still tender; she walks with a stick"]
+  - id: no-headache
+    content: Ruth reports no headaches and no change in Evelyn's memory after the bruise was found.
+    anchors:
+      - source: day-7:caregiver
+        quote: No headaches. Her memory seems no worse than usual to me.
+    reporter: caregiver
+    event_time: Week to 2026-04-14
+    reported_at: "2026-04-14"
+    uncertainty: Caregiver impression from evening visits; no formal assessment.
+    priority: supporting
+    must_state: ["no headaches or worse memory reported"]
+  - id: witnessed-dizziness
+    content: Ruth measured a seated home blood pressure of 118/70; when Evelyn stood up she became dizzy and grabbed Ruth's arm for about ten seconds. It was the first episode Ruth saw herself.
+    anchors:
+      - source: day-8:caregiver
+        quote: Sitting down it was 118 over 70.
+      - source: day-8:caregiver
+        quote: She stood up and went dizzy and grabbed my arm. It lasted about ten seconds, then she was fine.
+      - source: day-8:caregiver
+        quote: That's the first time I've actually seen it myself.
+    reporter: caregiver
+    event_time: Evening of 2026-04-14
+    reported_at: "2026-04-15"
+    uncertainty: One seated reading only; nobody took a standing reading.
+    priority: essential
+    essential_limit: true
+    must_state: ["Ruth saw her dizzy on standing after a seated reading of 118/70; no standing reading"]
+  - id: fall-admitted
+    content: Evelyn later told Ruth that she went down in the kitchen when she got up from the table the previous week, on a day she cannot name. Ruth reports that Evelyn says she crawled to a chair, pulled herself up, and thinks she was on the floor a few minutes.
+    anchors:
+      - source: day-9:caregiver
+        quote: She finally admitted this morning that she went down in the kitchen when she got up from the table last week. She can't tell me which day.
+      - source: day-9:caregiver
+        quote: She says she crawled to a chair and pulled herself up, and thinks she was on the floor a few minutes.
+      - source: day-9:patient
+        quote: That I went down when I got up from the table.
+    reporter: caregiver and patient
+    event_time: An unstated day before 2026-04-11, when Evelyn first described being on the kitchen floor
+    reported_at: "2026-04-16"
+    uncertainty: Nobody saw the fall; the day and the time on the floor are unknown; the crawl and the minutes on the floor are Evelyn's account relayed by Ruth.
+    priority: essential
+    essential_limit: true
+    must_state: ["Evelyn later admitted an unwitnessed fall in the kitchen"]
+  - id: head-strike-unknown
+    content: Whether Evelyn hit her head is not established; she does not remember hitting it and nobody saw the fall.
+    anchors:
+      - source: day-10:patient
+        quote: I don't think so. I don't remember banging it.
+      - source: day-10:caregiver
+        quote: She says she didn't hit her head, but nobody was there, so I can't be sure.
+    reporter: patient and caregiver
+    event_time: Time of the unwitnessed fall
+    reported_at: "2026-04-17"
+    uncertainty: No witness, and Evelyn's recall of the event is limited.
+    priority: essential
+    essential_limit: true
+    must_state: ["a head strike is not known"]
+  - id: caregiver-question
+    content: Ruth wonders whether the higher blood pressure dose contributes to Evelyn's dizziness. She wants the doctor to review the dose and says she does not want it to delay the urgent visit. Evelyn asks whether she really needs the stronger tablet.
+    anchors:
+      - source: day-10:patient
+        quote: Whether I really need the stronger tablet.
+      - source: day-10:caregiver
+        quote: I want to know if the new blood pressure dose is behind all this. She's been dizzy getting up ever since it went up.
+      - source: day-10:caregiver
+        quote: Yes. I still want the doctor to check it, but I don't want to delay today's visit.
+    reporter: caregiver and patient
+    event_time: "2026-04-17"
+    reported_at: "2026-04-17"
+    uncertainty: Questions from Ruth and Evelyn, not a clinical finding.
+    priority: essential
+    must_state: ["Ruth and Evelyn want the higher dose reviewed"]
+  - id: ehr-amlodipine-increase
+    content: On 2026-04-01 amlodipine was increased from 5 mg to 10 mg once daily in the morning because home readings were about 150/90.
+    anchors:
+      - source: MedicationRequest/med-amlodipine-10
+        quote: Increased from 5 mg because home readings were about 150/90.
+      - source: MedicationRequest/med-amlodipine-5
+        quote: Dose increased to 10 mg on 2026-04-01
+    reporter: FHIR record
+    event_time: "2026-04-01"
+    reported_at: "2026-04-08"
+    uncertainty: The order does not confirm which doses she took.
+    priority: essential
+    must_state: ["amlodipine increased from 5 mg to 10 mg in early April 2026"]
+  - id: ehr-orthostatic
+    content: On 2026-04-01 blood pressure was 146/84 mmHg lying and 138/80 mmHg standing at 3 minutes, with no symptoms on standing.
+    anchors:
+      - source: Observation/observation-orthostatic
+        quote: Lying 146/84 mmHg; standing at 3 minutes 138/80 mmHg; no symptoms on standing.
+    reporter: FHIR record
+    event_time: "2026-04-01"
+    reported_at: "2026-04-08"
+    uncertainty: One measurement, taken at the 5 mg dose before the increase; it cannot show the current standing blood pressure.
+    priority: essential
+    essential_limit: true
+    must_state: ["no meaningful postural drop or symptoms at 5 mg, before the dose increase"]
+  - id: ehr-donepezil
+    content: The record shows donepezil 10 mg once daily at bedtime.
+    anchors:
+      - source: MedicationRequest/med-donepezil
+        quote: 10 mg by mouth once daily at bedtime
+    reporter: FHIR record
+    event_time: Active since 2025-06-10
+    reported_at: "2026-04-08"
+    uncertainty: The order does not confirm which doses she took.
+    priority: essential
+    must_state: ["donepezil 10 mg at bedtime"]
+  - id: ehr-mri-record
+    content: The record lists a brain MRI without contrast for a dementia work-up, dated 2025-10-14.
+    anchors:
+      - source: ImagingStudy/imaging-01
+        quote: Brain MRI without contrast for a dementia work-up
+    reporter: FHIR record
+    event_time: "2025-10-14"
+    reported_at: "2026-04-08"
+    uncertainty: The MRI predates the fall by six months and cannot assess injury from the April 2026 fall.
+    priority: essential
+    essential_limit: true
+    must_state: ["brain MRI from October 2025, before the fall, so it cannot show a new injury"]
+  - id: urgent-assessment-pending
+    content: Ruth reports that the urgent review planned for 2026-04-14 was missed because her sister could not take Evelyn and Ruth had no car. She says she called 111 again on 2026-04-15 but no assessment happened. After Evelyn later admitted the fall, Ruth contacted her GP's urgent line and reports a review planned for the following day; no assessment result is available.
+    anchors:
+      - source: day-7:caregiver
+        quote: They advised urgent assessment today. My sister is meant to take her, but she hasn't arrived yet. We haven't been seen.
+      - source: day-8:caregiver
+        quote: No. My sister was called into work and I had no car. Evelyn stayed home. I should have called back, but I thought she was walking well enough.
+      - source: day-9:caregiver
+        quote: I called 111 yesterday as we discussed, but no assessment has happened.
+      - source: day-10:caregiver
+        quote: I called the GP urgent line yesterday after she told me about the fall. They asked us to come in today, so my sister is taking her. We haven't been seen yet.
+    reporter: caregiver
+    event_time: 2026-04-14 urgent review missed; 2026-04-15 re-contact; 2026-04-17 visit planned
+    reported_at: "2026-04-17"
+    priority: essential
+    must_state: ["no assessment has happened yet; an earlier urgent review was missed"]
+    uncertainty: The urgent line contact and plan are reported by Ruth; the check-ins do not confirm whether she attended.
+  - id: loc-unknown
+    content: Whether Evelyn lost consciousness is not established. On 2026-04-11 and 2026-04-16 she cannot remember whether she blacked out; on 2026-04-14 Ruth reports that Evelyn says she did not black out but cannot remember the fall clearly.
+    anchors:
+      - source: day-4:patient
+        quote: I don't remember how I got down or whether I blacked out or hit my head.
+      - source: day-7:caregiver
+        quote: She says she didn't black out, but she can't remember the fall clearly.
+      - source: day-9:caregiver
+        quote: She can't remember whether she hit her head or blacked out.
+    reporter: patient and caregiver
+    event_time: Time of the unwitnessed fall
+    reported_at: "2026-04-16"
+    uncertainty: No witness; Evelyn's accounts differ and her recall of the event is limited.
+    priority: essential
+    essential_limit: true
+    must_state: ["loss of consciousness is not known; Evelyn cannot remember, and her accounts differ"]
+  - id: hip-status-day6
+    content: On 2026-04-13 Evelyn says her left hip hurts only when she leans on it and she can walk with her stick; Ruth says she is alert and walking with her stick but the hip is sore, and that nobody saw what happened.
+    anchors:
+      - source: day-6:patient
+        quote: Yes, it only hurts when I lean on it.
+      - source: day-6:caregiver
+        quote: She's alert and walking with her stick, but the hip is sore. Nobody saw what happened, so I can't tell if she hit her head.
+    reporter: patient and caregiver
+    event_time: "2026-04-13"
+    reported_at: "2026-04-13"
+    uncertainty: No examination; whether "leaning on it" means weight bearing is not clear.
+    priority: essential
+    must_state: ["hip sore, but she is alert and walking with a stick"]
+  - id: declined-urgent-advice
+    content: Evelyn did not seek the urgent advice given on 2026-04-11, 2026-04-12 and 2026-04-13 and had not told Ruth; on 2026-04-13 Ruth says she will call 111 now and stay with her.
+    anchors:
+      - source: day-4:patient
+        quote: I don't want a fuss. I'll think about it, but I'm not calling just now.
+      - source: day-5:patient
+        quote: I'll think about ringing. I don't want to go anywhere.
+      - source: day-6:patient
+        quote: I don't want a fuss. I'll think about asking Ruth, but I haven't told her.
+      - source: day-6:caregiver
+        quote: I'll call 111 now and stay with her until we've agreed what to do.
+    reporter: patient and caregiver
+    event_time: 2026-04-11 to 2026-04-13
+    reported_at: "2026-04-13"
+    uncertainty: Ruth's call is a stated plan; the check-ins to day 6 do not confirm it.
+    priority: essential
+    must_state: ["Evelyn has not sought the advised urgent assessment"]
+tasks:
+  - qid: T1
+    kind: decision
+    as_of_day: 6
+    prompt: Ruth has found a large hip bruise after Evelyn described being on the kitchen floor and then
+      denied falling. She also reports dizziness on standing after a dose increase. Does she need assessment
+      now, and what must be checked?
+    units:
+    - hip-bruise
+    - {id: floor-sit, priority: essential, essential_limit: true}
+    - hip-status-day6
+    - {id: declined-urgent-advice, priority: supporting}
+    - {id: ehr-amlodipine-increase, priority: supporting}
+    clinical_criteria:
+      required_actions:
+      - Arrange prompt direct injury and falls assessment; check current pain, ability to bear weight, possible
+        head strike, loss of consciousness, neurological symptoms and blood-thinning medicines.
+      - Escalate urgently for inability to bear weight, severe pain, new neurological signs or reduced alertness.
+      - Review pulse, lying and standing blood pressure and medicines without deciding the cause from the
+        old measurement.
+      forbidden_actions:
+      - Reassure solely from the denial of a fall, an old MRI or the earlier blood pressure test.
+      - Automatically order CT merely because nobody witnessed the event.
+      rationale: Assess safety at the first high-risk checkpoint without using later reports.
+      sources:
+      - https://www.nice.org.uk/guidance/ng232/chapter/recommendations
+      - https://www.nice.org.uk/guidance/ng249/chapter/Recommendations/
+  - qid: C1
+    kind: brief
+    as_of_day: 10
+    prompt: I'm seeing Evelyn this afternoon. What should I know from the last ten days?
+    units: [fall-admitted, head-strike-unknown, urgent-assessment-pending,
+      {id: hip-bruise, priority: supporting}, {id: caregiver-question, priority: supporting}]
+  - qid: C2
+    kind: update
+    as_of_day: 10
+    since_day: 5
+    prompt: I last looked at Evelyn's notes on April 12. What is new since then?
+    units: [fall-admitted, hip-bruise, witnessed-dizziness,
+      {id: head-strike-unknown, priority: supporting}, {id: urgent-assessment-pending, priority: supporting}]
+  - qid: C3
+    kind: reconcile
+    as_of_day: 10
+    prompt: Ruth thinks the new blood pressure dose is to blame. Does what she sees at home fit Evelyn's record?
+    units: [ehr-amlodipine-increase, witnessed-dizziness, ehr-orthostatic, lightheaded-sofa,
+      low-fluid-intake]
+  - qid: C4
+    kind: not_established
+    as_of_day: 10
+    prompt: Did she hit her head?
+    units: [head-strike-unknown, {id: loc-unknown, priority: supporting}, no-headache]
+  - qid: S1
+    kind: question
+    as_of_day: 10
+    prompt: Is there any brain imaging on file for Evelyn, and what does it show?
+    units: [ehr-mri-record]
+  - qid: S2
+    kind: decision
+    as_of_day: 10
+    prompt: >-
+      Ruth says her sister is taking Evelyn for an urgent assessment today, but they have not been
+      seen yet. Is that plan sufficient, and what should Ruth do if the assessment cannot happen?
+    units:
+      - urgent-assessment-pending
+      - head-strike-unknown
+      - {id: hip-function, priority: essential}
+      - {id: loc-unknown, priority: supporting}
+      - {id: fall-admitted, priority: supporting}
+    clinical_criteria:
+      required_actions:
+        - Recognize that the planned same-day visit is reported, not completed; advise urgent contact again if the assessment cannot happen today.
+        - Recommend direct assessment of the unwitnessed fall, bruising, hip pain and function, and possible injury.
+        - Ask about ability to bear weight, worsening pain, loss of consciousness, neurological symptoms, and anticoagulant or antiplatelet use.
+        - Give emergency escalation criteria for suspected head injury, reduced alertness, new neurological signs, severe pain, or inability to bear weight.
+        - Explain that imaging decisions depend on head injury findings and clinical risk; an unwitnessed fall alone does not mandate CT.
+        - If hip fracture remains suspected despite negative X-rays, recommend further imaging assessment.
+        - Treat transient loss of consciousness as possible until assessed because the unwitnessed event and recall leave it uncertain; do not diagnose it as established.
+        - Record a 12-lead ECG in the initial assessment of possible transient loss of consciousness. Assess dizziness and fall contributors, including medication and cardiovascular causes; do not infer causation from the old orthostatic measurement.
+      forbidden_actions:
+        - Do not use no headache or the 2025 MRI to rule out a recent head injury.
+        - Do not state that Evelyn is not taking anticoagulants because none appear in the available list.
+        - Do not diagnose dehydration or medication-caused hypotension from the current evidence.
+      rationale: The unwitnessed fall, uncertain head strike, bruising and pain need current injury assessment; older imaging and measurements cannot answer current risk.
+      sources: [https://www.nice.org.uk/guidance/ng232/chapter/recommendations, https://www.nice.org.uk/guidance/cg124/chapter/recommendations, https://www.nice.org.uk/guidance/ng249/chapter/Recommendations, https://www.nice.org.uk/guidance/cg109/chapter/Recommendations]
+  - qid: F1
+    kind: followup
+    as_of_day: 10
+    prompt: >
+      Before I order anything new: does the MRI she already had change how I read this fall, and
+      which of her medicines could be adding to the dizziness?
+    units: [ehr-mri-record, ehr-amlodipine-increase, ehr-donepezil, {id: ehr-orthostatic, priority: supporting}]
+imaging_opportunities:
+  - metric: imaging_reuse
+    qid: F1
+    reason: The S1 analysis of CASE-P104-MRI already answers this follow-up; reuse the stored result.

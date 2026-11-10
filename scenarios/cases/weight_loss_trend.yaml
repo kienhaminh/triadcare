@@ -1,0 +1,509 @@
+schema: scenario_v4
+id: weight_loss_trend
+split: held_out
+title: Gradual weight loss with unobserved weekday lunches
+summary: >
+  The record shows four clinic weights over six months with a loss of about 4 kg. Agnes says
+  she eats normally, though she sometimes is not hungry. Daniel sees some weekday lunches uneaten,
+  but cannot estimate total food or fluid. Her lower denture rubs, and she has not had it checked
+  recently. She refuses a lunchtime visitor but accepts familiar soft foods; no food or dental plan
+  is confirmed. Daniel plans to call the surgery, but has not made contact yet.
+start_date: "2026-06-01"
+patient:
+  id: P-201
+  name: Agnes
+  gender: female
+  birth_year: 1943
+  persona: Mild to moderate Alzheimer dementia. Lives with her son in a terraced house. Short answers, vague about meals, dislikes fuss.
+caregiver:
+  name: Daniel
+  relation: son
+  persona: Lives with his mother. Works in an office from half seven until about six on weekdays. Home at weekends.
+baseline:
+  date: "2026-01-20"
+  diagnosis: Dementia due to Alzheimer disease, mild to moderate stage
+  mmse: 19
+  moca: 13
+  cdr_global: 1
+  cdr_sb: 6.5
+  faq: 15
+record:
+  - type: Condition
+    id: condition-hypertension
+    code: Essential hypertension
+    status: active
+    date: "2018-03-14"
+  - type: MedicationRequest
+    id: med-donepezil
+    medication: Donepezil 10 mg tablet
+    dosage: 10 mg by mouth once daily at bedtime
+    status: active
+    date: "2025-04-08"
+    note: Started at 5 mg in March 2025 and increased to 10 mg on 2025-04-08.
+  - type: MedicationRequest
+    id: med-amlodipine
+    medication: Amlodipine 5 mg tablet
+    dosage: 5 mg by mouth once daily in the morning
+    status: active
+    date: "2023-07-19"
+  - type: Observation
+    id: observation-weight-2025-11
+    category: vital-signs
+    code: Body weight
+    date: "2025-11-25"
+    value: 64.9 kg, clinic scale, indoor clothes
+  - type: Observation
+    id: observation-weight-2026-01
+    category: vital-signs
+    code: Body weight
+    date: "2026-01-20"
+    value: 64.1 kg, clinic scale, indoor clothes
+  - type: Observation
+    id: observation-weight-2026-03
+    category: vital-signs
+    code: Body weight
+    date: "2026-03-24"
+    value: 62.6 kg, clinic scale, indoor clothes
+  - type: Observation
+    id: observation-weight-2026-05
+    category: vital-signs
+    code: Body weight
+    date: "2026-05-19"
+    value: 60.8 kg, clinic scale, indoor clothes
+  - type: Encounter
+    id: encounter-memory-review
+    kind: Memory clinic follow-up
+    status: finished
+    date: "2026-05-19"
+    reason: Dementia review and weight check
+  - type: DocumentReference
+    id: note-memory-review
+    title: Memory clinic follow-up note
+    date: "2026-05-19"
+    author: Memory clinic
+    text: >-
+      Weight 60.8 kg today, down from 64.9 kg in November 2025. Agnes says she eats normally and
+      has three meals a day. She attended alone; her son was at work. No problems with swallowing
+      reported. Plan: ask the son to watch her meals, GP to check blood tests, and recheck weight at a
+      GP review in June.
+  - type: Encounter
+    id: encounter-weight-review
+    kind: Primary care follow-up
+    status: planned
+    date: "2026-06-16"
+    reason: Weight review
+imaging:
+  - study_id: CASE-P201-MRI
+    modality: mri
+    date: "2025-09-16"
+    description: Brain MRI without contrast for a dementia work-up
+    source_series: DLBS-1600-W1-T1W
+days:
+  - day: 1
+    patient:
+      - ["Good morning, Agnes. How are you today?", "Fine. Same as always."]
+      - ["Have you had some breakfast?", "Daniel made me toast. I had some of it."]
+      - ["What are your plans for the day?", "Oh, the telly. Maybe the garden if it stays dry."]
+    caregiver:
+      - ["Hi Daniel. How has your mother been?", "Much the same. The clinic said last month she's lost weight, so I'm trying to keep an eye on it."]
+      - ["How do her meals usually go?", "I'm out at work from half seven until about six, so I only see her breakfast and her tea. I leave her a sandwich in the fridge for lunch."]
+      - ["How was her tea tonight?", "She ate most of it. Fish fingers and peas."]
+      - ["And how are you managing?", "Fine. Work's busy, that's all."]
+  - day: 2
+    patient:
+      - ["Hello Agnes. How did you sleep?", "All right. I woke up once."]
+      - ["What did you do yesterday afternoon?", "Sat in the garden. It was nice."]
+    caregiver:
+      - ["Hi Daniel. How was today?", "When I got in tonight the sandwich I'd left was still in the fridge, still in its wrapper."]
+      - ["Did she say anything about it?", "She said she'd had something. I don't know what, there wasn't anything else missing."]
+      - ["Did she eat her tea?", "Yes, she ate her tea fine."]
+  - day: 3
+    patient:
+      - ["Good morning, Agnes. Did you have lunch yesterday?", "Yes. A bit of fish, I think."]
+      - ["How is your appetite these days?", "Fine. I'm not a big eater."]
+      - ["Anything bothering you?", "No. My knees, a bit."]
+    caregiver:
+      - ["Hi Daniel. How has she been?", "Good mood. She ate all her tea tonight, shepherd's pie, and had pudding as well."]
+      - ["What about lunch?", "I haven't looked yet, to be honest. I'll check the fridge."]
+      - ["Anything else for the team?", "No, a decent day."]
+  - day: 4
+    patient:
+      - ["Hello Agnes. People are asking about your meals. How are you eating?", "I still eat normally. I don't know why everyone keeps asking."]
+      - ["Do you ever skip lunch?", "No. Well, sometimes I'm not hungry. Then I have a biscuit."]
+      - ["How are you feeling in yourself?", "Fine."]
+    caregiver:
+      - ["Hi Daniel. Any news?", "The lunch plate was in the sink tonight, washed. So maybe she ate it, I can't tell."]
+      - ["How was the evening?", "Quiet. We watched a quiz show."]
+  - day: 5
+    patient:
+      - ["Good morning, Agnes. How are you?", "Not bad. A bit cold."]
+      - ["Are your clothes comfortable?", "These trousers are Daniel's fault, he bought them too big."]
+      - ["Have you been out?", "Not yet."]
+    caregiver:
+      - ["Hi Daniel. How did she seem today?", "Fine. Her trousers are hanging off her, though. I put a new hole in her belt a few weeks back."]
+      - ["Any coughing or trouble swallowing when she eats?", "No coughing or choking at tea. She eats slowly, but she always has."]
+      - ["How are you doing?", "Bit tired. Glad it's the weekend."]
+  - day: 6
+    patient:
+      - ["Hello Agnes. What are you doing this weekend?", "Daniel's home. He fusses."]
+      - ["How did you sleep?", "Fine."]
+    caregiver:
+      - ["Hi Daniel. Do you have a way to weigh her at home?", "We haven't got bathroom scales. I don't know what she weighs now."]
+      - ["Anything new today?", "No. It's the weekend, so I'm around more."]
+  - day: 7
+    patient:
+      - ["Good morning, Agnes. Did you enjoy your weekend?", "It's been all right. Daniel cooked."]
+      - ["Did you eat what he made?", "I ate my dinner. Most of it."]
+      - ["Anything you'd like to tell the nurse?", "No."]
+    caregiver:
+      - ["Hi Daniel. How did lunch go?", "I was home all day yesterday. At lunch she ate about half a sandwich and said she wasn't hungry."]
+      - ["And today?", "Today we had a roast at one and she ate a fair bit of it, slowly."]
+      - ["Anything else?", "No, a calm weekend."]
+  - day: 8
+    patient:
+      - ["Hello Agnes. How are you today?", "Fine, dear."]
+      - ["Have you had a drink this morning?", "A cup of tea."]
+    caregiver:
+      - ["Hi Daniel. Looking back at last week, how did the lunches go?", "Thinking back over last week, three of the lunches I left were still in the fridge when I got home. The other two plates were washed up, so I don't know if she ate them or threw them out."]
+      - ["Has anyone else seen her at lunchtime?", "No. There's nobody with her in the day."]
+      - ["How was tea tonight?", "Fine. She ate it."]
+  - day: 9
+    patient:
+      - ["Good morning, Agnes. Any aches or pains?", "My bottom teeth are sore. The plate one."]
+      - ["What do you notice when you wear it, and have you had it checked?", "Sometimes it rubs at the bottom. I take it out. I haven't been to the dentist for it lately."]
+      - ["Have you been out today?", "Not yet."]
+    caregiver:
+      - ["Hi Daniel. How was today?", "She took her bottom denture out at tea again tonight and said it rubs. She left the crusts and most of the meat."]
+      - ["How long has that been going on?", "I've noticed it a few times, maybe the last couple of weeks. I don't know how she manages at lunch."]
+      - ["Anything else?", "No."]
+  - day: 10
+    patient:
+      - ["Hello Agnes. How are you feeling?", "Fine. Everyone's making a fuss about my dinners."]
+      - ["Would it help to have someone pop in at lunchtime?", "I don't need anybody making my lunch. I'm not an invalid."]
+      - ["Would you prefer a familiar food left ready, or to talk about your teeth first?", "I can manage a bit of soup or a soft egg if it's there. I don't want a stranger coming in to feed me."]
+      - ["Anything you'd like to ask the doctor?", "No. Only about my teeth."]
+    caregiver:
+      - ["Hi Daniel. What would you like the doctor to know?", "Is it just the dementia, or should someone be looking for another cause? And should I get someone in at lunchtime?"]
+      - ["How does your mother feel about that?", "She won't hear of it. But I can't be here in the day."]
+      - ["What can you tell us about what she actually eats while you are at work?", "I know the sandwich was still wrapped on three days. Two plates were washed, but I don't know whether she ate those meals or threw them out. I can't see her total food or drinks."]
+      - ["Could you and Agnes discuss foods she finds easy to eat, and contact a dentist if she agrees?", "I can leave soup or yoghurt and ask her about the dentist. I can't promise she'll eat it or agree to an appointment."]
+      - ["Anything else?", "No, that's the main thing."]
+      - ["You are concerned about her weight and meals. Please discuss contacting the surgery with Agnes. I can help you word a request for follow-up, but I cannot check her appointment record here. Could you ask Agnes what foods she would prefer and whether she wants help contacting a dentist?", "Yes, I'll offer soup or a soft egg and ask her about the dentist. I haven't called the surgery yet, and I don't know who will arrange the weight review."]
+      - ["Can you contact the surgery today about the weight review and tell us what they say?", "I can call today. I'll let you know what they say. I haven't confirmed the weight review or arranged a lunch visit or dental visit."]
+units:
+  - id: ehr-weight-trend
+    content: Four clinic weights fell from 64.9 kg on 2025-11-25 to 64.1 kg, 62.6 kg, and 60.8 kg on 2026-05-19, a loss of 4.1 kg (about 6.3%) over nearly six months.
+    anchors:
+      - source: Observation/observation-weight-2025-11
+        quote: 64.9 kg, clinic scale, indoor clothes
+      - source: Observation/observation-weight-2026-01
+        quote: 64.1 kg, clinic scale, indoor clothes
+      - source: Observation/observation-weight-2026-03
+        quote: 62.6 kg, clinic scale, indoor clothes
+      - source: Observation/observation-weight-2026-05
+        quote: 60.8 kg, clinic scale, indoor clothes
+    reporter: FHIR record
+    event_time: 2025-11-25 to 2026-05-19
+    reported_at: "2026-06-01"
+    uncertainty: Clinic weights in indoor clothes; no weight is recorded after 2026-05-19.
+    priority: essential
+    must_state: ["she lost about 4 kg (more than 5%) over six months, to 60.8 kg at the last clinic weight in May"]
+  - id: clinic-note
+    content: The memory clinic note of 2026-05-19 records that Agnes said she eats normally and has three meals a day, that she attended alone, and that the plan was to ask her son to watch her meals, have the GP check blood tests, and recheck weight at a GP review in June.
+    anchors:
+      - source: DocumentReference/note-memory-review
+        quote: Agnes says she eats normally and has three meals a day. She attended alone; her son was at work.
+      - source: DocumentReference/note-memory-review
+        quote: "Plan: ask the son to watch her meals, GP to check blood tests, and recheck weight at a GP review in June."
+    reporter: FHIR record
+    event_time: "2026-05-19"
+    reported_at: "2026-06-01"
+    uncertainty: The eating history in the note came from the patient only.
+    priority: essential
+    must_state: ["the clinic history of normal eating came from Agnes alone"]
+  - id: ehr-donepezil
+    content: The record shows donepezil 10 mg once daily at bedtime since 2025-04-08, increased from 5 mg.
+    anchors:
+      - source: MedicationRequest/med-donepezil
+        quote: 10 mg by mouth once daily at bedtime
+    reporter: FHIR record
+    event_time: Active since 2025-04-08
+    reported_at: "2026-06-01"
+    uncertainty: Prescribing record; does not confirm the doses taken.
+    priority: essential
+    must_state: ["donepezil 10 mg at bedtime, unchanged since April 2025"]
+  - id: ehr-amlodipine
+    content: The record shows amlodipine 5 mg once daily in the morning since 2023-07-19.
+    anchors:
+      - source: MedicationRequest/med-amlodipine
+        quote: 5 mg by mouth once daily in the morning
+    reporter: FHIR record
+    event_time: Active since 2023-07-19
+    reported_at: "2026-06-01"
+    uncertainty: Prescribing record; does not confirm the doses taken.
+    priority: supporting
+    must_state: ["amlodipine 5 mg in the morning"]
+  - id: no-blood-results
+    content: The memory clinic plan of 2026-05-19 asked the GP to check blood tests; the record holds no blood test results.
+    anchors:
+      - source: DocumentReference/note-memory-review
+        quote: GP to check blood tests
+    reporter: FHIR record
+    event_time: Planned 2026-05-19; no result recorded
+    reported_at: "2026-06-01"
+    uncertainty: The record does not show whether the tests were taken.
+    priority: supporting
+    essential_limit: true
+    must_state: ["blood tests were planned in May but no results are in the record"]
+  - id: eats-normally
+    content: Agnes says she still eats normally and admits she sometimes has only a biscuit when not hungry. On 2026-06-03 she said she had a bit of fish for lunch the day before, the day her sandwich was left in its wrapper.
+    anchors:
+      - source: day-4:patient
+        quote: I still eat normally.
+      - source: day-3:patient
+        quote: Yes. A bit of fish, I think.
+      - source: day-4:patient
+        quote: Well, sometimes I'm not hungry. Then I have a biscuit.
+    reporter: patient
+    event_time: 2026-06-02 to 2026-06-04
+    reported_at: "2026-06-04"
+    uncertainty: Her account differs from the observed uneaten sandwich and includes uncertainty about the fish meal; this does not establish that her recall is generally unreliable.
+    priority: essential
+    must_state: ["Agnes says she eats normally but admits she sometimes has only a biscuit"]
+  - id: weekday-lunch-count
+    content: Over the previous working week, three of the five lunches Daniel left were still in the fridge, untouched, when he got home; the other two plates were washed, so he cannot tell whether she ate them. He cannot see her total food or drinks.
+    anchors:
+      - source: day-8:caregiver
+        quote: Thinking back over last week, three of the lunches I left were still in the fridge when I got home. The other two plates were washed up, so I don't know if she ate them or threw them out.
+      - source: day-10:caregiver
+        quote: I can't see her total food or drinks.
+    reporter: caregiver
+    event_time: Week of 2026-06-01
+    reported_at: "2026-06-10"
+    uncertainty: Daniel infers lunches from the fridge and the sink in the evening; whether the other two were eaten, and her total food and fluid intake, are unknown.
+    priority: essential
+    essential_limit: true
+    must_state: ["three weekday lunches Daniel left were found untouched in the fridge", "the other two and her total food and drink intake are unknown"]
+  - id: tea-eaten
+    content: On the evenings Daniel describes from 2026-06-01 to 2026-06-08, he reports that Agnes ate most or all of her evening meal.
+    anchors:
+      - source: day-1:caregiver
+        quote: She ate most of it.
+      - source: day-2:caregiver
+        quote: Yes, she ate her tea fine.
+      - source: day-3:caregiver
+        quote: She ate all her tea tonight, shepherd's pie, and had pudding as well.
+      - source: day-8:caregiver
+        quote: Fine. She ate it.
+    reporter: caregiver
+    event_time: 2026-06-01 to 2026-06-08
+    reported_at: "2026-06-08"
+    uncertainty: Covers only the evening meal that Daniel sees; on 2026-06-09 she left the crusts and most of the meat at tea.
+    priority: supporting
+    must_state: ["Daniel reports she ate most of her evening meals in the first week"]
+  - id: trousers-loose
+    content: Daniel says her trousers are hanging off her and he made a new hole in her belt a few weeks earlier.
+    anchors:
+      - source: day-5:caregiver
+        quote: Her trousers are hanging off her, though. I put a new hole in her belt a few weeks back.
+    reporter: caregiver
+    event_time: Weeks before 2026-06-05
+    reported_at: "2026-06-05"
+    uncertainty: Clothing fit only; no home weight.
+    priority: supporting
+    must_state: ["her clothes are loose"]
+  - id: no-home-scale
+    content: There are no bathroom scales at home, so her current weight is not known.
+    anchors:
+      - source: day-6:caregiver
+        quote: We haven't got bathroom scales. I don't know what she weighs now.
+    reporter: caregiver
+    event_time: "2026-06-06"
+    reported_at: "2026-06-06"
+    uncertainty: No weight is recorded after the clinic weight of 2026-05-19; her current weight is unknown.
+    priority: supporting
+    must_state: ["there are no scales at home and her current weight is not known"]
+  - id: weekend-half-sandwich
+    content: On Saturday 2026-06-06, with Daniel at home, Agnes ate about half a sandwich at lunch and said she was not hungry.
+    anchors:
+      - source: day-7:caregiver
+        quote: At lunch she ate about half a sandwich and said she wasn't hungry.
+    reporter: caregiver
+    event_time: "2026-06-06"
+    reported_at: "2026-06-07"
+    uncertainty: One observed lunch on a weekend.
+    priority: supporting
+    must_state: ["at a weekend lunch with Daniel home, she ate about half a sandwich and said she was not hungry"]
+  - id: denture-rubs
+    content: Agnes says her lower denture is sore and sometimes rubs, so she takes it out; she has not been to the dentist for it lately. Daniel has noticed the denture problem a few times over about two weeks; on 2026-06-09 she took it out at tea and left the crusts and most of the meat.
+    anchors:
+      - source: day-9:patient
+        quote: My bottom teeth are sore. The plate one.
+      - source: day-9:patient
+        quote: Sometimes it rubs at the bottom. I take it out. I haven't been to the dentist for it lately.
+      - source: day-9:caregiver
+        quote: She took her bottom denture out at tea again tonight and said it rubs. She left the crusts and most of the meat.
+      - source: day-9:caregiver
+        quote: I've noticed it a few times, maybe the last couple of weeks.
+    reporter: patient and caregiver
+    event_time: About two weeks to 2026-06-09
+    reported_at: "2026-06-09"
+    uncertainty: Food left was seen at one evening meal; Daniel does not know how she manages at lunch.
+    priority: essential
+    must_state: ["her lower denture rubs and has not been checked by a dentist"]
+  - id: preferred-foods-and-followup
+    content: Agnes says soup or a soft egg would be acceptable. Daniel is willing to offer those foods and ask about dental help; he has not contacted the surgery or confirmed the weight review, and he has not arranged a lunch visit or dental visit.
+    anchors:
+      - source: day-10:patient
+        quote: I can manage a bit of soup or a soft egg if it's there.
+      - source: day-10:caregiver
+        quote: Yes, I'll offer soup or a soft egg and ask her about the dentist. I haven't called the surgery yet, and I don't know who will arrange the weight review.
+      - source: day-10:caregiver
+        quote: I can call today. I'll let you know what they say. I haven't confirmed the weight review or arranged a lunch visit or dental visit.
+    reporter: patient and caregiver
+    event_time: "2026-06-10"
+    reported_at: "2026-06-10"
+    uncertainty: Daniel plans to call; he does not know who will arrange follow-up for the planned weight review.
+    priority: essential
+    essential_limit: true
+    must_state: ["Agnes accepts soft foods left ready", "Daniel has not confirmed the weight review or arranged a lunch visit or dental visit"]
+  - id: declines-lunch-help
+    content: Agnes refuses anybody making her lunch and does not want a stranger coming in to feed her; Daniel says she will not accept it but he cannot be home in the day.
+    anchors:
+      - source: day-10:patient
+        quote: I don't need anybody making my lunch. I'm not an invalid.
+      - source: day-10:patient
+        quote: I don't want a stranger coming in to feed me.
+      - source: day-10:caregiver
+        quote: She won't hear of it. But I can't be here in the day.
+    reporter: patient and caregiver
+    event_time: "2026-06-10"
+    reported_at: "2026-06-10"
+    uncertainty: Stated preference; not tested with a trial of help.
+    priority: essential
+    must_state: ["Agnes refuses lunchtime help"]
+  - id: imaging-mri
+    content: An MRI study, CASE-P201-MRI, is available to the radiology workflow for this patient.
+    anchors:
+      - source: imaging:CASE-P201-MRI
+        quote: CASE-P201-MRI
+    reporter: imaging catalog
+    event_time: Study date not stated in the imaging catalog
+    reported_at: "2026-06-01"
+    uncertainty: The catalog gives the study identity and modality only; analysis values are research estimates.
+    priority: essential
+    must_state: ["an MRI study, CASE-P201-MRI, is on file"]
+  - id: ehr-mri-record
+    content: The record lists a brain MRI without contrast for a dementia work-up, dated 2025-09-16.
+    anchors:
+      - source: ImagingStudy/imaging-01
+        quote: Brain MRI without contrast for a dementia work-up
+    reporter: FHIR record
+    event_time: "2025-09-16"
+    reported_at: "2026-06-01"
+    uncertainty: The record gives the study purpose and date, not a report.
+    priority: supporting
+    must_state: ["a brain MRI for a dementia work-up was done in 2025"]
+tasks:
+  - qid: C1
+    kind: brief
+    as_of_day: 10
+    prompt: I'm seeing Agnes next week about her weight. What should I know from the last ten days?
+    units:
+      - weekday-lunch-count
+      - denture-rubs
+      - preferred-foods-and-followup
+      - {id: eats-normally, priority: supporting}
+      - {id: declines-lunch-help, priority: supporting}
+  - qid: C2
+    kind: update
+    as_of_day: 10
+    since_day: 6
+    prompt: I last looked at Agnes's notes on June 6. What is new since then?
+    units:
+      - weekday-lunch-count
+      - denture-rubs
+      - preferred-foods-and-followup
+      - {id: declines-lunch-help, priority: supporting}
+      - weekend-half-sandwich
+  - qid: C3
+    kind: reconcile
+    as_of_day: 10
+    prompt: Agnes told the clinic in May that she eats normally. Does that fit what Daniel sees at home and her weights?
+    units:
+      - ehr-weight-trend
+      - weekday-lunch-count
+      - eats-normally
+      - {id: clinic-note, priority: supporting}
+      - tea-eaten
+  - qid: C4
+    kind: question
+    as_of_day: 10
+    prompt: Is there any brain imaging on file for Agnes? If so, what does it show?
+    units:
+      - imaging-mri
+      - {id: ehr-mri-record, must_state: ["a 2025 brain MRI for a dementia work-up is recorded, with no report of its findings"]}
+  - qid: S1
+    kind: not_established
+    as_of_day: 10
+    prompt: What does Agnes weigh now?
+    units:
+      - {id: ehr-weight-trend, must_state: ["the last recorded weight is 60.8 kg, from the May clinic visit"]}
+      - {id: no-home-scale, priority: essential, essential_limit: true}
+      - trousers-loose
+  - qid: S2
+    kind: decision
+    as_of_day: 10
+    prompt: >-
+      Daniel wants to get someone in at lunchtime. Is there enough to arrange a weekday lunchtime
+      visit for Agnes now, or should it wait for her weight review?
+    clinical_criteria:
+      required_actions:
+        - Treat the 4.1 kg (about 6.3%) loss over nearly six months as a nutritional concern and arrange timely clinical review.
+        - Review oral health, medicines, mood, medical causes, intake and hydration, with nutritional screening (for example MUST); plan a repeat weight and follow-up.
+        - Assess additional symptoms, signs and findings. Because she is over 60 with more than 5% unexplained weight loss within six months, offer urgent investigation or an appropriate suspected-cancer or non-specific-symptoms pathway if the loss remains unexplained; do not wait for repeat weight or dental treatment alone.
+        - Offer practical meal support she accepts, such as soft foods left ready, and respect her stated refusal; assess her capacity for this decision only if there is reason to doubt it. Do not delay all support pending the weight review.
+        - Clarify actual intake because three prepared lunches were found untouched, two are uncertain, and total intake is unknown.
+      forbidden_actions:
+        - Diagnose severe malnutrition or cancer from the percentage alone, claim a cause is established, or claim a referral has already occurred.
+        - Assume that Agnes ate nothing at lunchtime on the three days the prepared lunch was untouched, or that she ate normally overall.
+        - Force or record a lunchtime service as arranged without her agreement.
+        - Attribute the loss to dementia or donepezil without assessment.
+      rationale: The weight trend warrants assessment, but food intake, cause, and consent remain uncertain.
+      sources: ["https://www.nice.org.uk/guidance/cg32/chapter/recommendations", "https://www.nice.org.uk/guidance/ng12/chapter/Recommendations-organised-by-site-of-cancer"]
+    units:
+      - weekday-lunch-count
+      - declines-lunch-help
+      - ehr-weight-trend
+      - {id: denture-rubs, priority: supporting}
+      - {id: preferred-foods-and-followup, priority: supporting}
+  - qid: F1
+    kind: followup
+    as_of_day: 10
+    prompt: >
+      Before I refer her on: if an analysis report for CASE-P201-MRI is available, use it to explain
+      whether the MRI changes how I should read this weight loss. If no report is available, say so.
+      Could any of her medicines be playing a part?
+    clinical_criteria:
+      required_actions:
+        - Explain that the 2025 MRI does not establish the cause of current weight loss.
+        - Explain that donepezil may contribute through reduced appetite or gastrointestinal effects, but its role is not established.
+        - Recommend clinician review of the trend, intake, oral health, medicines (including whether she takes them as prescribed) and other physical or mood causes; do not independently stop or change the dose.
+        - State that the last recorded weight is 60.8 kg on 2026-05-19 and no later weight is available.
+        - Assess additional symptoms and signs and, if the loss remains unexplained, offer urgent investigation or an appropriate suspected-cancer or non-specific-symptoms pathway for a person over 60 with more than 5% weight loss within six months.
+      forbidden_actions:
+        - Treat the old MRI as an explanation for weight loss.
+        - Attribute weight loss to dementia or donepezil as established.
+        - Infer total intake from prepared lunch observations alone.
+      rationale: The record supports a progressive weight trend but not its cause or current weight.
+      sources: ["https://www.nice.org.uk/guidance/cg32/chapter/recommendations", "https://www.medicines.org.uk/emc/product/10116/smpc", "https://www.nice.org.uk/guidance/ng12/chapter/Recommendations-organised-by-site-of-cancer"]
+    units:
+      - {id: ehr-mri-record, priority: essential, must_state: ["the MRI is from 2025, before the recorded weight loss, and does not establish its cause"]}
+      - ehr-donepezil
+      - ehr-weight-trend
+      - ehr-amlodipine
+      - no-blood-results
+imaging_opportunities:
+  - metric: imaging_reuse
+    qid: F1
+    reason: If a C4 analysis report for CASE-P201-MRI is available, reuse it for this follow-up; otherwise state that no report is available.

@@ -1,0 +1,461 @@
+schema: scenario_v4
+id: driving_safety
+split: dev
+title: Second-hand near-misses and a car scrape in a patient who still drives
+summary: >
+  George still drives short local routes. A neighbour tells his daughter Helen, who lives two
+  hours away, that he pulled out in front of a van; George denies it. On a weekend visit Helen
+  finds a fresh scrape on his bumper, drives him to church, and finds over-the-counter
+  sleeping tablets by his bed. The church trip is not a direct test of his driving. A church friend later reports a red light run weeks ago. The
+  memory clinic planned a driving assessment if the family raised concerns; nobody has done one.
+start_date: "2026-05-11"
+patient:
+  id: P-108
+  name: George
+  gender: male
+  birth_year: 1945
+  persona: Mild Alzheimer dementia. Widower, lives alone in a house. Still drives locally and values his independence.
+caregiver:
+  name: Helen
+  relation: daughter
+  persona: Lives in Leeds, about two hours away. Phones most evenings and visits some weekends.
+baseline:
+  date: "2025-11-18"
+  diagnosis: Dementia due to Alzheimer disease, mild stage
+  mmse: 23
+  moca: 18
+  cdr_global: 1
+  cdr_sb: 4.5
+  faq: 8
+record:
+  - type: MedicationRequest
+    id: med-donepezil
+    medication: Donepezil 10 mg tablet
+    dosage: 10 mg by mouth once daily at night
+    status: active
+    date: "2025-03-04"
+  - type: Observation
+    id: observation-visual-acuity
+    category: exam
+    code: Distance visual acuity with current glasses
+    date: "2025-05-20"
+    value: Right eye 6/12, left eye 6/12, both eyes 6/12 with current distance glasses.
+    note: Glasses about four years old. Advised optician review for updated distance glasses.
+  - type: Encounter
+    id: encounter-memory-review
+    kind: Memory clinic review
+    status: finished
+    date: "2025-11-18"
+    reason: Alzheimer dementia follow-up
+  - type: DocumentReference
+    id: doc-memory-review
+    title: Memory clinic review note
+    date: "2025-11-18"
+    author: Memory clinic
+    text: >-
+      Mild Alzheimer dementia, stable on donepezil 10 mg at night. MMSE 23/30. Daughter joined by
+      phone. George still drives short familiar routes locally, to the shops and to church, and
+      says driving matters a great deal to him. No driving incidents reported by George or his
+      daughter. Discussed that dementia can affect driving over time. Advised George that he must
+      tell the DVLA and his car insurer about the diagnosis; he said he would. Plan: refer for a formal
+      driving assessment if family raises concerns. Optician review for distance glasses still
+      advised. Review in 6 months.
+days:
+  - day: 1
+    patient:
+      - ["Good morning, George. How are you today?", "Not too bad. I've been down to the Co-op already for my paper. I go most mornings in the car, it's only round the corner."]
+      - ["Did you do anything over the weekend?", "Church yesterday. I drive myself there, always have. Then a bit of telly."]
+      - ["And your memory tablet, is that going all right?", "I think so. I take it at night with my cocoa."]
+    caregiver:
+      - ["Hi Helen. How has your dad been?", "Fine, as far as I can tell. I'm in Leeds, so it's mostly phone calls in the evening. I get over to see him every few weeks."]
+      - ["How did he sound last night?", "Chatty. He'd been to church and stayed for the coffee after."]
+  - day: 2
+    patient:
+      - ["Hello George. How did you sleep?", "Badly. I couldn't settle at all. I took one of those tablets from the chemist in the end."]
+      - ["Which tablets are those?", "The sleeping ones. I can't think of the name. They're in the bedroom."]
+      - ["Have you eaten today?", "I had soup at dinnertime. I'll have a pie later."]
+    caregiver:
+      - ["Hi Helen. Anything to report today?", "Not really. I haven't rung him yet today."]
+      - ["How are things with you?", "Busy. The kids have exams, so the house is a bit tense."]
+      - ["Is your dad managing his meals?", "Ready meals and soup mostly. Mum did all the cooking, so he never learned."]
+  - day: 3
+    patient:
+      - ["Morning, George. How are you feeling?", "Fine. Stiff in the back, but that's the gardening."]
+      - ["Have you been out today?", "Only to the shop. Same as always."]
+      - ["Anything on your mind?", "Not really. I can never remember which week is the green bin, but Sandra next door tells me."]
+    caregiver:
+      - ["Hi Helen. How are things?", "A bit unsettled, actually. Sandra, his neighbour, rang me last night. She said Dad pulled out in front of a van at the junction by the Co-op and the van had to brake hard."]
+      - ["Did she say when that was?", "Monday or Tuesday morning. She wasn't sure which."]
+      - ["Has your dad said anything about it?", "Not a word. I wasn't there, I'm only going on what Sandra told me."]
+      - ["How are you feeling about it?", "Shaken. I don't know what to make of it yet."]
+  - day: 4
+    patient:
+      - ["Hello George. How have you been?", "All right. Helen was on the phone last night with a lot of questions."]
+      - ["What did she want to know?", "About the car. Somebody's been telling tales."]
+      - ["Has anything happened when you've been driving lately?", "No. Nothing happened. Nobody pulled out in front of anybody."]
+      - ["How do you feel about your driving?", "I've been driving fifty years and I've never had a claim. I'm careful."]
+    caregiver:
+      - ["Hi Helen. Did you speak to your dad about what Sandra said?", "I did. He said nothing happened and got quite cross with me."]
+      - ["How did you leave it?", "I let it drop. I didn't want a row over the phone."]
+      - ["Are you planning to see him soon?", "I'm going over on Saturday for the weekend. I want to see for myself."]
+  - day: 5
+    patient:
+      - ["Good morning, George. How are you?", "Fine. Same as yesterday."]
+      - ["How is your mood at the moment?", "Fed up, a bit. Everybody seems to think I'm past it."]
+      - ["What are you doing today?", "The barber this afternoon. Then I'll watch the snooker."]
+    caregiver:
+      - ["Hi Helen. How has your dad been with you since the call?", "Short with me. He answers, but he doesn't chat like he usually does."]
+      - ["How are you doing?", "Worried. From Leeds you only get what he chooses to tell you."]
+  - day: 6
+    patient:
+      - ["Hello George. Is Helen there?", "She came this morning. She's going through my fridge."]
+      - ["How has the day been?", "Nice enough. We had fish and chips for dinner."]
+    caregiver:
+      - ["Hi Helen. How did you find your dad?", "He seems himself. The house is tidy enough and he's eating."]
+      - ["Have you talked about the driving?", "Yes. After hearing about the van, I will not ask him to drive me as a test. I can take him to church in my car while we arrange a proper review."]
+      - ["Any change in his memory since you last saw him?", "He asked me twice what time I was going home. Otherwise much the same as at Easter."]
+  - day: 7
+    patient:
+      - ["Good morning, George. Did you get to church?", "Yes. Helen drove us. I would rather use my own car, but she said we should wait until we have spoken to the doctor."]
+      - ["Has anything happened to the car lately?", "Helen's found a mark on the front. Somebody must have caught it in a car park. People don't look where they're going."]
+      - ["Had you noticed it before?", "No. I don't go round looking at the bumper."]
+    caregiver:
+      - ["Hi Helen. How has the weekend gone?", "Mostly fine. But when I went out to the car this morning there was a fresh scrape on the front bumper, on the left corner. It wasn't there at Easter."]
+      - ["Do you know how it happened?", "No idea. I can't tell when it happened or whether it's anything to do with the van."]
+      - ["How did the trip to church go?", "I drove us. Dad asked which way at the last turn, but I cannot tell whether he would have found it himself."]
+      - ["Anything else about the trip?", "He had left his driving glasses on the hall table. We went back for them before I drove."]
+  - day: 8
+    patient:
+      - ["Hello George. How are you after the weekend?", "Tired. It's busy when Helen's here. She went back this morning."]
+      - ["Did you sleep all right last night?", "So-so. I don't sleep like I used to."]
+      - ["Have you got anything planned today?", "Not much. The shop, and I might cut the grass if it stays dry."]
+    caregiver:
+      - ["Hi Helen. Did you get home all right?", "Yes, thanks. I rang Sandra before I set off."]
+      - ["What did she say?", "She was at the bus stop across the road when it happened. It was a white van and the driver hooted. That's all she could tell me."]
+      - ["Anything else from the weekend?", "When I changed his bed I found a box of Nytol in his bedside drawer, the one-a-night ones. About half of them are gone."]
+      - ["Did you ask him about them?", "He says he only takes one when he can't settle. I've no idea how often that is."]
+  - day: 9
+    patient:
+      - ["Good morning, George. How are things?", "Quiet without Helen. I went for bread in the car."]
+      - ["How are your eyes when you drive?", "My eyes are fine. I've got my glasses for the car."]
+      - ["When did you last see the optician?", "I couldn't tell you. A while back. They're still good glasses."]
+    caregiver:
+      - ["Hi Helen. How is your dad today?", "He sounded all right on the phone. He'd been out for bread."]
+      - ["Anything else on your mind?", "I forgot to tell you yesterday. After church on Sunday, Malcolm, one of his friends there, said Dad went through a red light at the crossing on the High Street a few weeks ago. Malcolm was in the car behind him. Nobody was crossing, thank goodness."]
+      - ["Has anyone ever checked his driving formally?", "Nobody's ever tested his driving, as far as I know. The memory clinic said something about it once, but nothing came of it."]
+      - ["These reports raise a current safety concern. Please tell George not to drive while a formal assessment is arranged. The assessment can inform the clinician and DVLA about longer-term fitness to drive. Can you reach him without taking his keys or assuming he agrees?", "I can phone him after this call. He may be upset, and I can't supervise him from Leeds. I won't take his keys. I'll ask him to park the car and discuss lifts."]
+  - day: 10
+    patient:
+      - ["Hello George. You're seeing the doctor later. Is there anything you want to say?", "I'm a good driver. I won't give it up because of gossip."]
+      - ["Why does the car matter so much to you?", "It's how I get about. Without it I'd be stuck in this house."]
+      - ["What if the doctor wanted someone to check your driving?", "If the doctor wants somebody to check my driving, I'll do it. I've nothing to hide."]
+      - ["Have you driven today, and has anyone discussed driving with you recently?", "I went for bread this morning. It was only a short trip. I know Helen asked me not to drive, but I still had my keys and thought it would be all right. I won't drive again until the assessment; I'll ask Sandra for a lift."]
+      - ["Please do not drive while a formal assessment is arranged. This is a temporary safety step, not a final decision about future driving. Can you follow that plan?", "Yes. I agreed last night, and I'll leave the car parked now. I still have my keys, so I'll need help sticking to it."]
+    caregiver:
+      - ["Hi Helen. What would you like the doctor to know today?", "Can someone check properly whether he's safe to drive? I don't want to be the one who tells him to stop."]
+      - ["Did you reach George last night? If so, what happened?", "He agreed to leave the car parked, but I can't check on him from Leeds. This morning he told me he drove for bread anyway. He still has his keys. I'll ask Sandra to help with shopping, but that isn't arranged yet. We have not checked whether he notified the DVLA or insurer."]
+      - ["Please repeat that he should not drive while a formal assessment is arranged. Offer transport help, but do not assume you can control his keys. What does he say now?", "He says he'll leave it parked and ask Sandra for a lift. I can't know if he'll keep to that plan."]
+      - ["Is there anything else?", "I don't want to take the car off him, he'd be lost without it. But I can't keep an eye on him from Leeds."]
+units:
+  - id: van-near-miss
+    content: >-
+      Helen reports that Sandra, George's neighbour, told her that George pulled out in front of
+      a van at the junction by the Co-op and the van had to brake hard, on the Monday or Tuesday
+      morning. Helen did not see it, and George had not mentioned it.
+    anchors:
+      - source: day-3:caregiver
+        quote: She said Dad pulled out in front of a van at the junction by the Co-op and the van had to brake hard.
+      - source: day-3:caregiver
+        quote: Monday or Tuesday morning. She wasn't sure which.
+      - source: day-3:caregiver
+        quote: I wasn't there, I'm only going on what Sandra told me.
+    reporter: caregiver, relaying the neighbour
+    event_time: Morning of 2026-05-11 or 2026-05-12; the neighbour was not sure which
+    reported_at: "2026-05-13"
+    priority: essential
+    must_state: ["a neighbour reports, second-hand via Helen, that George pulled out in front of a van that had to brake hard"]
+    essential_limit: true
+    uncertainty: Second-hand account; Helen did not see it and the day is uncertain.
+  - id: near-miss-denied
+    content: George denies that anything happened while he was driving and says he is a careful driver; Helen reports that he denied it to her and got cross.
+    anchors:
+      - source: day-4:patient
+        quote: No. Nothing happened. Nobody pulled out in front of anybody.
+      - source: day-4:caregiver
+        quote: He said nothing happened and got quite cross with me.
+    reporter: patient and caregiver
+    event_time: "2026-05-13 to 2026-05-14"
+    reported_at: "2026-05-14"
+    priority: supporting
+    must_state: ["George denies the near-miss"]
+    uncertainty: The denial conflicts with the neighbour's account; neither can be verified.
+  - id: neighbour-detail
+    content: Sandra later told Helen that she saw the van incident from the bus stop across the road, that it was a white van and its driver hooted, and that she could add nothing more.
+    anchors:
+      - source: day-8:caregiver
+        quote: She was at the bus stop across the road when it happened. It was a white van and the driver hooted. That's all she could tell me.
+    reporter: caregiver, relaying the neighbour
+    event_time: Morning of 2026-05-11 or 2026-05-12
+    reported_at: "2026-05-18"
+    priority: supporting
+    must_state: ["Sandra says she saw it herself from across the road"]
+    uncertainty: Second-hand; Sandra is the only reported witness.
+  - id: bumper-scrape
+    content: Helen saw a fresh scrape on the left front corner of George's car bumper that was not there at her Easter visit.
+    anchors:
+      - source: day-7:caregiver
+        quote: But when I went out to the car this morning there was a fresh scrape on the front bumper, on the left corner. It wasn't there at Easter.
+    reporter: caregiver
+    event_time: Seen on 2026-05-17; damage occurred some time after Easter
+    reported_at: "2026-05-17"
+    priority: essential
+    must_state: ["Helen found a fresh scrape on George's bumper"]
+    uncertainty: Helen saw the damage directly but not how or when it happened.
+  - id: scrape-explanation
+    content: George guesses that someone caught the car in a car park and says he had not noticed the scrape.
+    anchors:
+      - source: day-7:patient
+        quote: Somebody must have caught it in a car park.
+      - source: day-7:patient
+        quote: No. I don't go round looking at the bumper.
+    reporter: patient
+    event_time: Unknown
+    reported_at: "2026-05-17"
+    priority: supporting
+    must_state: ["George thinks someone hit the car in a car park"]
+    uncertainty: A guess; George does not describe the event itself.
+  - id: scrape-cause-unknown
+    content: Helen does not know when or how the scrape happened, or whether it is linked to the van incident.
+    anchors:
+      - source: day-7:caregiver
+        quote: I can't tell when it happened or whether it's anything to do with the van.
+    reporter: caregiver
+    event_time: Unknown
+    reported_at: "2026-05-17"
+    priority: supporting
+    must_state: ["when and how the scrape happened is not known"]
+    uncertainty: Nobody reports seeing the scrape happen, so its date and cause are not established.
+  - id: sleep-tablets
+    content: >-
+      Helen found a box of Nytol One-a-Night, an over-the-counter sleeping tablet, in George's
+      bedside drawer with about half gone. George says he takes one when he cannot settle. How
+      often he takes them is unknown.
+    anchors:
+      - source: day-8:caregiver
+        quote: When I changed his bed I found a box of Nytol in his bedside drawer, the one-a-night ones. About half of them are gone.
+      - source: day-8:caregiver
+        quote: I've no idea how often that is.
+    reporter: patient and caregiver
+    event_time: Ongoing
+    reported_at: "2026-05-18"
+    priority: essential
+    must_state: ["George takes over-the-counter Nytol sleeping tablets when he cannot settle, how often is unknown"]
+    uncertainty: Neither George nor Helen knows how often he takes them.
+  - id: red-light-report
+    content: Helen reports that Malcolm, a church friend driving behind George, told her George went through a red light at the High Street crossing a few weeks ago; nobody was crossing.
+    anchors:
+      - source: day-9:caregiver
+        quote: After church on Sunday, Malcolm, one of his friends there, said Dad went through a red light at the crossing on the High Street a few weeks ago.
+      - source: day-9:caregiver
+        quote: Malcolm was in the car behind him.
+    reporter: caregiver, relaying a church friend
+    event_time: A few weeks before 2026-05-17; exact date unknown
+    reported_at: "2026-05-19"
+    priority: essential
+    must_state: ["a church friend reports George went through a red light at a crossing a few weeks ago"]
+    uncertainty: Second-hand account of an event weeks earlier; the date is not known.
+  - id: assessment-not-done
+    content: Helen says nobody has ever tested George's driving; the memory clinic mentioned it once but nothing came of it.
+    anchors:
+      - source: day-9:caregiver
+        quote: Nobody's ever tested his driving, as far as I know. The memory clinic said something about it once, but nothing came of it.
+    reporter: caregiver
+    event_time: Since the memory clinic review
+    reported_at: "2026-05-19"
+    priority: essential
+    must_state: ["no formal driving assessment has been done, as far as Helen knows"]
+    uncertainty: Helen's knowledge only; she lives at a distance.
+  - id: caregiver-request
+    content: Helen asks for a proper check of whether George is safe to drive; she does not want to be the one who stops him or to take the car away, but cannot supervise him from Leeds.
+    anchors:
+      - source: day-10:caregiver
+        quote: Can someone check properly whether he's safe to drive? I don't want to be the one who tells him to stop.
+      - source: day-10:caregiver
+        quote: But I can't keep an eye on him from Leeds.
+    reporter: caregiver
+    event_time: "2026-05-20"
+    reported_at: "2026-05-20"
+    priority: essential
+    must_state: ["Helen asks for a proper check of whether George is safe to drive"]
+    uncertainty: No limit beyond the cited source.
+  - id: temporary-driving-plan
+    content: After George agreed to Helen’s request to park the car, he still drove to get bread the next morning because he had the keys and thought a short trip was acceptable. After the Care Agent repeated the temporary no-driving advice, he reaffirmed that he would leave the car parked until assessment and ask Sandra for a lift. Helen cannot supervise him from Leeds; the ride is not yet arranged. DVLA and insurer notification remain unconfirmed.
+    anchors:
+      - source: day-10:patient
+        quote: Yes. I agreed last night, and I'll leave the car parked now. I still have my keys, so I'll need help sticking to it.
+      - source: day-10:patient
+        quote: I went for bread this morning. It was only a short trip. I know Helen asked me not to drive, but I still had my keys and thought it would be all right. I won't drive again until the assessment; I'll ask Sandra for a lift.
+      - source: day-10:caregiver
+        quote: This morning he told me he drove for bread anyway. He still has his keys. I'll ask Sandra to help with shopping, but that isn't arranged yet.
+      - source: day-10:caregiver
+        quote: We have not checked whether he notified the DVLA or insurer.
+    reporter: patient and caregiver
+    event_time: "2026-05-20"
+    reported_at: "2026-05-20"
+    priority: essential
+    must_state: ["George agreed to stop driving until assessment but has driven since"]
+    uncertainty: The agreement is recent and may be difficult to sustain; Helen is not present to supervise.
+  - id: ehr-driving-plan
+    content: The 2025-11-18 memory clinic note plans referral for a formal driving assessment if the family raises concerns.
+    anchors:
+      - source: DocumentReference/doc-memory-review
+        quote: "Plan: refer for a formal driving assessment if family raises concerns."
+    reporter: FHIR record
+    event_time: "2025-11-18"
+    reported_at: "2026-05-11"
+    priority: essential
+    must_state: ["the November 2025 memory clinic plan is to refer for a formal driving assessment if the family raises concerns"]
+    uncertainty: A conditional plan; the record does not show that a referral was made.
+  - id: ehr-dvla-advice
+    content: The 2025-11-18 memory clinic note records advice that George must tell the DVLA and his car insurer about the diagnosis, and that he said he would.
+    anchors:
+      - source: DocumentReference/doc-memory-review
+        quote: Advised George that he must tell the DVLA and his car insurer about the diagnosis; he said he would.
+    reporter: FHIR record
+    event_time: "2025-11-18"
+    reported_at: "2026-05-11"
+    priority: supporting
+    must_state: ["George was advised to tell the DVLA and his insurer; nobody has confirmed that he did"]
+    uncertainty: The record does not show that George told the DVLA or his insurer.
+  - id: ehr-no-incidents
+    content: The 2025-11-18 memory clinic note records no driving incidents reported by George or his daughter.
+    anchors:
+      - source: DocumentReference/doc-memory-review
+        quote: No driving incidents reported by George or his daughter.
+    reporter: FHIR record
+    event_time: "2025-11-18"
+    reported_at: "2026-05-11"
+    priority: supporting
+    must_state: ["no driving incidents were reported at the November 2025 review"]
+    uncertainty: Reflects what the family reported at that visit only.
+  - id: ehr-visual-acuity
+    content: On 2025-05-20 distance visual acuity was 6/12 in each eye and 6/12 with both eyes, with his current glasses.
+    anchors:
+      - source: Observation/observation-visual-acuity
+        quote: Right eye 6/12, left eye 6/12, both eyes 6/12 with current distance glasses.
+    reporter: FHIR record
+    event_time: "2025-05-20"
+    reported_at: "2026-05-11"
+    priority: essential
+    must_state: ["distance acuity was 6/12 with his current glasses, about a year ago"]
+    uncertainty: A single measurement a year old.
+  - id: ehr-optician-advice
+    content: The 2025-05-20 eye test notes glasses about four years old and advises an optician review for updated distance glasses.
+    anchors:
+      - source: Observation/observation-visual-acuity
+        quote: Glasses about four years old. Advised optician review for updated distance glasses.
+    reporter: FHIR record
+    event_time: "2025-05-20"
+    reported_at: "2026-05-11"
+    priority: supporting
+    must_state: ["an optician review for new distance glasses was advised"]
+    uncertainty: The record does not show whether the review happened.
+
+tasks:
+  - qid: C1
+    kind: brief
+    as_of_day: 10
+    prompt: I'm seeing George and Helen this afternoon. What should I know from the last ten days?
+    clinical_criteria:
+      required_actions:
+        - Report the neighbour's near-miss account and friend's second-hand red-light report with source and uncertainty. State that Helen drove the church trip; her passenger-route observations are not a test of George's driving.
+        - Recommend temporary cessation of driving pending formal assessment and offer alternative transport.
+        - State that the old vision result and MMSE do not establish current fitness; check Nytol ingredients and actual use without claiming causation.
+      forbidden_actions:
+        - Do not declare George safe to drive or generalize that all mild dementia requires stopping.
+        - Do not claim DVLA notification occurred or that diphenhydramine caused an event.
+      rationale: Multiple current concerns justify a temporary safety plan while preserving reporter and cause uncertainty.
+      sources:
+        - https://www.gov.uk/dementia-and-driving
+        - https://www.gov.uk/guidance/general-information-assessing-fitness-to-drive
+        - https://www.nhs.uk/medicines/diphenhydramine/about-diphenhydramine/
+    units: [van-near-miss, red-light-report, temporary-driving-plan,
+      {id: bumper-scrape, priority: supporting, essential_limit: true},
+      {id: sleep-tablets, priority: supporting}]
+  - qid: C2
+    kind: update
+    as_of_day: 10
+    since_day: 6
+    prompt: I last went through George's notes on May 16. What's new since then?
+    units: [red-light-report, temporary-driving-plan, {id: bumper-scrape, essential_limit: true},
+      {id: sleep-tablets, priority: supporting}, {id: caregiver-request, priority: supporting}]
+  - qid: C3
+    kind: reconcile
+    as_of_day: 10
+    prompt: Does what Helen and George have told us about his driving fit with the memory clinic note from November?
+    units: [ehr-driving-plan, {id: ehr-no-incidents, priority: essential}, van-near-miss,
+      {id: red-light-report, priority: supporting}, {id: assessment-not-done, priority: supporting}]
+  - qid: C4
+    kind: question
+    as_of_day: 10
+    prompt: Who actually saw George pull out in front of the van?
+    units:
+      - {id: van-near-miss, must_state: ["Helen did not see it; she relays what the neighbour Sandra told her"]}
+      - {id: neighbour-detail, priority: essential}
+      - near-miss-denied
+  - qid: S1
+    kind: not_established
+    as_of_day: 10
+    prompt: When did the scrape on George's bumper happen?
+    units:
+      - {id: bumper-scrape, must_state: ["the scrape is fresh and was not there at Helen's Easter visit"]}
+      - {id: scrape-cause-unknown, priority: essential, essential_limit: true, must_state: ["Helen does not know when the scrape happened"]}
+      - {id: scrape-explanation, must_state: ["George says he had not noticed the scrape"]}
+  - qid: S2
+    kind: decision
+    as_of_day: 10
+    prompt: >-
+      Given the recent reports, what should George do about driving while a formal assessment is arranged?
+    clinical_criteria:
+      required_actions:
+        - Clearly advise George not to drive while the serious near-miss and second-hand red-light reports receive prompt formal assessment. Explain this is a temporary safety step, not a final decision on future fitness.
+        - Arrange a formal driving assessment and current vision review, and offer practical alternative transport. Carry forward George’s reported agreement and subsequent drive; check whether he still accepts the pause and can follow it. Do not assume Helen can control access to his car.
+        - Explain that a single MMSE score or mild dementia label cannot determine driving safety.
+        - Verify whether George has notified DVLA and his insurer; the record documents advice and intent only.
+        - If George continues to drive against advice despite reasonable efforts and poses a risk of death or serious harm, consider prompt DVLA notification under GMC and DVLA guidance; explain beforehand if practicable and document the decision.
+        - Check the Nytol active ingredient, dose, timing, and frequency; record that diphenhydramine is a potential safety concern, not an established cause of these events.
+      forbidden_actions:
+        - Do not declare George safe to drive based on MMSE, an old vision test, or Helen's passenger-trip observations; she drove that trip.
+        - Do not claim all people with mild dementia must stop driving.
+        - Do not claim George has notified DVLA or that diphenhydramine caused the incidents.
+        - Do not disclose by default or confiscate his keys.
+      rationale: Multiple reported driving concerns justify a temporary safety decision and formal assessment while preserving uncertainty about cause and individual fitness.
+      sources:
+        - https://www.gov.uk/dementia-and-driving
+        - https://www.gov.uk/guidance/general-information-assessing-fitness-to-drive
+        - https://www.nhs.uk/medicines/diphenhydramine/about-diphenhydramine/
+    units: [van-near-miss, red-light-report, temporary-driving-plan,
+      {id: sleep-tablets, priority: supporting}, ehr-dvla-advice]
+  - qid: F1
+    kind: followup
+    as_of_day: 10
+    prompt: >
+      Before I raise driving with them, what does his record already say we should do, and is
+      there anything in his medicines or eyesight I need to check?
+    clinical_criteria:
+      required_actions:
+        - Clearly advise George not to drive while the serious reported events receive prompt formal assessment; carry forward his agreement, retained keys, and transport concern without treating the plan as guaranteed.
+        - State the record documents advice to notify DVLA and insurer and George’s intent, not completed notification.
+        - If George continues to drive against advice despite reasonable efforts and poses a risk of death or serious harm, consider prompt DVLA notification under GMC and DVLA guidance; explain beforehand if practicable and document the decision.
+        - Review Nytol ingredient and use frequency; do not claim it caused the reported incidents.
+        - Do not use old visual acuity, an MMSE score, or direction requests during Helen's driving as evidence that George drove safely or unsafely.
+      forbidden_actions:
+        - Do not claim George notified DVLA or insurer.
+        - Do not disclose by default or confiscate his keys.
+        - Do not claim diphenhydramine caused the driving events.
+      rationale: The follow-up must preserve the temporary safety plan and distinguish documented advice from completed actions.
+      sources:
+        - https://www.gov.uk/dementia-and-driving
+        - https://www.gov.uk/guidance/general-information-assessing-fitness-to-drive
+        - https://www.nhs.uk/medicines/diphenhydramine/about-diphenhydramine/
+    units: [ehr-driving-plan, sleep-tablets, ehr-visual-acuity, ehr-dvla-advice, ehr-optician-advice]

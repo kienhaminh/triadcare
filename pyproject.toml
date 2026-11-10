@@ -1,0 +1,38 @@
+[project]
+name = "triadcare"
+version = "1.0.0"
+description = "TriadCare: governed multi-agent clinical framework and its evaluation pipeline"
+authors = [
+    { name = "Minh-Kien Ha" },
+    { name = "Myungeun Lee" },
+    { name = "Duy-Phuong Dao" },
+    { name = "Hyung-Jeong Yang" },
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "httpx>=0.28,<1.0",
+    "python-dotenv>=1.2,<2.0",
+    "psycopg[binary]>=3.2,<4.0",
+    "fastapi>=0.110,<1.0",
+    "pydantic>=2.7,<3.0",
+    "uvicorn>=0.29,<1.0",
+    "pyyaml>=6.0,<7.0",
+]
+
+
+[tool.poetry]
+packages = [{ include = "src" }]
+
+[dependency-groups]
+dev = ["ruff>=0.15,<1.0", "pytest>=8,<10"]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+include = ["src/**/*.py", "services/**/*.py", "scenarios/*.py", "pyproject.toml"]

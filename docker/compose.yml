@@ -1,0 +1,71 @@
+# Local stack: PostgreSQL, HAPI FHIR, and the MRI inference gateway.
+#   docker compose --env-file .env -f docker/compose.yml up -d --build
+# POSTGRES_PASSWORD must match the password inside DATABASE_URL. The gateway reads
+# IMAGING_GATEWAY_TOKEN, else IMAGING_BEARER_TOKEN.
+# The DLBS NIfTI series (scenarios/fetch_dlbs.py) are mounted read-only from data/dlbs.
+# HAPI FHIR is pinned to the image digest of the paper runs. Its image has no shell, so it
+# has no health check; wait for /fhir/metadata instead.
+
+name: triadcare
+
+x-aliases: &aliases "CASE-P001-MRI:DLBS-4540-W1-T1W,CASE-P002-MRI:DLBS-3319-W1-T1W,CASE-P003-MRI:DLBS-935-W1-T1W,CASE-P004-MRI:DLBS-867-W1-T1W,CASE-P005-MRI:DLBS-823-W1-T1W,CASE-P006-MRI:DLBS-408-W1-T1W,CASE-P007-MRI:DLBS-1023-W1-T1W,CASE-P008-MRI:DLBS-2133-W1-T1W,CASE-P009-MRI:DLBS-1600-W1-T1W,CASE-P010-MRI:DLBS-4869-W1-T1W,CASE-P011-MRI:DLBS-833-W1-T1W,CASE-P012-MRI:DLBS-935-W1-T1W,CASE-P104-MRI:DLBS-2133-W1-T1W,CASE-P105-MRI:DLBS-1023-W1-T1W,CASE-P201-MRI:DLBS-1600-W1-T1W,CASE-P202-MRI:DLBS-408-W1-T1W,CASE-P203-MRI:DLBS-935-W1-T1W,CASE-P205-MRI:DLBS-867-W1-T1W,CASE-P206-MRI:DLBS-3319-W1-T1W,CASE-P207-MRI:DLBS-823-W1-T1W,CASE-P208-MRI:DLBS-833-W1-T1W,CASE-P209-MRI:DLBS-4869-W1-T1W,CASE-P210-MRI:DLBS-4540-W1-T1W"
+
+x-gateway-token: &gateway-token ${IMAGING_GATEWAY_TOKEN:-${IMAGING_BEARER_TOKEN:?set IMAGING_BEARER_TOKEN in .env}}
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: triadcare-postgres
+    environment:
+      POSTGRES_DB: triadcare
+      POSTGRES_USER: triadcare
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:5434:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres-init.sql:/docker-entrypoint-initdb.d/postgres-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U triadcare"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  fhir:
+    image: hapiproject/hapi@sha256:0ff86aac4c7bd13a1ee226444a70263bb46ed1c28ef543c30a44f865b80ca04e
+    container_name: triadcare-fhir
+    environment:
+      # Cap the JVM heap, so parallel evaluation runs do not fill the Docker VM.
+      JAVA_TOOL_OPTIONS: "-Xmx2g"
+      hapi.fhir.partitioning.allow_references_between_partitions: "false"
+      hapi.fhir.partitioning.partitioning_include_in_search_hashes: "false"
+      hapi.fhir.tenant_identification_strategy: URL_BASED
+    ports:
+      - "127.0.0.1:8090:8080"
+
+  mri-inference:
+    container_name: triadcare-mri-inference
+    image: triadcare-mri-inference:latest
+    build:
+      context: ..
+      dockerfile: docker/mri-inference.Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8101:8101"
+    environment:
+      IMAGING_GATEWAY_TOKEN: *gateway-token
+      IMAGING_ALLOWED_CASE_IDS: CASE-P001-MRI,CASE-P002-MRI,CASE-P003-MRI,CASE-P004-MRI,CASE-P005-MRI,CASE-P006-MRI,CASE-P007-MRI,CASE-P008-MRI,CASE-P009-MRI,CASE-P010-MRI,CASE-P011-MRI,CASE-P012-MRI,CASE-P104-MRI,CASE-P105-MRI,CASE-P201-MRI,CASE-P202-MRI,CASE-P203-MRI,CASE-P205-MRI,CASE-P206-MRI,CASE-P207-MRI,CASE-P208-MRI,CASE-P209-MRI,CASE-P210-MRI
+      IMAGING_CASE_ALIASES: *aliases
+      MRI_HOST: 0.0.0.0
+      MRI_PORT: 8101
+      MRI_DATA_ROOT: /data/dlbs
+    volumes:
+      - ../data/dlbs:/data/dlbs:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8101/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
+volumes:
+  postgres-data:

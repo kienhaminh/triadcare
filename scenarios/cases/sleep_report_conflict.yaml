@@ -1,0 +1,586 @@
+schema: scenario_v4
+id: sleep_report_conflict
+split: held_out
+title: A full night by her account and a 2 a.m. waking by her husband's
+summary: >
+  Beryl says she slept right through the Monday night. Two days later Kenneth reports that he
+  found her in the front room at about 2 a.m. opening the curtains, thinking it was morning; she was not
+  hurt. He first says it was "last night", then corrects it to the Monday night, the night she said
+  she slept through. She does not remember getting up. Possible contributors are in the sources but
+  none is established: donepezil and a mug of tea at about 10 p.m., night toilet trips, and long
+  afternoon naps. Kenneth asks for a sleeping tablet; Beryl does not want one. His notebook
+  covers three nights, nothing has been changed or started, and the surgery has not been told.
+start_date: "2026-07-06"
+patient:
+  id: P-207
+  name: Beryl
+  gender: female
+  birth_year: 1945
+  persona: Mild Alzheimer dementia. Retired primary school teacher. Lives with her husband in a two-storey house. Cheerful, confident about her own routines, and does not see a problem with her sleep.
+caregiver:
+  name: Kenneth
+  relation: husband
+  persona: Aged 83, lives with Beryl and gives her tablets. Has a bad back. Sleeps heavily and is not always sure what happens at night.
+record_target: document-sleep-note
+source_open: note-memory-review
+baseline:
+  date: "2026-05-12"
+  diagnosis: Dementia due to Alzheimer disease, mild stage
+  mmse: 21
+  moca: 15
+  cdr_global: 1
+  cdr_sb: 5.0
+  faq: 11
+record:
+  - type: Condition
+    id: condition-hypertension
+    code: Essential hypertension
+    status: active
+    date: "2014-02-18"
+  - type: Condition
+    id: condition-knee-oa
+    code: Osteoarthritis of both knees
+    status: active
+    date: "2019-10-03"
+  - type: MedicationRequest
+    id: med-donepezil
+    medication: Donepezil 10 mg tablet
+    dosage: 10 mg by mouth once daily at bedtime
+    status: active
+    date: "2025-11-04"
+    note: Started at 5 mg on 2025-10-07 and increased to 10 mg on 2025-11-04. Husband gives the doses.
+  - type: MedicationRequest
+    id: med-amlodipine
+    medication: Amlodipine 5 mg tablet
+    dosage: 5 mg by mouth once daily in the morning
+    status: active
+    date: "2021-06-15"
+  - type: MedicationRequest
+    id: med-paracetamol
+    medication: Paracetamol 500 mg tablet
+    dosage: 1 g by mouth up to four times daily when required for knee pain; maximum 4 g in 24 hours
+    status: active
+    date: "2019-10-03"
+  - type: Observation
+    id: observation-bp-2026-05
+    category: vital-signs
+    code: Blood pressure
+    date: "2026-05-12"
+    value: 136/78 mmHg seated
+  - type: Observation
+    id: observation-pulse-2026-05
+    category: vital-signs
+    code: Heart rate
+    date: "2026-05-12"
+    value: 64 beats per minute, regular
+  - type: Encounter
+    id: encounter-memory-review
+    kind: Memory clinic follow-up
+    status: finished
+    date: "2026-05-12"
+    reason: Dementia review and donepezil tolerance
+  - type: DocumentReference
+    id: note-memory-review
+    title: Memory clinic follow-up note
+    date: "2026-05-12"
+    author: Memory clinic
+    text: >-
+      Follow-up with Beryl and her husband Kenneth. MMSE 21/30. Donepezil 10 mg at bedtime since
+      November 2025; no nausea or diarrhoea reported. Pulse 64 and regular. Beryl says she sleeps
+      well. Kenneth reports she sometimes gets up once in the night to use the toilet. Plan: continue
+      donepezil 10 mg. If sleep becomes disturbed, review the timing of donepezil. GP medication
+      review in July. Memory clinic review in six months.
+  - type: DocumentReference
+    id: document-sleep-note
+    title: Sleep and night-time care note
+    date: "2026-05-12"
+    author: Memory clinic nurse
+    text: Sleep and night-time care note. Beryl reports sleeping well. No night-time support needed. No entries since 2026-05-12.
+  - type: Encounter
+    id: encounter-medication-review
+    kind: Primary care medication review
+    status: planned
+    date: "2026-07-22"
+    reason: Annual medication review
+imaging:
+  - study_id: CASE-P207-MRI
+    modality: mri
+    date: "2025-08-19"
+    description: Brain MRI without contrast for a dementia work-up
+    source_series: DLBS-823-W1-T1W
+days:
+  - day: 1
+    patient:
+      - ["Good morning, Beryl. How are you today?", "Very well, thank you. Ken's done the crossword already, the cheat."]
+      - ["How have you been sleeping lately?", "Oh, I sleep like a log. Always have."]
+      - ["What are you doing today?", "The library van comes this afternoon. I like the big print ones."]
+    caregiver:
+      - ["Hi Kenneth. How has Beryl been?", "Much as usual. Cheerful enough. She got three books from the library van."]
+      - ["How are her nights at the moment?", "Mostly fine. She goes up about ten. Now and then I hear her up for the loo."]
+      - ["And how are you?", "Fair. My back's playing up, but I manage."]
+  - day: 2
+    patient:
+      - ["Good morning, Beryl. How did you sleep last night?", "I slept right through. Didn't stir till Ken brought my tea up."]
+      - ["Do you feel rested?", "Yes, fresh as a daisy."]
+    caregiver:
+      - ["Hi Kenneth. How was today?", "Nothing much to report. I put the bins out first thing and we had a quiet one."]
+      - ["Did she eat well?", "Yes, a good lunch. Soup and a cheese sandwich."]
+      - ["How are you?", "Bit weary, to be honest. Nothing an early night won't fix."]
+  - day: 3
+    patient:
+      - ["Good morning, Beryl. How was your night?", "Lovely, thank you. I slept well."]
+      - ["Did you get up in the night at all?", "No, I don't think so. I'd remember."]
+      - ["What's on today?", "Ken wants to go to the garden centre. He'll come back with more pots."]
+    caregiver:
+      - ["Hi Kenneth. How has Beryl been?", "Fine in the day. But I meant to tell you, she was up about two o'clock last night."]
+      - ["What happened?", "I found her in the front room in her dressing gown, opening the curtains. She thought it was morning."]
+      - ["Was she hurt or upset?", "No, no fall and nothing hurt. She was a bit muddled. I walked her back to bed and she settled within half an hour."]
+      - ["Thank you. If she gets up at night again, please note the time and what she was doing. Is there anything on the stairs she could trip on at night?", "Not really. I'll leave the landing light on from now on."]
+  - day: 4
+    patient:
+      - ["Hello Beryl. How are you today?", "Not bad. A bit stiff in the knees."]
+      - ["How do you spend your afternoons?", "Reading, mostly. Or the radio."]
+    caregiver:
+      - ["Hi Kenneth. How has today gone?", "Quiet. She sleeps in the chair after lunch, a good two hours most days, and sometimes again before tea."]
+      - ["Is that new?", "It's crept up since the spring, I'd say. She used to be on the go all afternoon."]
+      - ["How have her nights been this week?", "I haven't heard her since that once."]
+  - day: 5
+    patient:
+      - ["Good morning, Beryl. How did you sleep?", "Very well. I always do."]
+      - ["Any aches today?", "Only the knees. I had a paracetamol with my breakfast."]
+    caregiver:
+      - ["Hi Kenneth. Anything to add to what you told us this week?", "Yes. I got the night wrong when I told you about the curtains. It was Monday night, not Tuesday."]
+      - ["How do you know it was Monday night?", "The bins go out first thing Tuesday, and I remember being shattered putting them out after being up with her."]
+      - ["And Tuesday night?", "I didn't hear her at all Tuesday night. But I sleep heavy, so I can't swear she didn't get up."]
+  - day: 6
+    patient:
+      - ["Hello Beryl. Ken says you sometimes nap after lunch. Do you?", "I only rest my eyes after lunch. I don't sleep in the day."]
+      - ["How do you feel in the evenings?", "Wide awake. I like to see the late news."]
+    caregiver:
+      - ["Hi Kenneth. What is her evening routine?", "She has her tablet and a big mug of tea at about ten, then goes up."]
+      - ["Which tablet is that?", "The memory one, donepezil. We were told to give it at night."]
+      - ["Thank you. Please keep giving her tablets as prescribed; the doctor can review the timing. Does she drink much in the evening?", "Two or three mugs of tea after six, I'd say. She does love her tea."]
+  - day: 7
+    patient:
+      - ["Good morning, Beryl. How was your night?", "Fine. I had a funny dream about the school where I taught. Very real, it was."]
+      - ["Did the dream upset you?", "No. It was nice, really. All the children."]
+    caregiver:
+      - ["Hi Kenneth. How was the weekend?", "Our daughter rang this afternoon. Beryl was chatty with her."]
+      - ["Would you be willing to write down when Beryl goes to bed, any time you hear her up at night, and her naps, for the doctor?", "I can do that. I'll keep a notebook by the bed, starting tonight."]
+  - day: 8
+    patient:
+      - ["Hello Beryl. Do you get up in the night for anything?", "I get up for the loo once most nights, then straight back off. Everyone does at my age."]
+      - ["Does it hurt or sting when you pass water?", "No, nothing like that."]
+    caregiver:
+      - ["Hi Kenneth. How was last night?", "I heard her go to the toilet about three, and she went back to bed on her own."]
+      - ["Did she seem confused?", "Didn't seem to be. She was back asleep before I was."]
+      - ["How are you sleeping?", "Not great. I lie there listening out for her."]
+  - day: 9
+    patient:
+      - ["Good morning, Beryl. Ken told us he found you downstairs one night last week. Do you remember that?", "I don't remember getting up at all. If Ken says I did, maybe I did."]
+      - ["How do you feel in the mornings?", "I don't feel tired. I don't know what the fuss is about."]
+    caregiver:
+      - ["Hi Kenneth. Is there anything you'd like the doctor to know?", "Could the doctor give her something to help her sleep? My sister takes a sleeping tablet and swears by it."]
+      - ["What worries you most about her nights?", "That she'll go down the stairs in the dark, or I'll sleep through it. I'm not getting much sleep myself."]
+      - ["I cannot start or advise a sleeping tablet. The doctor can talk through the options with you both. Does Beryl know you are asking?", "Not yet. I'll mention it to her tonight."]
+  - day: 10
+    patient:
+      - ["Hello Beryl. Ken mentioned a sleeping tablet. What do you think?", "I don't want sleeping tablets. They make you dopey, and I'd fall on the stairs."]
+      - ["Is there anything you'd like the doctor to know?", "Only that I sleep perfectly well. Ken worries."]
+      - ["Would you be happy to talk with the doctor about your sleep and your tablets?", "Yes, I'll talk to the doctor. But no sleeping pills."]
+    caregiver:
+      - ["Hi Kenneth. How is the notebook going?", "I've written down three nights. She went up about ten each time. The only time I heard her was Sunday, for the toilet."]
+      - ["Have you written down her naps?", "Two hours after lunch on two of the days. I missed one, I was out at the shops."]
+      - ["Has anyone changed her tablets or started anything new?", "No. Nothing's been changed and she's not on anything for sleep."]
+      - ["Thank you. Please bring the notebook to her review. Is the review still booked?", "Yes, the twenty-second. I haven't spoken to the surgery about her nights yet."]
+units:
+  - id: patient-full-night
+    content: On the morning of 2026-07-07 Beryl said she slept right through the Monday night and did not stir until Kenneth brought her tea.
+    anchors:
+      - source: day-2:patient
+        quote: I slept right through. Didn't stir till Ken brought my tea up.
+    reporter: patient
+    event_time: Night of 2026-07-06 to 2026-07-07
+    reported_at: "2026-07-07"
+    uncertainty: Her own recall of the night; Kenneth later dated his 2 a.m. observation to this same night.
+    priority: essential
+    must_state: ["Beryl says she slept right through the Monday night"]
+  - id: caregiver-2am-waking
+    content: On 2026-07-08 Kenneth reported that she was up at about 2 a.m. "last night", in the front room in her dressing gown opening the curtains and thinking it was morning. She did not fall and was not hurt; he walked her back to bed and she settled within half an hour.
+    anchors:
+      - source: day-3:caregiver
+        quote: she was up about two o'clock last night.
+      - source: day-3:caregiver
+        quote: I found her in the front room in her dressing gown, opening the curtains. She thought it was morning.
+      - source: day-3:caregiver
+        quote: No, no fall and nothing hurt.
+    reporter: caregiver
+    event_time: First given as the night of 2026-07-07 to 2026-07-08; later corrected to the night of 2026-07-06 to 2026-07-07
+    reported_at: "2026-07-08"
+    uncertainty: One observed waking; the night was later corrected by Kenneth.
+    priority: supporting
+    must_state: ["Kenneth found her at about 2 a.m. in the front room opening the curtains, thinking it was morning", "she did not fall and was not hurt"]
+  - id: caregiver-night-correction
+    content: On 2026-07-10 Kenneth corrected the date of the 2 a.m. waking to the Monday night, not the Tuesday night, because he remembers being tired putting the bins out on Tuesday morning. He did not hear her on the Tuesday night but says he sleeps heavily.
+    anchors:
+      - source: day-5:caregiver
+        quote: I got the night wrong when I told you about the curtains. It was Monday night, not Tuesday.
+      - source: day-5:caregiver
+        quote: The bins go out first thing Tuesday, and I remember being shattered putting them out after being up with her.
+      - source: day-5:caregiver
+        quote: I didn't hear her at all Tuesday night. But I sleep heavy, so I can't swear she didn't get up.
+    reporter: caregiver
+    event_time: Night of 2026-07-06 to 2026-07-07
+    reported_at: "2026-07-10"
+    uncertainty: Kenneth dates the night from memory; he sleeps heavily and may miss other wakings.
+    priority: essential
+    must_state: ["Kenneth corrected the 2 a.m. waking to the Monday night, the night Beryl said she slept through"]
+    correction_of: [caregiver-2am-waking]
+  - id: patient-no-recall
+    content: Asked about the night waking, Beryl says she does not remember getting up at all, that maybe she did if Kenneth says so, and that she does not feel tired.
+    anchors:
+      - source: day-9:patient
+        quote: I don't remember getting up at all. If Ken says I did, maybe I did.
+      - source: day-9:patient
+        quote: I don't feel tired.
+    reporter: patient
+    event_time: Night of 2026-07-06 to 2026-07-07, as dated by Kenneth
+    reported_at: "2026-07-14"
+    uncertainty: She neither confirms nor denies the waking.
+    priority: supporting
+    must_state: ["Beryl does not remember getting up"]
+  - id: night-toilet
+    content: Beryl says she gets up for the toilet once most nights and goes straight back to sleep, with no pain or stinging on passing water. Kenneth heard her go to the toilet at about 3 a.m. on the Sunday night; she went back to bed on her own.
+    anchors:
+      - source: day-8:patient
+        quote: I get up for the loo once most nights, then straight back off.
+      - source: day-8:patient
+        quote: No, nothing like that.
+      - source: day-8:caregiver
+        quote: I heard her go to the toilet about three, and she went back to bed on her own.
+    reporter: patient and caregiver
+    event_time: Most nights; one heard on the night of 2026-07-12 to 2026-07-13
+    reported_at: "2026-07-13"
+    uncertainty: Frequency is her own estimate; no urine test or bladder assessment is recorded.
+    priority: supporting
+    must_state: ["Beryl says she gets up for the toilet most nights; Kenneth heard one trip at about 3 a.m. on the Sunday night"]
+  - id: daytime-naps
+    content: Kenneth reports that Beryl sleeps in the chair for a good two hours after lunch most days, sometimes again before tea, and that this has increased since the spring; his notebook records two hours after lunch on two days. Beryl says she only rests her eyes and does not sleep in the day.
+    anchors:
+      - source: day-4:caregiver
+        quote: She sleeps in the chair after lunch, a good two hours most days, and sometimes again before tea.
+      - source: day-4:caregiver
+        quote: It's crept up since the spring, I'd say.
+      - source: day-6:patient
+        quote: I only rest my eyes after lunch. I don't sleep in the day.
+      - source: day-10:caregiver
+        quote: Two hours after lunch on two of the days.
+    reporter: patient and caregiver
+    event_time: Since spring 2026 to 2026-07-15
+    reported_at: "2026-07-15"
+    uncertainty: The two accounts differ; the notebook misses one day.
+    priority: supporting
+    must_state: ["Kenneth reports about two hours of sleep in the chair after lunch most days", "Beryl says she only rests her eyes"]
+  - id: bedtime-tablet-tea
+    content: Kenneth reports that Beryl has her donepezil and a big mug of tea at about 10 p.m., and then goes to bed. She has two or three mugs of tea after 6 p.m.
+    anchors:
+      - source: day-6:caregiver
+        quote: She has her tablet and a big mug of tea at about ten, then goes up.
+      - source: day-6:caregiver
+        quote: The memory one, donepezil.
+      - source: day-6:caregiver
+        quote: Two or three mugs of tea after six, I'd say.
+    reporter: caregiver
+    event_time: Usual evening routine, reported 2026-07-11
+    reported_at: "2026-07-11"
+    uncertainty: Kenneth's estimate of the usual routine; no link to the night waking is established.
+    priority: supporting
+    must_state: ["Kenneth reports she has her donepezil and a big mug of tea at about 10 p.m.", "by his estimate she has two or three mugs of tea after 6 p.m."]
+  - id: sleeping-tablet-request
+    content: Kenneth asks whether the doctor could give Beryl something to help her sleep. He worries she will go down the stairs in the dark or that he will sleep through it, and he is not getting much sleep himself.
+    anchors:
+      - source: day-9:caregiver
+        quote: Could the doctor give her something to help her sleep?
+      - source: day-9:caregiver
+        quote: That she'll go down the stairs in the dark, or I'll sleep through it. I'm not getting much sleep myself.
+    reporter: caregiver
+    event_time: "2026-07-14"
+    reported_at: "2026-07-14"
+    uncertainty: A request, not a decision; Beryl had not yet been asked.
+    priority: essential
+    must_state: ["Kenneth asks for a sleeping tablet for Beryl"]
+  - id: patient-declines-sleeping-tablet
+    content: Beryl does not want sleeping tablets because they make you dopey and she fears falling on the stairs. She is willing to talk to the doctor about her sleep and her tablets, but not to take sleeping pills.
+    anchors:
+      - source: day-10:patient
+        quote: I don't want sleeping tablets. They make you dopey, and I'd fall on the stairs.
+      - source: day-10:patient
+        quote: Yes, I'll talk to the doctor. But no sleeping pills.
+    reporter: patient
+    event_time: "2026-07-15"
+    reported_at: "2026-07-15"
+    uncertainty: Stated preference before any clinical discussion of options.
+    priority: essential
+    must_state: ["Beryl does not want a sleeping tablet but will talk to the doctor"]
+  - id: notebook-status
+    content: Kenneth's notebook covers three nights; she went to bed at about 10 p.m. each time and the only time he heard her was the Sunday night toilet trip. Nothing has been changed and she is not on anything for sleep. He has not spoken to the surgery about her nights.
+    anchors:
+      - source: day-10:caregiver
+        quote: I've written down three nights. She went up about ten each time. The only time I heard her was Sunday, for the toilet.
+      - source: day-10:caregiver
+        quote: No. Nothing's been changed and she's not on anything for sleep.
+      - source: day-10:caregiver
+        quote: I haven't spoken to the surgery about her nights yet.
+    reporter: caregiver
+    event_time: Nights of 2026-07-12 to 2026-07-15
+    reported_at: "2026-07-15"
+    uncertainty: Three nights recorded by a heavy sleeper; how often she wakes is not established.
+    priority: supporting
+    essential_limit: true
+    must_state: ["Kenneth recorded three nights and heard one toilet trip; as a heavy sleeper, he cannot establish how often Beryl wakes", "no medicine has been changed or started, and the surgery has not been told about her nights"]
+  - id: ehr-donepezil
+    content: The record shows donepezil 10 mg once daily at bedtime since 2025-11-04, increased from 5 mg started on 2025-10-07.
+    anchors:
+      - source: MedicationRequest/med-donepezil
+        quote: 10 mg by mouth once daily at bedtime
+    reporter: FHIR record
+    event_time: Active since 2025-11-04
+    reported_at: "2026-07-06"
+    uncertainty: Prescribing record; does not confirm the doses taken or the time given.
+    priority: essential
+    must_state: ["the record lists donepezil 10 mg at bedtime, at that dose since November 2025"]
+  - id: ehr-amlodipine
+    content: The record shows amlodipine 5 mg once daily in the morning since 2021-06-15.
+    anchors:
+      - source: MedicationRequest/med-amlodipine
+        quote: 5 mg by mouth once daily in the morning
+    reporter: FHIR record
+    event_time: Active since 2021-06-15
+    reported_at: "2026-07-06"
+    uncertainty: Prescribing record; does not confirm the doses taken.
+    priority: supporting
+    must_state: ["the record lists amlodipine 5 mg in the morning"]
+  - id: ehr-paracetamol
+    content: The record shows paracetamol 1 g up to four times daily when required for knee pain, maximum 4 g in 24 hours, since 2019-10-03.
+    anchors:
+      - source: MedicationRequest/med-paracetamol
+        quote: 1 g by mouth up to four times daily when required for knee pain; maximum 4 g in 24 hours
+    reporter: FHIR record
+    event_time: Active since 2019-10-03
+    reported_at: "2026-07-06"
+    uncertainty: Prescribing record; does not show how often she takes it or whether pain disturbs her at night.
+    priority: supporting
+    must_state: ["the record lists paracetamol 1 g up to four times daily as required for knee pain"]
+  - id: clinic-note-sleep
+    content: The memory clinic note of 2026-05-12 records that Beryl said she sleeps well and that Kenneth reported she sometimes gets up once in the night to use the toilet.
+    anchors:
+      - source: DocumentReference/note-memory-review
+        quote: Beryl says she sleeps well. Kenneth reports she sometimes gets up once in the night to use the toilet.
+    reporter: FHIR record
+    event_time: "2026-05-12"
+    reported_at: "2026-07-06"
+    uncertainty: Clinic history from both of them; no sleep assessment is recorded.
+    priority: essential
+    must_state: ["in May Beryl told the clinic she sleeps well, and Kenneth reported occasional night toilet trips"]
+  - id: clinic-donepezil-plan
+    content: The memory clinic plan of 2026-05-12 was to continue donepezil 10 mg and, if sleep became disturbed, to review the timing of donepezil; a GP medication review was planned for July.
+    anchors:
+      - source: DocumentReference/note-memory-review
+        quote: If sleep becomes disturbed, review the timing of donepezil.
+    reporter: FHIR record
+    event_time: Planned 2026-05-12
+    reported_at: "2026-07-06"
+    uncertainty: A conditional plan; the record shows no timing review.
+    priority: essential
+    must_state: ["the May plan was to review the timing of donepezil if sleep became disturbed"]
+  - id: ehr-sleep-note
+    content: The sleep and night-time care note dated 2026-05-12 says Beryl reports sleeping well, no night-time support is needed, and there are no entries since that date.
+    anchors:
+      - source: DocumentReference/document-sleep-note
+        quote: Beryl reports sleeping well. No night-time support needed. No entries since 2026-05-12.
+    reporter: FHIR record
+    event_time: Dated 2026-05-12
+    reported_at: "2026-07-06"
+    uncertainty: Written before the reports of July 2026.
+    priority: supporting
+    must_state: ["the sleep note still says she sleeps well, with no entries since May"]
+  - id: imaging-mri
+    content: An MRI study, CASE-P207-MRI, is available to the radiology workflow for this patient.
+    anchors:
+      - source: imaging:CASE-P207-MRI
+        quote: CASE-P207-MRI
+    reporter: imaging catalog
+    event_time: Study date not stated in the imaging catalog
+    reported_at: "2026-07-06"
+    uncertainty: The catalog gives the study identity and modality only; analysis values are research estimates.
+    priority: essential
+    must_state: ["an MRI study, CASE-P207-MRI, is on file"]
+  - id: ehr-mri-record
+    content: The record lists a brain MRI without contrast for a dementia work-up, dated 2025-08-19.
+    anchors:
+      - source: ImagingStudy/imaging-01
+        quote: Brain MRI without contrast for a dementia work-up
+    reporter: FHIR record
+    event_time: "2025-08-19"
+    reported_at: "2026-07-06"
+    uncertainty: The record gives the study purpose and date, not a report.
+    priority: supporting
+    must_state: ["a brain MRI for a dementia work-up was done in August 2025"]
+tasks:
+  - qid: C1
+    kind: brief
+    as_of_day: 10
+    prompt: I'm seeing Beryl on July 22. Kenneth is worried about her night-time waking and his own disrupted sleep. What should I know from the last ten days?
+    units:
+      - patient-full-night
+      - caregiver-night-correction
+      - patient-declines-sleeping-tablet
+      - daytime-naps
+      - {id: sleeping-tablet-request, priority: supporting}
+  - qid: C2
+    kind: update
+    as_of_day: 10
+    since_day: 4
+    prompt: I last looked at Beryl's notes on July 9. What is new since then?
+    units:
+      - caregiver-night-correction
+      - sleeping-tablet-request
+      - patient-declines-sleeping-tablet
+      - night-toilet
+      - notebook-status
+  - qid: C3
+    kind: reconcile
+    as_of_day: 10
+    prompt: >-
+      Beryl told the memory clinic in May that she sleeps well, and she says the same now. Does
+      that fit what Kenneth reports?
+    units:
+      - clinic-note-sleep
+      - patient-full-night
+      - caregiver-night-correction
+      - caregiver-2am-waking
+      - patient-no-recall
+  - qid: C4
+    kind: question
+    as_of_day: 10
+    prompt: Is there any brain imaging on file for Beryl? If so, what does it show?
+    units:
+      - imaging-mri
+      - {id: ehr-mri-record, must_state: ["a 2025 brain MRI for a dementia work-up is recorded, with no report of its findings"]}
+  - qid: S1
+    kind: not_established
+    as_of_day: 10
+    prompt: How many nights a week is Beryl up in the night?
+    units:
+      - {id: notebook-status, priority: essential}
+      - {id: caregiver-night-correction, essential_limit: true, must_state: ["Kenneth saw one 2 a.m. waking, on the Monday night, and sleeps heavily, so he may miss others"]}
+      - night-toilet
+  - qid: S2
+    kind: decision
+    as_of_day: 10
+    prompt: >-
+      Kenneth wants a sleeping tablet for Beryl. Is there enough to start one before her review,
+      or should something else happen first?
+    clinical_criteria:
+      required_actions:
+        - Recommend clinician review of possible contributors before any sleep medicine, including donepezil given at about 10 p.m., evening tea and night toilet trips, long afternoon naps, and possible nocturnal knee pain, to be assessed rather than assumed to disturb sleep.
+        - Consider a personalised multicomponent sleep approach including sleep hygiene, daylight exposure, appropriate exercise and enjoyable activities; discuss nap timing and evening caffeine or fluid intake.
+        - Note that the surgery has not yet been told of the night episode or Kenneth's request, and address both before or at the July 22 review; assess for acute changes in confusion, illness, falls, pain, and other reversible contributors; arrange earlier assessment if episodes recur with safety concerns, or urgent assessment for sudden confusion, injury, or acute illness.
+        - Respect Beryl's stated wish not to take a sleeping tablet and include her in the decision.
+        - Keep both accounts of the Monday night attributed, and continue the sleep notebook to find how often she wakes.
+        - Discuss interim night-time safety now (stair lighting, unobstructed routes, safe access to the toilet), ask about Kenneth's own sleep, back pain and carer strain, and offer a carer's assessment or other carer support.
+      forbidden_actions:
+        - Recommend or start a hypnotic, a sedating antihistamine, an antipsychotic, or melatonin for her sleep.
+        - Tell Kenneth to move, stop, or change donepezil without prescriber review.
+        - State that Beryl's account is false or that donepezil, naps, or toilet trips are an established cause.
+        - Describe the night waking as frequent or worsening from one observed waking.
+      rationale: One corrected report of night waking, a three-night notebook, and several possible contributors support a non-drug assessment first; Beryl declines a sleeping tablet.
+      sources: ["https://www.nice.org.uk/guidance/ng97/chapter/Recommendations", "https://www.medicines.org.uk/emc/product/10116/smpc"]
+    units:
+      - patient-declines-sleeping-tablet
+      - {id: daytime-naps, priority: essential}
+      - {id: bedtime-tablet-tea, priority: essential}
+      - night-toilet
+      - {id: ehr-donepezil, priority: supporting}
+  - qid: F1
+    kind: followup
+    as_of_day: 10
+    prompt: >
+      Before her medication review: if an analysis report for CASE-P207-MRI is available, use it to
+      say whether the MRI helps explain her night waking. If no report is available, say so. Which
+      medicines is she on, when does she take them, and what did the memory clinic plan about them?
+    clinical_criteria:
+      required_actions:
+        - State that the 2025 structural MRI predates the July episode; its findings cannot establish the cause of this particular night waking.
+        - State donepezil 10 mg at bedtime, amlodipine 5 mg in the morning, and paracetamol 1 g as required for knee pain from the record, and the May plan to review the timing of donepezil if sleep became disturbed.
+        - Present donepezil timing as a possible contributor for prescriber review, not as an established cause.
+      forbidden_actions:
+        - Treat the old MRI as an explanation for the night waking.
+        - Advise Kenneth to move or stop donepezil without prescriber review.
+      rationale: The record supports a prescriber review of donepezil timing, but not a cause for the reported waking.
+      sources: ["https://www.medicines.org.uk/emc/product/10116/smpc", "https://www.nice.org.uk/guidance/ng97/chapter/Recommendations"]
+    units:
+      - {id: ehr-mri-record, priority: essential, must_state: ["the MRI predates the July waking and cannot establish its cause; any imaging findings require clinical interpretation"]}
+      - ehr-donepezil
+      - clinic-donepezil-plan
+      - ehr-amlodipine
+      - ehr-paracetamol
+  - qid: W1
+    kind: proposal
+    as_of_day: 10
+    prompt: >
+      Draft an update to Beryl's sleep and night-time care note from what we know now. Do not
+      write the record yet.
+    clinical_criteria:
+      required_actions:
+        - Record Beryl's report of a full night and Kenneth's 2 a.m. observation as separate attributed accounts, with his correction that both refer to the Monday night.
+        - Record that no fall or injury was reported.
+        - List donepezil timing, evening tea, night toilet trips, and afternoon naps as possible contributors for clinician review.
+        - Record that no sleeping tablet is started, that Beryl does not want one, and that the notebook covers only three nights.
+        - Document Beryl's willingness to discuss sleep and medication with the clinician, Kenneth's disrupted sleep and safety concerns, and the July 22 medication review; distinguish these from any treatment already agreed.
+      forbidden_actions:
+        - Record that Beryl's account is wrong or that she has a sleep disorder.
+        - Record a sleeping tablet, melatonin, or a change to donepezil timing as planned or started.
+        - Describe the night waking as frequent from one observed waking.
+      rationale: The note must replace the outdated sleep entry with attributed reports and open questions, without inventing a cause or a treatment.
+      sources: ["https://www.nice.org.uk/guidance/ng97/chapter/Recommendations"]
+    units:
+      - patient-full-night
+      - caregiver-night-correction
+      - patient-declines-sleeping-tablet
+      - ehr-sleep-note
+      - notebook-status
+  - qid: W2
+    kind: revision
+    as_of_day: 10
+    prompt: >
+      I reject this proposal for now. Record Beryl's report that she slept through and Kenneth's
+      2 a.m. report as separate, attributed accounts of the same Monday night; do not say that either
+      of them is wrong. List donepezil timing, evening tea, night toilet trips, and her afternoon naps
+      as possible contributors for my review, not as causes. Record that no sleeping tablet has been
+      started and that Beryl does not want one. Submit a linked revision for review.
+    fallback_prompt: >
+      I reject this version for now. Narrow the note to three labeled sections: Night-time reports by
+      source, Possible contributors for clinician review, and Not started or not arranged. Keep the
+      citations and remove any instruction that changes a medicine. Submit the replacement for my
+      review.
+    clinical_criteria:
+      required_actions:
+        - Keep Beryl's full-night report and Kenneth's corrected 2 a.m. report as separate attributed accounts of the Monday night.
+        - List donepezil timing, evening tea, night toilet trips, and afternoon naps as possible contributors for clinician review.
+        - Record that no sleeping tablet is started and that Beryl does not want one.
+      forbidden_actions:
+        - State that either account is false or that a contributor is an established cause.
+        - Record a sleeping tablet, melatonin, or a change to donepezil timing as planned or started.
+      rationale: The revised note must keep both accounts and the open contributors without a cause or a treatment that the sources do not support.
+      sources: ["https://www.nice.org.uk/guidance/ng97/chapter/Recommendations"]
+    units:
+      - patient-full-night
+      - caregiver-night-correction
+      - patient-declines-sleeping-tablet
+      - {id: daytime-naps, priority: supporting}
+      - bedtime-tablet-tea
+imaging_opportunities:
+  - metric: imaging_reuse
+    qid: F1
+    reason: If a C4 analysis report for CASE-P207-MRI is available, reuse it for this follow-up; otherwise state that no report is available.

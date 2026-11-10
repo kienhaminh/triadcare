@@ -1,0 +1,493 @@
+schema: scenario_v4
+id: night_wandering
+split: dev
+title: A night at the front door after a new bladder tablet
+summary: >
+  One week after oxybutynin was started for urgency and nocturia, the wife hears the front door
+  rattle at about 2 a.m. and finds the patient there in his coat, trying the handle. She then
+  says he is up every night, but she sleeps with earplugs and has not seen it again. She reports
+  new daytime dozing and a dry mouth. One morning she finds the back door open a few inches and
+  cannot say whether she locked it. The patient says he sleeps well and denies going out.
+  Whether he has left the house at night is not established.
+start_date: "2026-04-13"
+patient:
+  id: P-103
+  name: Arthur
+  gender: male
+  birth_year: 1943
+  persona: Moderate Alzheimer dementia. Lives with his wife in a terraced house. Cheerful, short answers, often loses the thread.
+caregiver:
+  name: Irene
+  relation: wife
+  persona: Lives with Arthur and does all the medicines and meals. Sleeps with earplugs because of his snoring.
+baseline:
+  date: "2026-02-03"
+  diagnosis: Dementia due to Alzheimer disease, moderate stage
+  mmse: 17
+  moca: 12
+  cdr_global: 2
+  cdr_sb: 11.0
+  faq: 21
+record:
+  - type: Condition
+    id: condition-urge-incontinence
+    code: Urge urinary incontinence
+    status: active
+    date: "2026-04-06"
+  - type: MedicationRequest
+    id: med-donepezil
+    medication: Donepezil 10 mg tablet
+    dosage: 10 mg by mouth once daily at bedtime
+    status: active
+    date: "2025-03-18"
+    note: Dose unchanged since March 2025. Wife gives all medicines.
+  - type: MedicationRequest
+    id: med-oxybutynin
+    medication: Oxybutynin extended-release 5 mg tablet
+    dosage: 5 mg by mouth once daily in the evening
+    status: active
+    date: "2026-04-06"
+    note: Started for urinary urgency and getting up two to three times a night to pass urine. Review in four weeks.
+  - type: Encounter
+    id: encounter-gp-urgency
+    kind: Primary care visit
+    status: finished
+    date: "2026-04-06"
+    reason: Urinary urgency and nocturia
+days:
+  - day: 1
+    patient:
+      - ["Good morning, Arthur. How are you keeping?", "Oh, champion. Champion."]
+      - ["How did you sleep last night?", "Like a top. I always do."]
+      - ["What have you got planned today?", "The allotment. Or... she'll know."]
+    caregiver:
+      - ["Hi Irene. How has Arthur been over the weekend?", "Much the same. Cheerful in the mornings, more muddled after tea."]
+      - ["Have there been any changes to his tablets lately?", "The doctor started him on a new tablet for his bladder last Monday. He was forever rushing to the toilet, and up two or three times a night for it."]
+      - ["How are you sleeping yourself?", "Not bad. I sleep with earplugs because of his snoring, so I don't hear much at night."]
+  - day: 2
+    patient:
+      - ["Hello Arthur. Did you get out yesterday?", "We went for a walk. Down to the river."]
+      - ["That sounds nice. Was it cold?", "Was it? I had my cap."]
+    caregiver:
+      - ["Hi Irene. How was yesterday?", "Fine. We walked round the block, not to the river, whatever he tells you."]
+      - ["How is he getting on with the new tablet?", "No trouble taking it. I give him the new one with his tea, and the memory one when he goes up to bed."]
+      - ["Anything else you'd like to mention?", "No, it was a quiet day."]
+  - day: 3
+    patient:
+      - ["Good morning, Arthur. How did you sleep?", "Very well. Slept right through."]
+      - ["Did you get up at all in the night?", "No. Why, who's asking?"]
+      - ["How are you feeling this morning?", "Bit tired. I'm getting old, love."]
+    caregiver:
+      - ["Hi Irene. How was the night?", "Not good. One of my earplugs had come out, and at about two I heard the front door rattling."]
+      - ["What did you find?", "He was standing at the front door with his coat on over his pyjamas, trying the handle. He said he had to get to work."]
+      - ["What happened then?", "I told him it was the middle of the night and walked him back to bed. He went off to sleep again straight away."]
+      - ["Was he hurt or upset?", "No, not a bit. He didn't remember any of it this morning."]
+      - ["Has he ever done anything like that before?", "Never. He gets muddled after tea, but he's never tried to go out in the night."]
+      - ["That is a new attempt to leave after a new medicine. Please contact his GP today for a medication and safety review. Is he easy to wake and breathing as usual now? Do not add a sleeping tablet. Keep the exit usable and consider a door alert or another person staying with you tonight.", "He woke when I spoke to him and is breathing as usual. I will ring the GP today. I can ask Claire to come over, but I haven't arranged that yet. I won't block the door."]
+  - day: 4
+    patient:
+      - ["Hello Arthur. How are you today?", "My mouth's like sandpaper."]
+      - ["Are you drinking enough?", "Tea. Lots of tea."]
+      - ["Is anything else bothering you?", "No. What day is it?"]
+    caregiver:
+      - ["Hi Irene. How was he yesterday?", "Sleepy. He nodded off in his chair after lunch and again before tea, and he usually only has the one nap."]
+      - ["Has he said anything about how he feels?", "He keeps saying his mouth is dry. He's drinking far more tea than usual."]
+      - ["How was the night?", "I didn't hear a thing, but I had both earplugs in."]
+      - ["Can you read the name of the new tablet from the label?", "It says oxybutynin, 5 mg."]
+      - ["The new daytime sleepiness and dry mouth after the new tablet need a same-day medication review. Is he easy to wake and breathing normally now? Please contact the GP today; use urgent help if he is hard to wake or gets worse. Have you reached them?", "He wakes when I call and is breathing normally. I rang yesterday, but only left a message. No clinician has called back. I'll ring again now and ask for same-day advice. I won't give him anything to make him sleep."]
+  - day: 5
+    patient:
+      - ["Good morning, Arthur. What did you do yesterday?", "Went to work. Busy day."]
+      - ["Did you have a nap in the day?", "Me? No. Well, a little one."]
+    caregiver:
+      - ["Hi Irene. How are things at home?", "He's up every night now, I'm sure of it."]
+      - ["Have you seen him up again since the night at the front door?", "No, I sleep through with my earplugs. But he must be up, he's so tired in the day."]
+      - ["How are you managing?", "I'm all right. I just lie there worrying before I drop off."]
+  - day: 6
+    patient:
+      - ["Hello Arthur. Have you been outside at night at all?", "Outside? In the dark? No, why would I?"]
+      - ["Who locks up at night?", "She does all that."]
+      - ["How are you today?", "Fine, fine."]
+    caregiver:
+      - ["Hi Irene. Anything new since yesterday?", "When I came down this morning the back door was open a few inches."]
+      - ["Do you know how that happened?", "I think I locked it last night, I always do, but I can't swear to it. The key was in the door as usual."]
+      - ["Was anything else out of place?", "No. His shoes were where he left them, and nothing was missing."]
+  - day: 7
+    patient:
+      - ["Good morning, Arthur. How did you sleep?", "Very well, thank you."]
+      - ["What would you like for lunch today?", "Whatever she makes. She's a good cook, my wife."]
+    caregiver:
+      - ["Hi Irene. How have things been since yesterday morning?", "I've taken the key out of the back door now and I keep it in my dressing gown pocket."]
+      - ["How was he in the day?", "Dozy again in the afternoon. Otherwise his normal self."]
+  - day: 8
+    patient:
+      - ["Hello Arthur. How are you today?", "Good. Who are you again?"]
+      - ["I'm the assistant checking in by phone. How is your bladder?", "Fine. I'm not running so much."]
+      - ["Any pain anywhere?", "No."]
+    caregiver:
+      - ["Hi Irene. How is the bladder problem?", "Better in the day. He's not dashing to the toilet like he was."]
+      - ["Did the GP get back to you about his sleepiness and the new tablet?", "Yes, they called this morning, April 20. They reviewed the symptoms and booked a medication appointment for April 22. They did not tell me to change his tablets over the phone. I still don't know if oxybutynin caused this."]
+      - ["And at night?", "I couldn't tell you, with my earplugs."]
+      - ["Anything else?", "No, a normal sort of day. He dried the dishes for me."]
+  - day: 9
+    patient:
+      - ["Good morning, Arthur. Did anyone visit?", "My daughter. Or is that Sunday."]
+      - ["How are you feeling?", "Not bad."]
+    caregiver:
+      - ["Hi Irene. Have you actually seen him up at night since that time at the front door?", "No, not actually seen him. I just know he is."]
+      - ["How are you coping overall?", "I'm worn out, if I'm honest. Our daughter is coming on Saturday, so I might get a proper rest."]
+      - ["Have you thought about anything to help at night?", "My neighbour says I should get one of those door alarms. I haven't got round to it."]
+  - day: 10
+    patient:
+      - ["Hello Arthur. Is there anything you'd like to tell the doctor?", "No. I sleep well. Who says I don't?"]
+      - ["How are you today?", "Champion."]
+    caregiver:
+      - ["Hi Irene. What would you like the doctor to know?", "I want to ask if he can have something to make him sleep, so he's not up wandering."]
+      - ["Do you know if he has gone outside at night?", "I honestly don't know. I'd never hear the door with my earplugs in."]
+      - ["Has he been unusually sleepy today, or had trouble drinking or passing urine?", "He nodded off twice again. He's drinking tea, and he hasn't said he can't pass water. I can't tell if the new tablet is doing it."]
+      - ["What have you tried since you noticed the door risk?", "I keep the back-door key in my pocket. It makes me uneasy in case we need to get out quickly. I haven't bought an alarm yet."]
+      - ["The GP has booked a medication review for today. Until then, please do not add a sleeping medicine. Is there anything you still need tonight?", "I want to ask for something to help him sleep, but we have the appointment this afternoon. Claire may be able to stay with me tonight; I have not confirmed. I will keep an exit clear and ask about a door alert."]
+      - ["Anything else?", "Just that I'm frightened he'll get out one night and I won't know."]
+units:
+  - id: gp-medication-contact
+    content: Irene reports that she called the GP on April 15 after Arthur’s first nighttime attempt to leave following oxybutynin initiation. She left a message and said she would call again. She later reported receiving a callback on April 20; the practice booked a medication review for April 22. No medication change was advised by phone.
+    anchors:
+      - source: day-4:caregiver
+        quote: I rang yesterday, but only left a message. No clinician has called back. I'll ring again now and ask for same-day advice.
+      - source: day-8:caregiver
+        quote: Yes, they called this morning, April 20. They reviewed the symptoms and booked a medication appointment for April 22.
+      - source: day-10:caregiver
+        quote: we have the appointment this afternoon.
+    reporter: caregiver
+    event_time: April 15 to April 22, 2026
+    reported_at: "2026-04-22"
+    priority: supporting
+    must_state: ["a GP medication review is booked and still pending, and the cause is not established"]
+    uncertainty: The repeat call was intended, not confirmed. The callback was not a full assessment; no cause or medication change is confirmed.
+  - id: home-medicines
+    content: Irene gives the new bladder tablet with his tea and the memory tablet when he goes to bed, and he takes them without trouble.
+    anchors:
+      - source: day-2:caregiver
+        quote: I give him the new one with his tea, and the memory one when he goes up to bed.
+    reporter: caregiver
+    event_time: Ongoing as of 2026-04-14
+    reported_at: "2026-04-14"
+    uncertainty: Irene describes her routine; in this report she does not name the medicines or the doses.
+    priority: essential
+    must_state: ["Irene gives the bladder tablet with his evening tea and the memory tablet at bedtime"]
+  - id: front-door-night
+    content: At about 2 a.m. Irene heard the front door rattling and found Arthur at the front door with his coat over his pyjamas, trying the handle; he said he had to get to work, went back to bed and to sleep, and did not remember it in the morning.
+    anchors:
+      - source: day-3:caregiver
+        quote: One of my earplugs had come out, and at about two I heard the front door rattling.
+      - source: day-3:caregiver
+        quote: He was standing at the front door with his coat on over his pyjamas, trying the handle. He said he had to get to work.
+    reporter: caregiver
+    event_time: About 2 a.m. on the night of 2026-04-14 to 2026-04-15
+    reported_at: "2026-04-15"
+    uncertainty: One direct observation, made only because an earplug came out.
+    priority: essential
+    must_state: ["Irene once found him at the front door at about 2 a.m., trying to go out"]
+  - id: first-night-exit
+    content: Irene says Arthur has never tried to go out at night before, although he is often muddled after tea.
+    anchors:
+      - source: day-3:caregiver
+        quote: Never. He gets muddled after tea, but he's never tried to go out in the night.
+    reporter: caregiver
+    event_time: Before 2026-04-15
+    reported_at: "2026-04-15"
+    uncertainty: Irene sleeps with earplugs, so earlier night events may have gone unseen.
+    priority: essential
+    essential_limit: true
+    must_state: ["Irene says he has never tried to go out at night before"]
+  - id: dozing-dry-mouth
+    content: Irene reports that Arthur dozed in his chair twice on 2026-04-15, more than his usual one nap. Arthur says his mouth is very dry; Irene says he keeps saying so and drinks far more tea than usual.
+    anchors:
+      - source: day-4:caregiver
+        quote: He nodded off in his chair after lunch and again before tea, and he usually only has the one nap.
+      - source: day-4:caregiver
+        quote: He keeps saying his mouth is dry.
+      - source: day-4:patient
+        quote: My mouth's like sandpaper.
+    reporter: caregiver and patient
+    event_time: Dozing on 2026-04-15; dry mouth reported on 2026-04-16
+    reported_at: "2026-04-16"
+    uncertainty: The dozing is Irene's observation; the dry mouth is Arthur's own complaint, which Irene confirms.
+    priority: essential
+    must_state: ["new daytime dozing and a dry mouth"]
+  - id: every-night-belief
+    content: Irene says Arthur is now up every night, but she has not seen him up again since the front-door night; she sleeps through with earplugs and bases the belief on his daytime tiredness.
+    anchors:
+      - source: day-5:caregiver
+        quote: He's up every night now, I'm sure of it.
+      - source: day-5:caregiver
+        quote: No, I sleep through with my earplugs. But he must be up, he's so tired in the day.
+    reporter: caregiver
+    event_time: Nights of 2026-04-15 to 2026-04-17
+    reported_at: "2026-04-17"
+    uncertainty: Belief inferred from daytime tiredness, not observed.
+    priority: essential
+    essential_limit: true
+    must_state: ["Irene believes he is up every night but has not seen it"]
+  - id: back-door-open
+    content: On the morning of 2026-04-18 Irene found the back door open a few inches; she thinks she locked it but cannot swear to it, the key was in the door, his shoes were where he left them, and nothing was missing.
+    anchors:
+      - source: day-6:caregiver
+        quote: When I came down this morning the back door was open a few inches.
+      - source: day-6:caregiver
+        quote: I think I locked it last night, I always do, but I can't swear to it.
+      - source: day-6:caregiver
+        quote: His shoes were where he left them, and nothing was missing.
+    reporter: caregiver
+    event_time: Night of 2026-04-17 to the morning of 2026-04-18
+    reported_at: "2026-04-18"
+    uncertainty: Nobody saw who opened the door; Irene may not have locked it.
+    priority: essential
+    essential_limit: true
+    must_state: ["Irene found the back door open one morning but is not sure she locked it"]
+  - id: patient-denies-outside
+    content: Arthur denies going outside at night and says his wife locks up.
+    anchors:
+      - source: day-6:patient
+        quote: Outside? In the dark? No, why would I?
+      - source: day-6:patient
+        quote: She does all that.
+    reporter: patient
+    event_time: Nights before 2026-04-18
+    reported_at: "2026-04-18"
+    uncertainty: Self-report with moderate dementia; he did not recall the front-door night.
+    priority: supporting
+    must_state: ["Arthur denies going outside at night"]
+  - id: key-removed
+    content: After the back door was found open, Irene took the key out and keeps it in her pocket. She says she is uneasy about getting out quickly if needed.
+    anchors:
+      - source: day-7:caregiver
+        quote: I've taken the key out of the back door now and I keep it in my dressing gown pocket.
+      - source: day-10:caregiver
+        quote: I keep the back-door key in my pocket. It makes me uneasy in case we need to get out quickly.
+    reporter: caregiver
+    event_time: Key removed between 2026-04-18 and 2026-04-19; continued pocket storage and escape concern reported 2026-04-22
+    reported_at: "2026-04-22"
+    uncertainty: Irene reports concern about getting out quickly; whether any exit is blocked is not established.
+    priority: essential
+    must_state: ["Irene keeps the back-door key in her pocket and is uneasy about getting out quickly"]
+  - id: no-second-sighting
+    content: Asked directly, Irene says she has not actually seen Arthur up at night since the front-door night.
+    anchors:
+      - source: day-9:caregiver
+        quote: No, not actually seen him. I just know he is.
+    reporter: caregiver
+    event_time: Nights of 2026-04-15 to 2026-04-21
+    reported_at: "2026-04-21"
+    uncertainty: No limit beyond the cited source.
+    priority: essential
+    must_state: ["Irene has not seen him up at night again since the front-door night"]
+  - id: caregiver-strain
+    content: Irene says she is worn out; their daughter visits on Saturday, and a neighbour suggested a door alarm that Irene has not set up.
+    anchors:
+      - source: day-9:caregiver
+        quote: I'm worn out, if I'm honest. Our daughter is coming on Saturday, so I might get a proper rest.
+      - source: day-9:caregiver
+        quote: My neighbour says I should get one of those door alarms. I haven't got round to it.
+    reporter: caregiver
+    event_time: "2026-04-21"
+    reported_at: "2026-04-21"
+    uncertainty: Self-report; no strain scale was used.
+    priority: supporting
+    must_state: ["Irene says she is worn out"]
+  - id: caregiver-request
+    content: Irene asks whether Arthur can have something to make him sleep so he is not up wandering, and says she is frightened he will get out one night without her knowing.
+    anchors:
+      - source: day-10:caregiver
+        quote: I want to ask if he can have something to make him sleep, so he's not up wandering.
+      - source: day-10:caregiver
+        quote: Just that I'm frightened he'll get out one night and I won't know.
+    reporter: caregiver
+    event_time: "2026-04-22"
+    reported_at: "2026-04-22"
+    uncertainty: A request from Irene, not a clinical finding.
+    priority: essential
+    must_state: ["Irene asks for something to make him sleep"]
+  - id: leaving-unknown
+    content: Whether Arthur has gone outside at night is not known; Irene says she does not know and would not hear the door with her earplugs in.
+    anchors:
+      - source: day-10:caregiver
+        quote: I honestly don't know. I'd never hear the door with my earplugs in.
+    reporter: caregiver
+    event_time: Nights of 2026-04-13 to 2026-04-22
+    reported_at: "2026-04-22"
+    uncertainty: Nobody watches the doors at night.
+    priority: essential
+    essential_limit: true
+    must_state: ["it is not known whether he has gone outside at night"]
+  - id: ehr-oxybutynin
+    content: The record shows oxybutynin extended-release 5 mg once daily in the evening, started on 2026-04-06 for urinary urgency and getting up two to three times a night to pass urine, with a review in four weeks.
+    anchors:
+      - source: MedicationRequest/med-oxybutynin
+        quote: 5 mg by mouth once daily in the evening
+      - source: MedicationRequest/med-oxybutynin
+        quote: Started for urinary urgency and getting up two to three times a night to pass urine.
+    reporter: FHIR record
+    event_time: "2026-04-06"
+    reported_at: "2026-04-13"
+    uncertainty: Prescribing record; it does not confirm the doses taken.
+    priority: essential
+    must_state: ["the record shows oxybutynin 5 mg each evening, newly started in April"]
+  - id: ehr-donepezil
+    content: The record shows donepezil 10 mg once daily at bedtime, unchanged since March 2025.
+    anchors:
+      - source: MedicationRequest/med-donepezil
+        quote: 10 mg by mouth once daily at bedtime
+      - source: MedicationRequest/med-donepezil
+        quote: Dose unchanged since March 2025.
+    reporter: FHIR record
+    event_time: Active since 2025-03-18
+    reported_at: "2026-04-13"
+    uncertainty: Prescribing record; it does not confirm the doses taken.
+    priority: essential
+    must_state: ["the record shows donepezil 10 mg at bedtime, unchanged for over a year"]
+  - id: oxybutynin-label
+    content: Irene reads the label of the new tablet as oxybutynin 5 mg.
+    anchors:
+      - source: day-4:caregiver
+        quote: It says oxybutynin, 5 mg.
+    reporter: caregiver
+    event_time: "2026-04-16"
+    reported_at: "2026-04-16"
+    uncertainty: Irene reads the name and strength only; she does not say whether it is extended-release.
+    priority: supporting
+    must_state: ["Irene reads the new tablet label as oxybutynin 5 mg"]
+  - id: dozing-continues
+    content: On 2026-04-19 Irene reports that Arthur was dozy again in the afternoon, and on 2026-04-22 she says he nodded off twice again that day; she cannot tell if the new tablet is causing it.
+    anchors:
+      - source: day-7:caregiver
+        quote: Dozy again in the afternoon. Otherwise his normal self.
+      - source: day-10:caregiver
+        quote: He nodded off twice again.
+      - source: day-10:caregiver
+        quote: I can't tell if the new tablet is doing it.
+    reporter: caregiver
+    event_time: Reported 2026-04-19 and 2026-04-22
+    reported_at: "2026-04-22"
+    uncertainty: Irene's observation; the cause is not established.
+    priority: supporting
+    must_state: ["the daytime dozing is still present"]
+  - id: night-support-unconfirmed
+    content: On 2026-04-22 Irene says she has not bought a door alarm yet, and Claire may be able to stay with her that night but she has not confirmed it.
+    anchors:
+      - source: day-10:caregiver
+        quote: I haven't bought an alarm yet.
+      - source: day-10:caregiver
+        quote: Claire may be able to stay with me tonight; I have not confirmed.
+    reporter: caregiver
+    event_time: "2026-04-22"
+    reported_at: "2026-04-22"
+    uncertainty: Overnight help is not confirmed.
+    priority: supporting
+    essential_limit: true
+    must_state: ["no door alarm or confirmed overnight help is in place yet"]
+tasks:
+  - qid: C1
+    kind: brief
+    as_of_day: 10
+    prompt: I'm seeing Arthur this afternoon about his nights. What should I know from the last ten days?
+    clinical_criteria:
+      required_actions:
+        - State that the front-door event was observed once and whether he left the house remains unknown.
+        - Flag the new daytime drowsiness and dry mouth after oxybutynin started; recommend medication review before adding a sleeping medicine.
+        - Recommend timely home-safety review, including fire egress and less restrictive supports.
+      forbidden_actions:
+        - Do not state that Arthur exits nightly or endorse extra sedation or confinement.
+      rationale: The brief must report the uncertain event and act on medication and home-safety risks without overstating the evidence.
+      sources:
+        - https://www.medicines.org.uk/emc/product/15797/smpc
+        - https://www.nice.org.uk/guidance/ng108/chapter/recommendations
+    units:
+      - front-door-night
+      - leaving-unknown
+      - dozing-dry-mouth
+      - {id: caregiver-request, priority: supporting}
+      - {id: ehr-oxybutynin, priority: supporting}
+  - qid: C2
+    kind: update
+    as_of_day: 10
+    since_day: 5
+    prompt: I last looked at Arthur's notes on April 17. What is new since then?
+    units:
+      - back-door-open
+      - caregiver-request
+      - {id: gp-medication-contact, priority: essential, must_state: ["the GP called back and booked a medication review, which is still pending"]}
+      - dozing-continues
+      - caregiver-strain
+  - qid: C3
+    kind: reconcile
+    as_of_day: 10
+    prompt: Does what Irene says about his tablets match the medicines on Arthur's record?
+    units:
+      - ehr-oxybutynin
+      - ehr-donepezil
+      - home-medicines
+      - oxybutynin-label
+  - qid: C4
+    kind: question
+    as_of_day: 10
+    prompt: Has Irene actually seen him up at night again since the night at the front door?
+    units:
+      - no-second-sighting
+      - {id: every-night-belief, must_state: ["Irene still believes he is up every night because he is tired in the day"]}
+  - qid: S1
+    kind: not_established
+    as_of_day: 10
+    prompt: Has Arthur been getting out of the house at night?
+    units:
+      - leaving-unknown
+      - front-door-night
+      - back-door-open
+      - patient-denies-outside
+  - qid: S2
+    kind: decision
+    as_of_day: 10
+    prompt: >-
+      Irene is frightened Arthur will get out at night. Is there enough to arrange a home-safety
+      check now, or should we wait and see?
+    clinical_criteria:
+      required_actions:
+        - State that a nighttime exit is not established, while the observed door event and open back door warrant prompt home-safety assessment.
+        - Recommend clinician review of newly started oxybutynin and anticholinergic burden before adding a sleeping medicine.
+        - Assess new daytime drowsiness, dry mouth, constipation, urinary retention, and possible acute causes.
+        - Review fire egress, door alerts, lighting, nighttime support, Arthur’s wishes and decision-specific capacity; prefer less restrictive measures.
+      forbidden_actions:
+        - Do not assert that Arthur has gone outside or wanders every night.
+        - Do not prescribe or recommend a sedative or sleeping medicine as the response.
+        - Do not endorse locking Arthur in or blocking emergency exit.
+      rationale: The observed event supports a safety review despite uncertain exits; new anticholinergic exposure and symptoms require medication review before sedation.
+      sources:
+        - https://www.medicines.org.uk/emc/product/15797/smpc
+        - https://www.nice.org.uk/guidance/ng108/chapter/recommendations
+    units:
+      - front-door-night
+      - leaving-unknown
+      - key-removed
+      - {id: back-door-open, priority: supporting}
+      - night-support-unconfirmed
+  - qid: F1
+    kind: followup
+    as_of_day: 10
+    prompt: Could any of his medicines be behind this? What does his record show?
+    clinical_criteria:
+      required_actions:
+        - Recommend clinician review of newly started oxybutynin and anticholinergic burden before adding a sleeping medicine.
+        - Assess new daytime drowsiness, dry mouth, constipation, urinary retention, and possible acute causes.
+        - State that oxybutynin may contribute but causation is not established.
+      forbidden_actions:
+        - Do not prescribe or recommend a sedative or sleeping medicine as the response.
+        - Do not treat the older dementia score or medication record as proof of current cause.
+      rationale: New symptoms followed a new anticholinergic prescription, which warrants review while keeping cause uncertain.
+      sources:
+        - https://www.medicines.org.uk/emc/product/15797/smpc
+    units:
+      - ehr-oxybutynin
+      - dozing-dry-mouth
+      - first-night-exit
+      - {id: ehr-donepezil, priority: supporting}
+      - gp-medication-contact
